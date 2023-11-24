@@ -11,6 +11,8 @@ public class MysqlConnection {
         String dbName = "quan_ly_nhan_khau";
         String userName = "root";
         String password = "123456";
+        String adminuser = "huy";
+        string adminpassword = '123';
         return getMysqlConnection(hostName, dbName, userName, password);
     }
     
