@@ -12,10 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.TamTruModel;
 
-/**
- *
- * @author Hai
- */
 public class DangKyTamTruJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;

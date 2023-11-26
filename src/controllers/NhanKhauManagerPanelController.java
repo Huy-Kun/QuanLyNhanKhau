@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.EventObject;
 import java.util.List;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
@@ -23,10 +23,6 @@ import services.NhanKhauService;
 import utility.ClassTableModel;
 import views.infoViews.InfoJframe;
 
-/**
- *
- * @author Hai
- */
 public class NhanKhauManagerPanelController {
     
     private JPanel jpnView;
@@ -81,6 +77,8 @@ public class NhanKhauManagerPanelController {
         this.listNhanKhauBeans.forEach(nhankhau -> {
             listItem.add(nhankhau.getNhanKhauModel());
         });
+        System.out.println(listNhanKhauBeans.size());
+        System.out.println(listItem.size());
         DefaultTableModel model = classTableModel.setTableNhanKhau(listItem, COLUMNS);
         JTable table = new JTable(model) {
             @Override

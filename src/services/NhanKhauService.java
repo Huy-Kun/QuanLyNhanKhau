@@ -12,10 +12,6 @@ import models.GiaDinhModel;
 import models.NhanKhauModel;
 import models.TieuSuModel;
 
-/**
- *
- * @author Hai
- */
 public class NhanKhauService {
     
     /* 
@@ -127,6 +123,7 @@ public class NhanKhauService {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println(list.size());
         return list;
     }
     

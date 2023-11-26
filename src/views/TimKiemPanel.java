@@ -7,10 +7,7 @@ package views;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author Ai làm thì điền tên vào
- */
+
 public class TimKiemPanel extends javax.swing.JPanel {
     private JFrame parentFrame;
     /**

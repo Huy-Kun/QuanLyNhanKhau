@@ -5,10 +5,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Hai
- */
 public class KhaiTuJFrame extends javax.swing.JFrame {
 
     /**

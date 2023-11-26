@@ -11,10 +11,6 @@ import javax.swing.JOptionPane;
 import models.ChungMinhThuModel;
 import models.NhanKhauModel;
 
-/**
- *
- * @author Hai
- */
 public class AddNewPeopleJFrame extends javax.swing.JFrame {
 
     /**

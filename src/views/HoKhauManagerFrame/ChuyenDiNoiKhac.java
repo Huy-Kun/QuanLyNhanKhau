@@ -7,10 +7,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author User
- */
 public class ChuyenDiNoiKhac extends javax.swing.JFrame {
 
     private ChuyenDiNoiKhacController controller;

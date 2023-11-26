@@ -7,10 +7,6 @@ import views.NhanKhauManagerFrame.DangKyTamTruJFrame;
 import views.NhanKhauManagerFrame.DangKyTamVangJFrame;
 import views.NhanKhauManagerFrame.KhaiTuJFrame;
 
-/**
- *
- * @author Hai
- */
 public class NhanKhauManagePanel extends javax.swing.JPanel {
 
     /**
@@ -22,6 +18,7 @@ public class NhanKhauManagePanel extends javax.swing.JPanel {
     public NhanKhauManagePanel(JFrame parentFrame) {
         this.parentJFrame = parentFrame;
         initComponents();
+        System.out.println("Here");
         controller = new NhanKhauManagerPanelController(tablePanel, jtfSearch);
         controller.setParentJFrame(parentJFrame);
         controller.setDataTable();

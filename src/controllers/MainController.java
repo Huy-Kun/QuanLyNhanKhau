@@ -19,10 +19,6 @@ import views.NhanKhauManagePanel;
 import views.ThongKePanel;
 import views.TimKiemPanel;
 
-/**
- *
- * @author Hai
- */
 public class MainController {
     private JFrame jfrMain;
     private JPanel root;

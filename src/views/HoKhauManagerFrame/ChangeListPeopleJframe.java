@@ -14,10 +14,6 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Hai
- */
 public class ChangeListPeopleJframe extends javax.swing.JFrame {
 
     /**

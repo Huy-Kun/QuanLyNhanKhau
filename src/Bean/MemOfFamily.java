@@ -2,10 +2,6 @@ package Bean;
 
 import models.ThanhVienCuaHoModel;
 
-/**
- *
- * @author Hai
- */
 public class MemOfFamily {
     private NhanKhauBean nhanKhau;
     private ThanhVienCuaHoModel thanhVienCuaHoModel;

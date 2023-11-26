@@ -5,10 +5,7 @@ import Bean.MemOfFamily;
 import Bean.NhanKhauBean;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author Hai
- */
+
 public class TableModelHoKhau {
     public DefaultTableModel setTableNhanKhau(List<NhanKhauBean> listItem, String[] listColumn) {
         final int columns = listColumn.length;

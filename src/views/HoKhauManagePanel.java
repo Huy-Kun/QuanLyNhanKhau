@@ -11,10 +11,6 @@ import views.HoKhauManagerFrame.ChuyenDiNoiKhac;
 import views.HoKhauManagerFrame.TachHoKhau;
 import views.HoKhauManagerFrame.ThemMoiHoKhau;
 
-/**
- *
- * @author Ai làm thì diền tên vào
- */
 public class HoKhauManagePanel extends javax.swing.JPanel {
     
     private JFrame parentFrame;

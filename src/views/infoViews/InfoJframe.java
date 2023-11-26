@@ -5,10 +5,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Hai
- */
 public class InfoJframe extends javax.swing.JFrame {
 
     private String content;

@@ -16,10 +16,6 @@ import models.HoKhauModel;
 import models.NhanKhauModel;
 import models.ThanhVienCuaHoModel;
 
-/**
- *
- * @author Hai
- */
 public class HoKhauService {
     // them moi ho khau
     public boolean addNew(HoKhauBean hoKhauBean) throws ClassNotFoundException, SQLException{
