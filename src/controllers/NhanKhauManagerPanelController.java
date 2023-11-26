@@ -33,9 +33,10 @@ public class NhanKhauManagerPanelController {
     private final String[] COLUMNS = {"ID", "Họ tên", "Ngày sinh", "Giới tính", "Địa chỉ hiện nay"};
     private JFrame parentJFrame;
 
-    public NhanKhauManagerPanelController(JPanel jpnView, JTextField jtfSearch) {
+    public NhanKhauManagerPanelController(JPanel jpnView, JTextField jtfSearch, JFrame parentJFrame) {
         this.jpnView = jpnView;
         this.jtfSearch = jtfSearch;
+        this.parentJFrame = parentJFrame;
         classTableModel = new ClassTableModel();
         this.nhanKhauService = new NhanKhauService();
         this.listNhanKhauBeans = this.nhanKhauService.getListNhanKhau();
@@ -77,8 +78,8 @@ public class NhanKhauManagerPanelController {
         this.listNhanKhauBeans.forEach(nhankhau -> {
             listItem.add(nhankhau.getNhanKhauModel());
         });
-        System.out.println(listNhanKhauBeans.size());
-        System.out.println(listItem.size());
+        //System.out.println(listNhanKhauBeans.size());
+        //System.out.println(listItem.size());
         DefaultTableModel model = classTableModel.setTableNhanKhau(listItem, COLUMNS);
         JTable table = new JTable(model) {
             @Override
