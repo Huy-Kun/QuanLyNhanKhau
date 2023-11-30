@@ -11,13 +11,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JLabel; 
 import javax.swing.JPanel;
 import views.HoKhauManagePanel;
 import views.HomePagePanel;
 import views.NhanKhauManagePanel;
 import views.ThongKePanel;
 import views.TimKiemPanel;
+import views.KhoanThuPanel;
 
 public class MainController {
     private JFrame jfrMain;
@@ -53,6 +54,8 @@ public class MainController {
                 case "ThongKe":
                     view = new ThongKePanel(this.jfrMain);
                     break;
+                case "KhoanThu":
+                    view = new KhoanThuPanel(this.jfrMain);
                 //any more
                 default:
                     break;
@@ -122,6 +125,9 @@ public class MainController {
                     break;
                 case "ThongKe":
                     view = new ThongKePanel(this.jfrMain);
+                    break;
+                case "KhoanThu":
+                    view = new KhoanThuPanel(this.jfrMain);
                     break;
                 default:
                     break;
