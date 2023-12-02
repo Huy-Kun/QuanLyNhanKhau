@@ -8,36 +8,57 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import Bean.KhoanTienBean;
+import models.KhoanTienModel;
+import controllers.KhoanThuManagerController.KhoanTienPanelController;
+import controllers.KhoanThuManagerController.ThemKhoanTienController;
 
-/**
- *
- * @author Admin
- */
 public class ThemKhoanTien extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ThemKhoanTien
-     */
     private JFrame parentFrame;
-    
-    public ThemKhoanTien(JFrame parentFrame) {
+    private KhoanTienPanelController parentController;
+    private KhoanTienBean khoanTienBean;
+    private ThemKhoanTienController controller;
+
+    public ThemKhoanTien(JFrame parentFrame, KhoanTienPanelController parentController) {
+        this.parentController = parentController;
         this.parentFrame = parentFrame;
         this.parentFrame.setEnabled(false);
+        this.khoanTienBean = new KhoanTienBean();
+        this.controller = new ThemKhoanTienController();
         initComponents();
         setTitle("Thêm mới khoản tiền");
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
-            
+
         });
     }
+
     private void close() {
-        if (JOptionPane.showConfirmDialog(this, "Are you sure to close??", "Confirm", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-            this.parentFrame.setEnabled(true);
-            dispose();
+        this.parentFrame.setEnabled(true);
+        dispose();
+    }
+
+    private boolean validateValueInForm() {
+        // check null
+        if (maKhoanTienTxb.getText().trim().isEmpty()
+                || tenKhoanTienTxb.getText().trim().isEmpty()
+                || soTienTxb.getText().trim().isEmpty()
+                || !isNumeric(soTienTxb.getText().trim())) {
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
         }
+        return true;
+    }
+
+    public static boolean isNumeric(String str) {
+        return str.chars().allMatch(Character::isDigit);
     }
 
     /**
@@ -69,9 +90,19 @@ public class ThemKhoanTien extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         soTienTxb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        soTienTxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soTienTxbActionPerformed(evt);
+            }
+        });
 
         loaiKhoanTienCbb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         loaiKhoanTienCbb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bắt Buộc", "Tự Nguyện" }));
+        loaiKhoanTienCbb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loaiKhoanTienCbbActionPerformed(evt);
+            }
+        });
 
         maKhoanTienJlb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         maKhoanTienJlb.setText("Mã Khoản Tiền:");
@@ -86,8 +117,18 @@ public class ThemKhoanTien extends javax.swing.JFrame {
         soTienJlb.setText("Số Tiền:");
 
         maKhoanTienTxb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        maKhoanTienTxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maKhoanTienTxbActionPerformed(evt);
+            }
+        });
 
         tenKhoanTienTxb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tenKhoanTienTxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tenKhoanTienTxbActionPerformed(evt);
+            }
+        });
 
         cancelBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cancelBtn.setText("Hủy");
@@ -173,12 +214,45 @@ public class ThemKhoanTien extends javax.swing.JFrame {
 
     private void storeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeBtnActionPerformed
         // TODO add your handling code here:
+        if (validateValueInForm()) {
+            // tao moi 1 doi tuong nhan khau
+            KhoanTienModel temp = this.khoanTienBean.getKhoanTienModel();
+            temp.setTenKhoanTien(tenKhoanTienTxb.getText());
+            temp.setLoaiKhoanTien(loaiKhoanTienCbb.getSelectedItem().toString());
+            temp.setSoTien(Integer.parseInt(soTienTxb.getText()));
+            try {
+                if (this.controller.ThemMoiKhoanTien(this.khoanTienBean)) {
+                    JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+                    close();
+                    parentController.Refresh();
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_storeBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         // TODO add your handling code here:
         close();
     }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void maKhoanTienTxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maKhoanTienTxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maKhoanTienTxbActionPerformed
+
+    private void tenKhoanTienTxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenKhoanTienTxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tenKhoanTienTxbActionPerformed
+
+    private void loaiKhoanTienCbbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loaiKhoanTienCbbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loaiKhoanTienCbbActionPerformed
+
+    private void soTienTxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soTienTxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_soTienTxbActionPerformed
 
     /**
      * @param args the command line arguments

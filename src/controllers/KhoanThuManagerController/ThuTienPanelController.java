@@ -21,4 +21,13 @@ public class ThuTienPanelController {
         this.parentJFrame = parentJFrame;
         this.khoanThuService = new KhoanThuService();
     }
+    
+    public void SetData()
+    {
+        
+    }
+    public void Refresh()
+    {
+        
+    }
 }

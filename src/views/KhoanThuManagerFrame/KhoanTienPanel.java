@@ -93,7 +93,7 @@ public class KhoanTienPanel extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        ThemKhoanTien themKhoanTien = new ThemKhoanTien(parentFrame);
+        ThemKhoanTien themKhoanTien = new ThemKhoanTien(parentFrame, this.controller);
         themKhoanTien.setLocationRelativeTo(null);
         themKhoanTien.setResizable(false);
         themKhoanTien.setVisible(true);

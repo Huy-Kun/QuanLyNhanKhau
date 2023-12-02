@@ -37,4 +37,9 @@ public class KhoanThuManagerPanelController {
         mainJpn.validate();
         mainJpn.repaint();
     }
+    
+    public void refreshData()
+    {
+        
+    }
 }

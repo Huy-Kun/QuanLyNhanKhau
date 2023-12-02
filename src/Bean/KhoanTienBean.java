@@ -6,6 +6,20 @@ public class KhoanTienBean {
     private KhoanTienModel khoanTienModel;
     private int soHoDaNop;
     private int tongSoTien;
+    
+    public KhoanTienBean()
+    {
+        this.khoanTienModel = new KhoanTienModel();
+        this.soHoDaNop = 0;
+        this.tongSoTien = 0;
+    }
+    
+    public KhoanTienBean(KhoanTienModel khoanTienModel, int soHoDaNop, int tongSoTien)
+    {
+        this.khoanTienModel = khoanTienModel;
+        this.soHoDaNop = soHoDaNop;
+        this.tongSoTien = tongSoTien;
+    }
 
     /**
      * @return the khoanTienModel

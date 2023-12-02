@@ -6,7 +6,7 @@ package models;
 
 public class KhoanTienModel {
     private int ID;
-    private String tenKhoanThu;
+    private String tenKhoanTien;
     private int soTien;
     private String loaiKhoanTien;
 
@@ -27,15 +27,15 @@ public class KhoanTienModel {
     /**
      * @return the tenKhoanThu
      */
-    public String getTenKhoanThu() {
-        return tenKhoanThu;
+    public String getTenKhoanTien() {
+        return tenKhoanTien;
     }
 
     /**
      * @param tenKhoanThu the tenKhoanThu to set
      */
-    public void setTenKhoanThu(String tenKhoanThu) {
-        this.tenKhoanThu = tenKhoanThu;
+    public void setTenKhoanTien(String tenKhoanTien) {
+        this.tenKhoanTien = tenKhoanTien;
     }
 
     /**

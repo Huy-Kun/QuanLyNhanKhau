@@ -16,39 +16,42 @@ public class KhoanThuService {
         List<KhoanTienBean> list = new ArrayList<>();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT * FROM khoan_tien ";
-            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query);
+            String query = "SELECT * FROM khoan_tien";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 KhoanTienBean khoanTienBean = new KhoanTienBean();
                 KhoanTienModel khoanTienModel = khoanTienBean.getKhoanTienModel();
                 khoanTienModel.setID(rs.getInt("ID"));
-                khoanTienModel.setTenKhoanThu(rs.getString("tenKhoanThu"));
+                khoanTienModel.setTenKhoanTien(rs.getString("tenKhoanTien"));
                 khoanTienModel.setSoTien(rs.getInt("soTien"));
                 khoanTienModel.setLoaiKhoanTien(rs.getString("loaiKhoanTien"));
                 String extraQuery = "SELECT COUNT(*) as count,SUM(soTienThu) as sum "
-                                    + "FROM thu_tien "
-                                    + "WHERE tenKhoanThu='"
-                                    + rs.getString("tenKhoanThu")
-                                    + "'";
-                PreparedStatement extraPreparedStatement = (PreparedStatement)connection.prepareStatement(extraQuery);
+                        + "FROM thu_tien "
+                        + "WHERE tenKhoanThu='"
+                        + rs.getString("tenKhoanTien")
+                        + "'";
+                PreparedStatement extraPreparedStatement = (PreparedStatement) connection.prepareStatement(extraQuery);
                 ResultSet extraRs = extraPreparedStatement.executeQuery();
-                khoanTienBean.setSoHoDaNop(extraRs.getInt("count"));
-                khoanTienBean.setTongSoTien(extraRs.getInt("sum"));
-                list.add(khoanTienBean);
+                while (extraRs.next()) {
+                    khoanTienBean.setSoHoDaNop(extraRs.getInt("count"));
+                    khoanTienBean.setTongSoTien(extraRs.getInt("sum"));
+                    list.add(khoanTienBean);
+                }
             }
-        }catch (Exception e) {
+            preparedStatement.close();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return list;
     }
-    
+
     public List<ThuTienModel> getListThuTien() {
         List<ThuTienModel> list = new ArrayList<>();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
             String query = "SELECT * FROM khoan_tien ";
-            PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(query);
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 ThuTienModel thuTienModel = new ThuTienModel();
@@ -59,7 +62,7 @@ public class KhoanThuService {
                 thuTienModel.setNgayNop(rs.getDate("ngayNop"));
                 list.add(thuTienModel);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return list;

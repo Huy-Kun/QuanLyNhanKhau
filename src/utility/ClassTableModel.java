@@ -157,7 +157,7 @@ public class ClassTableModel {
 
             @Override
             public Class<?> getColumnClass(int columnIndex) {
-                return columnIndex == 5 ? Boolean.class : String.class;
+                return columnIndex == 6 ? Boolean.class : String.class;
             }
         };
         dtm.setColumnIdentifiers(listColumn);
@@ -165,7 +165,7 @@ public class ClassTableModel {
         obj = new Object[columns];
         listItem.forEach((KhoanTienBean item) -> {
             obj[0] = item.getKhoanTienModel().getID();
-            obj[1] = item.getKhoanTienModel().getTenKhoanThu();
+            obj[1] = item.getKhoanTienModel().getTenKhoanTien();
             obj[2] = item.getKhoanTienModel().getSoTien();
             obj[3] = item.getKhoanTienModel().getLoaiKhoanTien();
             obj[4] = item.getSoHoDaNop();
