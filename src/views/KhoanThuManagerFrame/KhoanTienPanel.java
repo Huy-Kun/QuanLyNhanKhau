@@ -6,21 +6,22 @@ package views.KhoanThuManagerFrame;
 
 import javax.swing.JFrame;
 import views.KhoanThuManagerFrame.ThemKhoanTien;
-
+import controllers.KhoanThuManagerController.KhoanTienPanelController;
 /**
  *
  * @author Admin
  */
 public class KhoanTienPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form KhoanTienPanel
-     */
+    
+    
     private JFrame parentFrame;
+    KhoanTienPanelController controller;
 
     public KhoanTienPanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
+        controller = new KhoanTienPanelController(parentFrame, tablePanel);
     }
 
     /**

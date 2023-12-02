@@ -78,8 +78,6 @@ public class NhanKhauManagerPanelController {
         this.listNhanKhauBeans.forEach(nhankhau -> {
             listItem.add(nhankhau.getNhanKhauModel());
         });
-        //System.out.println(listNhanKhauBeans.size());
-        //System.out.println(listItem.size());
         DefaultTableModel model = classTableModel.setTableNhanKhau(listItem, COLUMNS);
         JTable table = new JTable(model) {
             @Override
