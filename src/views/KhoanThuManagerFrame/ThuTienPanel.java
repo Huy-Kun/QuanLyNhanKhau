@@ -4,6 +4,7 @@
  */
 package views.KhoanThuManagerFrame;
 
+import controllers.KhoanThuManagerController.ThuTienPanelController;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import views.KhoanThuManagerFrame.ThemThuTien;
@@ -17,10 +18,12 @@ public class ThuTienPanel extends javax.swing.JPanel {
      * Creates new form ThuTienPanel
      */
     private JFrame parentFrame;
+    private ThuTienPanelController controller;
     
     public ThuTienPanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
+        this.controller = new ThuTienPanelController(parentFrame, tablePanel);
     }
 
     /**
@@ -91,7 +94,7 @@ public class ThuTienPanel extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        ThemThuTien themThuTien = new ThemThuTien(parentFrame);
+        ThemThuTien themThuTien = new ThemThuTien(parentFrame, this.controller);
         themThuTien.setLocationRelativeTo(null);
         themThuTien.setResizable(false);
         themThuTien.setVisible(true);

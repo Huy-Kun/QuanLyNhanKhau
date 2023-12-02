@@ -174,4 +174,32 @@ public class ClassTableModel {
         });
         return dtm;
     }
+    
+    public DefaultTableModel setTableThuTien(List<ThuTienModel> listItem,String[] listColumn)
+    {
+        final int columns = listColumn.length;
+        DefaultTableModel dtm = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return super.isCellEditable(row, column); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                return columnIndex == 5 ? Boolean.class : String.class;
+            }
+        };
+        dtm.setColumnIdentifiers(listColumn);
+        Object[] obj;
+        obj = new Object[columns];
+        listItem.forEach((ThuTienModel item) -> {
+            obj[0] = item.getID();
+            obj[1] = item.getMaHoKhau();
+            obj[2] = item.getTenKhoanThu();
+            obj[3] = item.getSoTienThu();
+            obj[4] = item.getNgayNop().toString();
+            dtm.addRow(obj);
+        });
+        return dtm;
+    }
 }

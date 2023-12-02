@@ -21,7 +21,7 @@ public class KhoanTienPanel extends javax.swing.JPanel {
     public KhoanTienPanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
-        controller = new KhoanTienPanelController(parentFrame, tablePanel);
+        this.controller = new KhoanTienPanelController(parentFrame, tablePanel);
     }
 
     /**

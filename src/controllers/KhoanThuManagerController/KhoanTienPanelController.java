@@ -49,8 +49,6 @@ public class KhoanTienPanelController {
 
         };
 
-        System.out.println("HUY");
-        // thiet ke bang
         table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 14));
         table.getTableHeader().setPreferredSize(new Dimension(100, 50));
         table.setRowHeight(50);

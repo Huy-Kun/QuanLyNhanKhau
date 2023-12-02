@@ -3,26 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views.KhoanThuManagerFrame;
+
+import controllers.KhoanThuManagerController.ThemThuTienController;
+import controllers.KhoanThuManagerController.ThuTienPanelController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import views.KhoanThuManagerFrame.ThemThuTien;
-/**
- *
- * @author Admin
- */
+import models.ThuTienModel;
+
 public class ThemThuTien extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ThemThuTien
-     */
     private JFrame parentFrame;
-    
-    public ThemThuTien(JFrame parentFrame) {
+    private ThuTienPanelController parentController;
+    private ThuTienModel thuTienModel;
+    private ThemThuTienController controller;
+
+    public ThemThuTien(JFrame parentFrame, ThuTienPanelController parentController) {
         this.parentFrame = parentFrame;
+        this.parentController = parentController;
         this.parentFrame.setEnabled(false);
+        this.thuTienModel = new ThuTienModel();
+        this.controller = new ThemThuTienController();
         initComponents();
+        //System.out.println(parentController.getListTenKhoanTien().length);
+        for(String tenKhoanTien : parentController.getListTenKhoanTien())
+            loaiKhoanTienCbb.addItem(tenKhoanTien);
         setTitle("Thêm mới thu tiền");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.addWindowListener(new WindowAdapter() {
@@ -32,13 +38,27 @@ public class ThemThuTien extends javax.swing.JFrame {
                     close();
                 }
             }
-            
         });
-
     }
+
     private void close() {
         this.parentFrame.setEnabled(true);
         dispose();
+    }
+
+    private boolean validateValueInForm() {
+        // check null
+        if (maHoTxb.getText().trim().isEmpty()
+                || soTienNopTxb.getText().trim().isEmpty()
+                || tenChuHoTxb.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isNumeric(String str) {
+        return str.chars().allMatch(Character::isDigit);
     }
 
     /**
@@ -62,6 +82,8 @@ public class ThemThuTien extends javax.swing.JFrame {
         ngayNopDateC = new com.toedter.calendar.JDateChooser();
         addBtn = new javax.swing.JButton();
         loaiKhoanTienCbb = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        soTienNopTxb = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,8 +104,18 @@ public class ThemThuTien extends javax.swing.JFrame {
         jLabel4.setText("Ngày nộp:");
 
         maHoTxb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        maHoTxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maHoTxbActionPerformed(evt);
+            }
+        });
 
         tenChuHoTxb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        tenChuHoTxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tenChuHoTxbActionPerformed(evt);
+            }
+        });
 
         cancelBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cancelBtn.setText("Hủy");
@@ -101,18 +133,34 @@ public class ThemThuTien extends javax.swing.JFrame {
             }
         });
 
-        loaiKhoanTienCbb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        loaiKhoanTienCbb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        loaiKhoanTienCbb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loaiKhoanTienCbbActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setText("Số tiền nộp:");
+
+        soTienNopTxb.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        soTienNopTxb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soTienNopTxbActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -120,16 +168,17 @@ public class ThemThuTien extends javax.swing.JFrame {
                         .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)
                         .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(maHoTxb, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                    .addComponent(maHoTxb)
                     .addComponent(tenChuHoTxb)
                     .addComponent(ngayNopDateC, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loaiKhoanTienCbb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(78, 78, 78))
+                    .addComponent(loaiKhoanTienCbb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(soTienNopTxb, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -147,11 +196,15 @@ public class ThemThuTien extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ngayNopDateC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(soTienNopTxb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
+                .addGap(160, 160, 160))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -162,7 +215,9 @@ public class ThemThuTien extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,12 +236,47 @@ public class ThemThuTien extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
+        System.out.println("here");
+        if (validateValueInForm()) {
+            // tao moi 1 doi tuong nhan khau
+            thuTienModel.setMaHoKhau(Integer.parseInt(maHoTxb.getText()));
+            thuTienModel.setTenKhoanThu(loaiKhoanTienCbb.getSelectedItem().toString());
+            thuTienModel.setSoTienThu(Integer.parseInt(soTienNopTxb.getText()));
+            thuTienModel.setNgayNop(ngayNopDateC.getDate());
+            
+            try {
+                if (this.controller.ThemMoiThuTien(this.thuTienModel)) {
+                    JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+                    close();
+                    parentController.Refresh();
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         // TODO add your handling code here:
         close();
     }//GEN-LAST:event_cancelBtnActionPerformed
+
+    private void soTienNopTxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soTienNopTxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_soTienNopTxbActionPerformed
+
+    private void maHoTxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maHoTxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maHoTxbActionPerformed
+
+    private void tenChuHoTxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenChuHoTxbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tenChuHoTxbActionPerformed
+
+    private void loaiKhoanTienCbbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loaiKhoanTienCbbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loaiKhoanTienCbbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,11 +320,13 @@ public class ThemThuTien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> loaiKhoanTienCbb;
     private javax.swing.JTextField maHoTxb;
     private com.toedter.calendar.JDateChooser ngayNopDateC;
+    private javax.swing.JTextField soTienNopTxb;
     private javax.swing.JTextField tenChuHoTxb;
     // End of variables declaration//GEN-END:variables
 }

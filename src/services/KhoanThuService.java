@@ -12,6 +12,23 @@ import Bean.KhoanTienBean;
 
 public class KhoanThuService {
 
+    public List<String> getListTenKhoanTien() {
+        List<String> list = new ArrayList<>();
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM khoan_tien";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                list.add(rs.getString("tenKhoanTien"));
+            }
+            preparedStatement.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
+
     public List<KhoanTienBean> getListKhoanTien() {
         List<KhoanTienBean> list = new ArrayList<>();
         try {
@@ -50,7 +67,7 @@ public class KhoanThuService {
         List<ThuTienModel> list = new ArrayList<>();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT * FROM khoan_tien ";
+            String query = "SELECT * FROM thu_tien ";
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
