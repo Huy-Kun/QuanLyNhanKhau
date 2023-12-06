@@ -21,7 +21,6 @@ public class DangKyTamTruJFrame extends javax.swing.JFrame {
      * Creates new form DangKyTamTruJFrame
      */
     public DangKyTamTruJFrame() {
-        initComponents();
     }
 
     public DangKyTamTruJFrame(JFrame parentFrame) {

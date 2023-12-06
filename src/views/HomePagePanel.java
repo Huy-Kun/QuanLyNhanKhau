@@ -8,7 +8,6 @@ public class HomePagePanel extends javax.swing.JPanel {
     public HomePagePanel() {
         initComponents();
         this.cotroller = new HomeCotroller(tongNhanKhauLb, tongHoKhauLb, nhanKhauTamTruLb, nhanKhauTamVangLb);
-        this.cotroller.setData();
     }
 
     /**

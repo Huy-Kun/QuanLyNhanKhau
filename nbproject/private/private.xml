@@ -2,6 +2,40 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/MainFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/ThongKePanelController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/services/NhanKhauService.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NhanKhauManagePanel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/utility/TableModelHoKhau.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/KhoanThuManagerFrame/ThemThuTien.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Bean/DanhMucBean.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ChuyenDiNoiKhacController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Icons/network.png</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Bean/KhoanTienBean.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/LoginController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/AddNewController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/services/HoKhauService.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/KhoanThuManagerPanelController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Bean/MemOfFamily.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/KhoanTienModel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Bean/NhanKhauBean.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Icons/check-in-desk.png</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NhanKhauManagerFrame/DangKyTamTruJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ChoosePeopleController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/KhoanThuManagerFrame/ThuTienPanel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/ChungMinhThuModel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Icons/network_1.png</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/KhoanThuManagerFrame/ThemKhoanTien.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagePanel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Icons/check-out.png</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/KhaiTuController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Icons/check-mark.png</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Icons/modern-house.png</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/KhoanThuManagerController/ThemThuTienController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ThemMoiController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/TieuSuController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/KhoanThuManagerController/ThuTienPanelController.java</file>
+        </group>
     </open-files>
 </project-private>

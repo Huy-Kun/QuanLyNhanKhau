@@ -19,9 +19,6 @@ import utility.ClassTableModel;
 import java.sql.Date;
 import java.util.Vector;
 
-/**
- * class dieu khien hoat dong cua TieuSuJFrame
- */
 public class TieuSuController {
     private NhanKhauBean nhanKhauBean;
     private JPanel tieuSuJpn;

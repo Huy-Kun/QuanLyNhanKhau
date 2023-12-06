@@ -21,7 +21,6 @@ public class LoginUI extends javax.swing.JFrame {
         keyListenner(txbPasswd);
     }
     
-    // xu ly su kien nhan enter
     private void keyListenner(JTextField jtf) {
         jtf.addKeyListener(new KeyAdapter() {
             @Override

@@ -17,6 +17,7 @@ public class HomeCotroller {
         this.tongHoKhauLb = tongHoKhau;
         this.nhanKhauTamTruLb = nhanKhauTamTruLb;
         this.nhanKhauTamVangLb = nhanKhauTamVangLb;
+        setData();
     }
     
     public void setData() {

@@ -8,19 +8,14 @@ import views.NhanKhauManagerFrame.DangKyTamVangJFrame;
 import views.NhanKhauManagerFrame.KhaiTuJFrame;
 
 public class NhanKhauManagePanel extends javax.swing.JPanel {
-
-    /**
-     * Creates new form NhanKhauManagePanel
-     */
+    
     private NhanKhauManagerPanelController controller = null;
     private JFrame parentJFrame;
     
     public NhanKhauManagePanel(JFrame parentFrame) {
         this.parentJFrame = parentFrame;
         initComponents();
-        //System.out.println("Here");
         controller = new NhanKhauManagerPanelController(tablePanel, jtfSearch,parentJFrame);
-        //controller.setParentJFrame(parentJFrame);
         controller.setDataTable();
     }
 

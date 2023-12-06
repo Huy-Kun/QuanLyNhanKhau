@@ -54,10 +54,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="khoanTienBtn" min="-2" pref="171" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="thuTienBtn" min="-2" pref="171" max="-2" attributes="0"/>
-              <EmptySpace pref="489" max="32767" attributes="0"/>
+              <Component id="khoanTienBtn" min="-2" pref="190" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="thuTienBtn" min="-2" pref="190" max="-2" attributes="0"/>
+              <EmptySpace pref="445" max="32767" attributes="0"/>
           </Group>
           <Component id="mainJpn" alignment="0" max="32767" attributes="0"/>
       </Group>

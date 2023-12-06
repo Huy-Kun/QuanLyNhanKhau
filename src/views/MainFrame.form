@@ -69,14 +69,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="Home" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="NhanKhauBtn" alignment="1" max="32767" attributes="0"/>
-                          <Component id="HoKhauBtn" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="KhoanThuBtn" max="32767" attributes="0"/>
                           <Component id="ThongKeBtn" alignment="0" max="32767" attributes="0"/>
-                          <Component id="KhoanThuBtn" alignment="0" max="32767" attributes="0"/>
+                          <Component id="NhanKhauBtn" alignment="1" max="32767" attributes="0"/>
+                          <Component id="HoKhauBtn" alignment="1" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -84,13 +85,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="Home" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="NhanKhauBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="HoKhauBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="ThongKeBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="KhoanThuBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -135,7 +136,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Icons/app.png"/>
+                      <Image iconType="3" name="/Icons/home_1.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Trang ch&#x1ee7;"/>
                   </Properties>
@@ -158,7 +159,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jlbNhanKhau" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -182,7 +183,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Icons/multiple-users-silhouette.png"/>
+                      <Image iconType="3" name="/Icons/users.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Nh&#xe2;n Kh&#x1ea9;u"/>
                   </Properties>
@@ -226,7 +227,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Icons/home.png"/>
+                      <Image iconType="3" name="/Icons/network_1.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="H&#x1ed9; Kh&#x1ea9;u"/>
                   </Properties>
@@ -270,7 +271,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Icons/increasing-stocks-graphic.png"/>
+                      <Image iconType="3" name="/Icons/diagram.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng K&#xea;"/>
                   </Properties>
@@ -314,7 +315,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Icons/increasing-stocks-graphic.png"/>
+                      <Image iconType="3" name="/Icons/check-in.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Kho&#x1ea3;n Thu"/>
                   </Properties>
@@ -333,7 +334,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="493" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="525" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>

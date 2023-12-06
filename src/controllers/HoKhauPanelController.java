@@ -26,12 +26,13 @@ public class HoKhauPanelController {
     private JPanel tableJpn;
     private final HoKhauService hoKhauService = new HoKhauService();
     private final TableModelHoKhau tableModelHoKhau = new TableModelHoKhau();
-    private final String COLUNMS[] = {"Mã hộ khẩu", "Họ tên chủ hộ", "Địa chỉ"}; 
+    private final String COLUNMS[] = {"ID", "Mã hộ khẩu", "Họ tên chủ hộ", "Địa chỉ", "Ngày tạo"}; 
     private JFrame parentJFrame;
 
-    public HoKhauPanelController(JTextField searchJtf, JPanel tableJpn) {
+    public HoKhauPanelController(JTextField searchJtf, JPanel tableJpn, JFrame parentJFrame) {
         this.searchJtf = searchJtf;
         this.tableJpn = tableJpn;
+        this.parentJFrame = parentJFrame;
         this.list = hoKhauService.getListHoKhau();
         setData();
         initAction();

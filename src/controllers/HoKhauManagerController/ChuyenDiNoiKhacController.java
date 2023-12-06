@@ -164,6 +164,4 @@ public class ChuyenDiNoiKhacController {
     public void setList(List<HoKhauBean> list) {
         this.list = list;
     }
-    
-    
 }

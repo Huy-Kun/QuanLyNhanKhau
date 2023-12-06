@@ -31,13 +31,6 @@ public class ChoosePeopleController {
     private final TableModelHoKhau tableModelHoKhau  = new TableModelHoKhau();
     private final String[] COLUMNS = {"Họ tên", "Giới tính", "Ngày sinh", "Địa chỉ hiện nay", "Số CMT"};
 
-    /**
-     * 
-     * @param nhanKhauBean
-     * @param searchJtf
-     * @param selectedJtf
-     * @param tableJPanel 
-     */
     public ChoosePeopleController(NhanKhauBean nhanKhauBean, JTextField searchJtf, JTextField selectedJtf, JPanel tableJPanel) {
         this.nhanKhauBean = nhanKhauBean;
         this.searchJtf = searchJtf;
@@ -155,7 +148,5 @@ public class ChoosePeopleController {
 
     public void setList(List<NhanKhauBean> list) {
         this.list = list;
-    }
-
-    
+    } 
 }

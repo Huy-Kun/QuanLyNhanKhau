@@ -1,7 +1,6 @@
 package controllers;
 
 import java.awt.BorderLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import views.KhoanThuManagerFrame.KhoanTienPanel;
@@ -36,10 +35,5 @@ public class KhoanThuManagerPanelController {
         mainJpn.add(view);
         mainJpn.validate();
         mainJpn.repaint();
-    }
-    
-    public void refreshData()
-    {
-        
     }
 }

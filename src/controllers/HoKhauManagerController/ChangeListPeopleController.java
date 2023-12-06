@@ -39,16 +39,6 @@ public class ChangeListPeopleController {
     private NhanKhauBean peopleSelected;
     private MemOfFamily memSelected;
     
-    /**
-     * Create Controller of ChangeListPeopleJframe
-     * 
-     * @param listMember
-     * @param addBtn
-     * @param removeBtn
-     * @param searchJtf
-     * @param peopleJpn
-     * @param memJpn
-     */
     public ChangeListPeopleController(List<MemOfFamily> listMember, JButton addBtn, JButton removeBtn, JTextField searchJtf, JPanel peopleJpn, JPanel memJpn) {
         this.listMember = listMember;
         this.listPeople = nhanKhauService.getListNhanKhau();
@@ -130,7 +120,6 @@ public class ChangeListPeopleController {
                 listMember.remove(memSelected);
                 setData();
             }
-            
         });
     }
     

@@ -31,7 +31,6 @@ public class KhoanTienPanelController {
         this.tableJpn = tableJpn;
         this.khoanThuService = new KhoanThuService();
         this.classTableModel = new ClassTableModel();
-        //System.out.println(listKhoanTienBean.size());
         Refresh();
     }
 

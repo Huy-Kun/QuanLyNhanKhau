@@ -15,14 +15,11 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
     
     private JFrame parentFrame;
     private HoKhauPanelController controller;
-    /**
-     * Creates new form HoKhauManagePanel
-     */
+    
     public HoKhauManagePanel(JFrame parentFrame) {
         this.parentFrame = parentFrame;
         initComponents();
-        controller = new HoKhauPanelController(jtfSearch, tableJpn);
-        controller.setParentJFrame(parentFrame);
+        controller = new HoKhauPanelController(jtfSearch, tableJpn, parentFrame);
     }
 
     /**

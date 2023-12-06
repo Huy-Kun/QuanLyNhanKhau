@@ -11,8 +11,6 @@ import models.ChungMinhThuModel;
 import models.NhanKhauModel;
 import services.MysqlConnection;
 
-// lop thuc hien cac chuc nang trong giao dien them moi nhan khau
-
 public class AddNewController {
     public boolean addNewPeople(NhanKhauBean nhanKhauBean) throws SQLException, ClassNotFoundException{
         NhanKhauModel nhanKhau = nhanKhauBean.getNhanKhauModel();

@@ -12,7 +12,6 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
@@ -46,8 +45,6 @@ public class NhanKhauManagerPanelController {
     public NhanKhauManagerPanelController() {
     }
     
-    
-    //
     public void initAction(){
         this.jtfSearch.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -88,7 +85,6 @@ public class NhanKhauManagerPanelController {
         };
         
         // thiet ke bang
-        
         table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 14));
         table.getTableHeader().setPreferredSize(new Dimension(100, 50));
         table.setRowHeight(50);
@@ -146,6 +142,4 @@ public class NhanKhauManagerPanelController {
     public void setJtfSearch(JTextField jtfSearch) {
         this.jtfSearch = jtfSearch;
     }
-    
-    
 }
