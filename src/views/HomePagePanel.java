@@ -44,7 +44,7 @@ public class HomePagePanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/network.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/network_1.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -144,7 +144,7 @@ public class HomePagePanel extends javax.swing.JPanel {
 
         jPanel5.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/check-in.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/check-in-desk.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -194,7 +194,7 @@ public class HomePagePanel extends javax.swing.JPanel {
 
         jPanel7.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/hotel.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/check-out.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);

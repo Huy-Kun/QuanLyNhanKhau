@@ -1,4 +1,4 @@
-package controllers.KhoanThuManagerController;
+package controllers;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,40 +11,40 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import models.ThuTienModel;
-import services.KhoanThuService;
+import models.NopTienModel;
+import services.NopTienService;
 import utility.ClassTableModel;
 
-public class ThuTienPanelController {
+public class NopTienManagerPanelController {
     private JPanel tableJpn;
     private JFrame parentJFrame;
-    private KhoanThuService khoanThuService;
+    private NopTienService nopTienService;
     private ClassTableModel classTableModel;
-    private List<ThuTienModel> listThuTienModel;
+    private List<NopTienModel> listThuTienModel;
     private final String[] COLUMNS = {"ID", "Mã hộ khẩu", "Tên khoản thu", "Số tiền thu", "Ngày nộp"};
     
-    public ThuTienPanelController()
+    public NopTienManagerPanelController()
     {
         
     }
     
-    public ThuTienPanelController(JFrame parentJFrame,JPanel tableJpn)
+    public NopTienManagerPanelController(JFrame parentJFrame,JPanel tableJpn)
     {
         this.tableJpn = tableJpn;
         this.parentJFrame = parentJFrame;
-        this.khoanThuService = new KhoanThuService();
+        this.nopTienService = new NopTienService();
         this.classTableModel = new ClassTableModel();
         Refresh();
     }
     
     public List<String> getListTenKhoanTien()
     {
-        return khoanThuService.getListTenKhoanTien();
+        return nopTienService.getListTenKhoanThu();
     }
     
     public void SetData()
     {
-        List<ThuTienModel> listItem = new ArrayList<>();
+        List<NopTienModel> listItem = new ArrayList<>();
         this.listThuTienModel.forEach(thuTienModel -> {
             listItem.add(thuTienModel);
         });
@@ -91,7 +91,7 @@ public class ThuTienPanelController {
     }
     public void Refresh()
     {
-        listThuTienModel = khoanThuService.getListThuTien();
+        listThuTienModel = nopTienService.getListNopTien();
         SetData();
     }
 }

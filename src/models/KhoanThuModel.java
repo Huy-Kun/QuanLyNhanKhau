@@ -4,11 +4,11 @@
  */
 package models;
 
-public class KhoanTienModel {
+public class KhoanThuModel {
     private int ID;
-    private String tenKhoanTien;
+    private String tenKhoanThu;
     private int soTien;
-    private String loaiKhoanTien;
+    private String loaiKhoanThu;
 
     /**
      * @return the ID
@@ -27,15 +27,15 @@ public class KhoanTienModel {
     /**
      * @return the tenKhoanThu
      */
-    public String getTenKhoanTien() {
-        return tenKhoanTien;
+    public String getTenKhoanThu() {
+        return tenKhoanThu;
     }
 
     /**
      * @param tenKhoanThu the tenKhoanThu to set
      */
-    public void setTenKhoanTien(String tenKhoanTien) {
-        this.tenKhoanTien = tenKhoanTien;
+    public void setTenKhoanThu(String tenKhoanThu) {
+        this.tenKhoanThu = tenKhoanThu;
     }
 
     /**
@@ -53,17 +53,18 @@ public class KhoanTienModel {
     }
 
     /**
-     * @return the loaiKhoanTien
+     * @return the loaiKhoanThu
      */
-    public String getLoaiKhoanTien() {
-        return loaiKhoanTien;
+    public String getLoaiKhoanThu() {
+        return loaiKhoanThu;
     }
 
     /**
-     * @param loaiKhoanTien the loaiKhoanTien to set
+     * @param loaiKhoanThu the loaiKhoanThu to set
      */
-    public void setLoaiKhoanTien(String loaiKhoanTien) {
-        this.loaiKhoanTien = loaiKhoanTien;
+    public void setLoaiKhoanThu(String loaiKhoanThu) {
+        this.loaiKhoanThu = loaiKhoanThu;
     }
+    
     
 }

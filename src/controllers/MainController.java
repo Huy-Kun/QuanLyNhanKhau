@@ -18,7 +18,8 @@ import views.HomePagePanel;
 import views.NhanKhauManagePanel;
 import views.ThongKePanel;
 import views.TimKiemPanel;
-import views.KhoanThuPanel;
+import views.KhoanThuManagePanel;
+import views.NopTienManagePanel;
 
 public class MainController {
     private JFrame jfrMain;
@@ -55,7 +56,11 @@ public class MainController {
                     view = new ThongKePanel(this.jfrMain);
                     break;
                 case "KhoanThu":
-                    view = new KhoanThuPanel(this.jfrMain);
+                    view = new KhoanThuManagePanel(this.jfrMain);
+                    break;
+                case "NopTien":
+                    view = new NopTienManagePanel(this.jfrMain);
+                    break;
                 //any more
                 default:
                     break;
@@ -127,7 +132,10 @@ public class MainController {
                     view = new ThongKePanel(this.jfrMain);
                     break;
                 case "KhoanThu":
-                    view = new KhoanThuPanel(this.jfrMain);
+                    view = new KhoanThuManagePanel(this.jfrMain);
+                    break;
+                case "NopTien":
+                    view = new NopTienManagePanel(this.jfrMain);
                     break;
                 default:
                     break;

@@ -8,19 +8,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import services.MysqlConnection;
 import Bean.KhoanTienBean;
-import models.KhoanTienModel;
+import models.KhoanThuModel;
 
-public class ThemKhoanTienController {
+public class ThemKhoanThuController {
 
     public boolean ThemMoiKhoanTien(KhoanTienBean khoanTienBean) throws SQLException, ClassNotFoundException {
-        KhoanTienModel khoanTien = khoanTienBean.getKhoanTienModel();
+        KhoanThuModel khoanTien = khoanTienBean.getKhoanTienModel();
         Connection connection = MysqlConnection.getMysqlConnection();
-        String query = "INSERT INTO khoan_tien (tenKhoanTien, soTien, loaiKhoanTien)"
+        String query = "INSERT INTO khoan_thu (tenKhoanThu, soTien, loaiKhoanThu)"
                 + " values (?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setString(1, khoanTien.getTenKhoanTien());
+        preparedStatement.setString(1, khoanTien.getTenKhoanThu());
         preparedStatement.setInt(2, khoanTien.getSoTien());
-        preparedStatement.setString(3, khoanTien.getLoaiKhoanTien());
+        preparedStatement.setString(3, khoanTien.getLoaiKhoanThu());
         preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();

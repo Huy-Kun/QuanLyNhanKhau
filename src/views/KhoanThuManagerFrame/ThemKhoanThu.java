@@ -9,23 +9,23 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import Bean.KhoanTienBean;
-import models.KhoanTienModel;
-import controllers.KhoanThuManagerController.KhoanTienPanelController;
-import controllers.KhoanThuManagerController.ThemKhoanTienController;
+import models.KhoanThuModel;
+import controllers.KhoanThuManagerPanelController;
+import controllers.KhoanThuManagerController.ThemKhoanThuController;
 
-public class ThemKhoanTien extends javax.swing.JFrame {
+public class ThemKhoanThu extends javax.swing.JFrame {
 
     private JFrame parentFrame;
-    private KhoanTienPanelController parentController;
+    private KhoanThuManagerPanelController parentController;
     private KhoanTienBean khoanTienBean;
-    private ThemKhoanTienController controller;
+    private ThemKhoanThuController controller;
 
-    public ThemKhoanTien(JFrame parentFrame, KhoanTienPanelController parentController) {
+    public ThemKhoanThu(JFrame parentFrame, KhoanThuManagerPanelController parentController) {
         this.parentController = parentController;
         this.parentFrame = parentFrame;
         this.parentFrame.setEnabled(false);
         this.khoanTienBean = new KhoanTienBean();
-        this.controller = new ThemKhoanTienController();
+        this.controller = new ThemKhoanThuController();
         initComponents();
         setTitle("Thêm mới khoản tiền");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -219,9 +219,9 @@ public class ThemKhoanTien extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (validateValueInForm()) {
             // tao moi 1 doi tuong nhan khau
-            KhoanTienModel temp = this.khoanTienBean.getKhoanTienModel();
-            temp.setTenKhoanTien(tenKhoanTienTxb.getText());
-            temp.setLoaiKhoanTien(loaiKhoanTienCbb.getSelectedItem().toString());
+            KhoanThuModel temp = this.khoanTienBean.getKhoanTienModel();
+            temp.setTenKhoanThu(tenKhoanTienTxb.getText());
+            temp.setLoaiKhoanThu(loaiKhoanTienCbb.getSelectedItem().toString());
             temp.setSoTien(Integer.parseInt(soTienTxb.getText()));
             try {
                 if (this.controller.ThemMoiKhoanTien(this.khoanTienBean)) {
@@ -274,20 +274,20 @@ public class ThemKhoanTien extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(ThemKhoanTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemKhoanThu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(ThemKhoanTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemKhoanThu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(ThemKhoanTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemKhoanThu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ThemKhoanTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemKhoanThu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new ThemKhoanTien().setVisible(true);
+//                new ThemKhoanThu().setVisible(true);
 //            }
 //        });
 //    }

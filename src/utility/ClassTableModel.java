@@ -6,8 +6,8 @@ import javax.swing.table.DefaultTableModel;
 import models.GiaDinhModel;
 import models.NhanKhauModel;
 import models.TieuSuModel;
-import models.KhoanTienModel;
-import models.ThuTienModel;
+import models.KhoanThuModel;
+import models.NopTienModel;
 import Bean.KhoanTienBean;
 
 /**
@@ -165,9 +165,9 @@ public class ClassTableModel {
         obj = new Object[columns];
         listItem.forEach((KhoanTienBean item) -> {
             obj[0] = item.getKhoanTienModel().getID();
-            obj[1] = item.getKhoanTienModel().getTenKhoanTien();
+            obj[1] = item.getKhoanTienModel().getTenKhoanThu();
             obj[2] = item.getKhoanTienModel().getSoTien();
-            obj[3] = item.getKhoanTienModel().getLoaiKhoanTien();
+            obj[3] = item.getKhoanTienModel().getLoaiKhoanThu();
             obj[4] = item.getSoHoDaNop();
             obj[5] = item.getTongSoTien();
             dtm.addRow(obj);
@@ -175,7 +175,7 @@ public class ClassTableModel {
         return dtm;
     }
     
-    public DefaultTableModel setTableThuTien(List<ThuTienModel> listItem,String[] listColumn)
+    public DefaultTableModel setTableThuTien(List<NopTienModel> listItem,String[] listColumn)
     {
         final int columns = listColumn.length;
         DefaultTableModel dtm = new DefaultTableModel() {
@@ -192,7 +192,7 @@ public class ClassTableModel {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        listItem.forEach((ThuTienModel item) -> {
+        listItem.forEach((NopTienModel item) -> {
             obj[0] = item.getID();
             obj[1] = item.getMaHoKhau();
             obj[2] = item.getTenKhoanThu();

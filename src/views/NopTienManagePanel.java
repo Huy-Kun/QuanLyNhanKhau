@@ -1,29 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package views.KhoanThuManagerFrame;
+package views;
 
-import controllers.KhoanThuManagerController.ThuTienPanelController;
+import views.NopPhiManagerFrame.ThemNopTien;
+import controllers.NopTienManagerPanelController;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import views.KhoanThuManagerFrame.ThemThuTien;
-/**
- *
- * @author Admin
- */
-public class ThuTienPanel extends javax.swing.JPanel {
+
+public class NopTienManagePanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ThuTienPanel
+     * Creates new form NopTienManagePanel
      */
     private JFrame parentFrame;
-    private ThuTienPanelController controller;
+    private NopTienManagerPanelController controller;
     
-    public ThuTienPanel(JFrame parentFrame) {
+    public NopTienManagePanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
-        this.controller = new ThuTienPanelController(parentFrame, tablePanel);
+        this.controller = new NopTienManagerPanelController(parentFrame, tablePanel);
     }
 
     /**
@@ -94,7 +87,7 @@ public class ThuTienPanel extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        ThemThuTien themThuTien = new ThemThuTien(parentFrame, this.controller);
+        ThemNopTien themThuTien = new ThemNopTien(parentFrame, this.controller);
         themThuTien.setLocationRelativeTo(null);
         themThuTien.setResizable(false);
         themThuTien.setVisible(true);

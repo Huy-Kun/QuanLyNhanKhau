@@ -1,20 +1,20 @@
 package Bean;
 
-import models.KhoanTienModel;
+import models.KhoanThuModel;
 
 public class KhoanTienBean {
-    private KhoanTienModel khoanTienModel;
+    private KhoanThuModel khoanTienModel;
     private int soHoDaNop;
     private int tongSoTien;
     
     public KhoanTienBean()
     {
-        this.khoanTienModel = new KhoanTienModel();
+        this.khoanTienModel = new KhoanThuModel();
         this.soHoDaNop = 0;
         this.tongSoTien = 0;
     }
     
-    public KhoanTienBean(KhoanTienModel khoanTienModel, int soHoDaNop, int tongSoTien)
+    public KhoanTienBean(KhoanThuModel khoanTienModel, int soHoDaNop, int tongSoTien)
     {
         this.khoanTienModel = khoanTienModel;
         this.soHoDaNop = soHoDaNop;
@@ -24,14 +24,14 @@ public class KhoanTienBean {
     /**
      * @return the khoanTienModel
      */
-    public KhoanTienModel getKhoanTienModel() {
+    public KhoanThuModel getKhoanTienModel() {
         return khoanTienModel;
     }
 
     /**
      * @param khoanTienModel the khoanTienModel to set
      */
-    public void setKhoanTienModel(KhoanTienModel khoanTienModel) {
+    public void setKhoanTienModel(KhoanThuModel khoanTienModel) {
         this.khoanTienModel = khoanTienModel;
     }
 

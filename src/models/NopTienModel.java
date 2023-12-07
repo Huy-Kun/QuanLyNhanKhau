@@ -5,7 +5,7 @@
 package models;
 import java.util.Date;
 
-public class ThuTienModel {
+public class NopTienModel {
     private int ID;
     private int maHoKhau;
     private String tenKhoanThu;

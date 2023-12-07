@@ -1,27 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package views.KhoanThuManagerFrame;
+package views;
 
 import javax.swing.JFrame;
-import views.KhoanThuManagerFrame.ThemKhoanTien;
-import controllers.KhoanThuManagerController.KhoanTienPanelController;
-/**
- *
- * @author Admin
- */
-public class KhoanTienPanel extends javax.swing.JPanel {
+import controllers.KhoanThuManagerPanelController;
+import views.KhoanThuManagerFrame.ThemKhoanThu;
+
+public class KhoanThuManagePanel extends javax.swing.JPanel {
 
     
     
     private JFrame parentFrame;
-    KhoanTienPanelController controller;
+    KhoanThuManagerPanelController controller;
 
-    public KhoanTienPanel(JFrame parentFrame) {
+    public KhoanThuManagePanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
-        this.controller = new KhoanTienPanelController(parentFrame, tablePanel);
+        this.controller = new KhoanThuManagerPanelController(parentFrame, tablePanel);
     }
 
     /**
@@ -93,7 +86,7 @@ public class KhoanTienPanel extends javax.swing.JPanel {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        ThemKhoanTien themKhoanTien = new ThemKhoanTien(parentFrame, this.controller);
+        ThemKhoanThu themKhoanTien = new ThemKhoanThu(parentFrame, this.controller);
         themKhoanTien.setLocationRelativeTo(null);
         themKhoanTien.setResizable(false);
         themKhoanTien.setVisible(true);

@@ -1,30 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package views.KhoanThuManagerFrame;
+package views.NopPhiManagerFrame;
 
-import controllers.KhoanThuManagerController.ThemThuTienController;
-import controllers.KhoanThuManagerController.ThuTienPanelController;
+import controllers.NopTienManagerController.ThemNopTienController;
+import controllers.NopTienManagerPanelController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import models.ThuTienModel;
+import models.NopTienModel;
 
-public class ThemThuTien extends javax.swing.JFrame {
+public class ThemNopTien extends javax.swing.JFrame {
 
     private JFrame parentFrame;
-    private ThuTienPanelController parentController;
-    private ThuTienModel thuTienModel;
-    private ThemThuTienController controller;
+    private NopTienManagerPanelController parentController;
+    private NopTienModel thuTienModel;
+    private ThemNopTienController controller;
 
-    public ThemThuTien(JFrame parentFrame, ThuTienPanelController parentController) {
+    public ThemNopTien(JFrame parentFrame, NopTienManagerPanelController parentController) {
         this.parentFrame = parentFrame;
         this.parentController = parentController;
         this.parentFrame.setEnabled(false);
-        this.thuTienModel = new ThuTienModel();
-        this.controller = new ThemThuTienController();
+        this.thuTienModel = new NopTienModel();
+        this.controller = new ThemNopTienController();
         initComponents();
         //System.out.println(parentController.getListTenKhoanTien().length);
         for(String tenKhoanTien : parentController.getListTenKhoanTien())
@@ -245,7 +241,7 @@ public class ThemThuTien extends javax.swing.JFrame {
             thuTienModel.setNgayNop(ngayNopDateC.getDate());
             
             try {
-                if (this.controller.ThemMoiThuTien(this.thuTienModel)) {
+                if (this.controller.ThemMoiNopTien(this.thuTienModel)) {
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     close();
                     parentController.Refresh();
@@ -295,20 +291,20 @@ public class ThemThuTien extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(ThemThuTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemNopTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(ThemThuTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemNopTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(ThemThuTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemNopTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(ThemThuTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ThemNopTien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
 //
 //        /* Create and display the form */
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
-//                new ThemThuTien().setVisible(true);
+//                new ThemNopTien().setVisible(true);
 //            }
 //        });
 //    }
