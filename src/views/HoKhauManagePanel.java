@@ -17,8 +17,8 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
     private HoKhauPanelController controller;
     
     public HoKhauManagePanel(JFrame parentFrame) {
-        this.parentFrame = parentFrame;
         initComponents();
+        this.parentFrame = parentFrame;
         controller = new HoKhauPanelController(jtfSearch, tableJpn, parentFrame);
     }
 

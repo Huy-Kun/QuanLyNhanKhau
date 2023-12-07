@@ -16,19 +16,11 @@ import javax.swing.JOptionPane;
 
 public class ChangeListPeopleJframe extends javax.swing.JFrame {
 
-    /**
-     *     public ChangeListPeopleController(List<MemOfFamily> listMember, JButton addBtn, JButton removeBtn, JTextField searchJtf, JPanel peopleJpn, JPanel memJpn) {
-     */
     private List<MemOfFamily> listMember;
     private List<MemOfFamily> listMemberTemp;
     private ChangeListPeopleController controller;
     private JFrame parentJframe;
     
-    /**
-     * Creates new form ChangeListPeopleJframe
-     * @param listMember
-     * @param parentJFrame
-     */
     public ChangeListPeopleJframe(List<MemOfFamily> listMember, JFrame parentJFrame) {
         initComponents();
         this.listMember = listMember;

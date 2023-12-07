@@ -14,8 +14,8 @@ public class TimKiemPanel extends javax.swing.JPanel {
      * Creates new form TimKiemPanel
      */
     public TimKiemPanel(JFrame parentFrame) {
-        this.parentFrame = parentFrame;
         initComponents();
+        this.parentFrame = parentFrame;
     }
 
     /**

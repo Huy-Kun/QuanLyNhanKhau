@@ -31,20 +31,17 @@ public class ChuyenDiNoiKhacController {
     private JTextField maKhuVucJtf;
     private JTextField diaChiJtf;
 
-    public ChuyenDiNoiKhacController(HoKhauBean hoKhauBean, JTextField searchJtf, JPanel tableJpn) {
+    public ChuyenDiNoiKhacController(HoKhauBean hoKhauBean, JTextField searchJtf, JPanel tableJpn, JTextField maHoKhauJtf, JTextField tenChuHoJtf, JTextField maKhuVucJtf, JTextField diaChiJtf) {
         this.hoKhauBean = hoKhauBean;
         this.searchJtf = searchJtf;
         this.tableJpn = tableJpn;
-        this.list = hoKhauService.getListHoKhau();
-        setData();
-        initAction();
-    }
-    
-    public void setDataJtf(JTextField maHoKhauJtf, JTextField tenChuHoJtf, JTextField maKhuVucJtf, JTextField diaChiJtf) {
         this.diaChiJtf = diaChiJtf;
         this.maHoKhauJtf = maHoKhauJtf;
         this.tenChuHoJtf = tenChuHoJtf;
         this.maKhuVucJtf = maKhuVucJtf;
+        this.list = hoKhauService.getListHoKhau();
+        setData();
+        initAction();
     }
     
     public void initAction() {
@@ -115,7 +112,6 @@ public class ChuyenDiNoiKhacController {
                 tenChuHoJtf.setText(hoKhauBean.getChuHo().getHoTen());
                 maKhuVucJtf.setText(hoKhauBean.getHoKhauModel().getMaKhuVuc());
                 diaChiJtf.setText(hoKhauBean.getHoKhauModel().getDiaChi());
-                System.out.println(hoKhauBean.getHoKhauModel().getMaKhuVuc());
             }
             
         });

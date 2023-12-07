@@ -10,8 +10,8 @@ public class ThongKePanel extends javax.swing.JPanel {
      * Creates new form ThongKePanel
      */
     public ThongKePanel(JFrame parentFrame) {
+         initComponents();
         this.parentFrame = parentFrame;
-        initComponents();
         this.controller = new ThongKePanelController(GenderJcb, StatusJcb, tuTuoiJtf, denTuoiJtf, tuNamJtf, denNamJtf, tableJpn);
         this.controller.setDataTable();
     }

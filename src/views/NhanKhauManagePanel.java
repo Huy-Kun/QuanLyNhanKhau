@@ -13,8 +13,8 @@ public class NhanKhauManagePanel extends javax.swing.JPanel {
     private JFrame parentJFrame;
     
     public NhanKhauManagePanel(JFrame parentFrame) {
-        this.parentJFrame = parentFrame;
         initComponents();
+        this.parentJFrame = parentFrame;
         controller = new NhanKhauManagerPanelController(tablePanel, jtfSearch,parentJFrame);
         controller.setDataTable();
     }

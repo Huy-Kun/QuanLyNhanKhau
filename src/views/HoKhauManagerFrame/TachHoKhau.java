@@ -42,7 +42,7 @@ public class TachHoKhau extends javax.swing.JFrame {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                close(); //To change body of generated methods, choose Tools | Templates.
+                close(); 
             }
             
         });

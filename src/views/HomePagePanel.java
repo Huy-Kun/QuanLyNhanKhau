@@ -1,13 +1,13 @@
 package views;
 
-import controllers.HomeCotroller;
+import controllers.TrangChuPanelController;
 
 public class HomePagePanel extends javax.swing.JPanel {
 
-    private HomeCotroller cotroller;
+    private TrangChuPanelController cotroller;
     public HomePagePanel() {
         initComponents();
-        this.cotroller = new HomeCotroller(tongNhanKhauLb, tongHoKhauLb, nhanKhauTamTruLb, nhanKhauTamVangLb);
+        this.cotroller = new TrangChuPanelController(tongNhanKhauLb, tongHoKhauLb, nhanKhauTamTruLb, nhanKhauTamVangLb);
     }
 
     /**

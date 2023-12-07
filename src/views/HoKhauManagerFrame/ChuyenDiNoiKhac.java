@@ -21,8 +21,7 @@ public class ChuyenDiNoiKhac extends javax.swing.JFrame {
         this.hoKhauBean = new HoKhauBean();
         this.parentJFrame = parentJFrame;
         this.parentJFrame.setEnabled(false);
-        controller = new ChuyenDiNoiKhacController(hoKhauBean, searchJtf, tableJpn);
-        controller.setDataJtf(maHoKhauJtf, tenChuHoJtf, maKhuVucJtf, diaChiHienTaiJtf);
+        controller = new ChuyenDiNoiKhacController(hoKhauBean, searchJtf, tableJpn, maHoKhauJtf, tenChuHoJtf, maKhuVucJtf, diaChiHienTaiJtf);
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
