@@ -87,11 +87,11 @@ public class NewLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
+        jPanel2.setBackground(new java.awt.Color(54, 33, 99));
         jPanel2.setForeground(new java.awt.Color(64, 102, 250));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txbUserName.setBackground(new java.awt.Color(0, 51, 102));
+        txbUserName.setBackground(new java.awt.Color(54, 33, 99));
         txbUserName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         txbUserName.setForeground(new java.awt.Color(255, 255, 255));
         txbUserName.setText("UserName");
@@ -108,7 +108,7 @@ public class NewLogin extends javax.swing.JFrame {
         });
         jPanel2.add(txbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 189, 20));
 
-        txbPasswd.setBackground(new java.awt.Color(0, 51, 102));
+        txbPasswd.setBackground(new java.awt.Color(54, 33, 99));
         txbPasswd.setForeground(new java.awt.Color(255, 255, 255));
         txbPasswd.setText("1234567");
         txbPasswd.setBorder(null);

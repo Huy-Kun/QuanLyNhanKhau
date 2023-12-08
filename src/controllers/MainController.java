@@ -34,10 +34,10 @@ public class MainController {
     
     
     // set panel for root
-    public void setView(JPanel jpnItem, JLabel jlbItem, String kind) {
+    public void setView(JPanel jpnItem, String kind) {
         this.kindSelected = kind;
-        jpnItem.setBackground(new Color(0));
-        jlbItem.setBackground(new Color(0));
+        setDefaultColor();
+        jpnItem.setBackground(new Color(85,65,118));
         JPanel view = new  JPanel();
         switch(kind) {
                 case "TrangChu":
@@ -76,19 +76,13 @@ public class MainController {
     public void setEvent(List<DanhMucBean> listDanhMuc) {
         this.listDanhMuc = listDanhMuc;
         this.listDanhMuc.forEach((item) -> {
-            item.getJlb().addMouseListener(new LabelEvent(this.jfrMain, item.getKind(), item.getJpn(), item.getJlb()));
+            item.getJpn().addMouseListener(new LabelEvent(this.jfrMain, item.getKind(), item.getJpn()));
         });
     }
     
     public void setDefaultColor() {
         this.listDanhMuc.forEach((item) -> {
-            if (item.getKind().equals("TrangChu")) {
-                item.getJlb().setBackground(new Color(0, 160, 50));
-                item.getJpn().setBackground(new Color(0, 160, 50));
-            } else {
-                item.getJlb().setBackground(new Color(102,102,102));
-                item.getJpn().setBackground(new Color(102,102,102));
-            }
+                item.getJpn().setBackground(new Color(54, 33, 99));
         });
     }
     
@@ -98,19 +92,16 @@ public class MainController {
         private JFrame jfrMain;
         private String kind;
         private JPanel jpnItem;
-        private JLabel jlbItem;
 
-        public LabelEvent(String kind, JPanel jpnItem, JLabel jlbItem) {
+        public LabelEvent(String kind, JPanel jpnItem) {
             this.kind = kind;
             this.jpnItem = jpnItem;
-            this.jlbItem = jlbItem;
         }
 
-        public LabelEvent(JFrame jfrMain, String kind, JPanel jpnItem, JLabel jlbItem) {
+        public LabelEvent(JFrame jfrMain, String kind, JPanel jpnItem) {
             this.jfrMain = jfrMain;
             this.kind = kind;
             this.jpnItem = jpnItem;
-            this.jlbItem = jlbItem;
         }
         
         @Override
@@ -147,15 +138,13 @@ public class MainController {
             root.validate();
             root.repaint();
             setDefaultColor();
-            jlbItem.setBackground(new Color(0));
-            jpnItem.setBackground(new Color(0));
+            jpnItem.setBackground(new Color(85,65,118));
         }        
 
         @Override
         public void mousePressed(MouseEvent e) {
             kindSelected = kind;
-            jlbItem.setBackground(Color.BLACK);
-            jpnItem.setBackground(Color.BLACK);
+            jpnItem.setBackground(new Color(85,65,118));
         }
 
         @Override
@@ -164,21 +153,13 @@ public class MainController {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            jlbItem.setBackground(Color.BLACK);
-            jpnItem.setBackground(Color.BLACK);
+            jpnItem.setBackground(new Color(85,65,118));
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
             if (!kind.equalsIgnoreCase(kindSelected)) {
-                if (kind.equals("TrangChu")) {
-                    jlbItem.setBackground(new Color(0, 160, 50));
-                    jpnItem.setBackground(new Color(0, 160, 50));
-                } else 
-                {
-                    jlbItem.setBackground(new Color(102,102,102));
-                    jpnItem.setBackground(new Color(102,102,102));
-                }
+                jpnItem.setBackground(new Color(54, 33, 99));
             }
         }
         
