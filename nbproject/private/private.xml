@@ -3,33 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/KhoanThuModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/DinhChinhModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ChuyenDiNoiKhacController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/ThanhVienCuaHoModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/LoginController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/MainController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Bean/KhoanTienBean.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/UserMoldel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/TachHoKhau.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/HoKhauModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/GiaDinhModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/KhaiTuModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Bean/HoKhauBean.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/TachHoKhauController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/TamVangModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/Bean/MemOfFamily.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ChuyenDiNoiKhac.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ChoosePeopleController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/services/TrangChuService.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/ChungMinhThuModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/TrangChuPanelController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ChangeListPeopleController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/TamTruModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/NhanKhauModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/NopTienModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ThemMoiController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/TieuSuModel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NewLogin.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/MainFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/KhaiTuController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NhanKhauManagePanel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/quanlynhankhau/QuanLyNhanKhau.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/LoginUI.java</file>
         </group>
     </open-files>
 </project-private>

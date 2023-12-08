@@ -73,7 +73,7 @@ public class KhoanThuManagerPanelController {
 //        });
         JScrollPane scroll = new JScrollPane();
         scroll.getViewport().add(table);
-        scroll.setPreferredSize(new Dimension(1350, 335));
+        scroll.setPreferredSize(new Dimension(1350, 400));
         tableJpn.removeAll();
         tableJpn.setLayout(new BorderLayout());
         tableJpn.add(scroll);
