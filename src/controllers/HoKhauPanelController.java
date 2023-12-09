@@ -18,21 +18,24 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import services.HoKhauService;
 import utility.TableModelHoKhau;
+import utility.ClassTableModel;
 import views.infoViews.InfoJframe;
 
 public class HoKhauPanelController {
     private List<HoKhauBean> list;
     private JTextField searchJtf;
     private JPanel tableJpn;
-    private final HoKhauService hoKhauService = new HoKhauService();
-    private final TableModelHoKhau tableModelHoKhau = new TableModelHoKhau();
+    private final HoKhauService hoKhauService;
+    private final ClassTableModel classTableModel;
     private final String COLUNMS[] = {"ID", "Mã hộ khẩu", "Họ tên chủ hộ", "Địa chỉ", "Ngày tạo"}; 
     private JFrame parentJFrame;
 
-    public HoKhauPanelController(JTextField searchJtf, JPanel tableJpn, JFrame parentJFrame) {
+        public HoKhauPanelController(JTextField searchJtf, JPanel tableJpn, JFrame parentJFrame) {
         this.searchJtf = searchJtf;
         this.tableJpn = tableJpn;
         this.parentJFrame = parentJFrame;
+        this.classTableModel = new ClassTableModel();
+        this.hoKhauService = new HoKhauService();
         this.list = hoKhauService.getListHoKhau();
         setData();
         initAction();
@@ -76,7 +79,7 @@ public class HoKhauPanelController {
     }
 
     public void setData() {
-        DefaultTableModel model = tableModelHoKhau.setTableHoKhau(list, COLUNMS);
+        DefaultTableModel model = classTableModel.setTableHoKhau(list, COLUNMS);
         
         JTable table = new JTable(model) {
             @Override
@@ -91,6 +94,9 @@ public class HoKhauPanelController {
         table.validate();
         table.repaint();
         table.setFont(new Font("Arial", Font.PLAIN, 14));
+        table.getColumnModel().getColumn(0).setMaxWidth(80);
+        table.getColumnModel().getColumn(0).setMinWidth(80);
+        table.getColumnModel().getColumn(0).setPreferredWidth(80);
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -106,6 +112,7 @@ public class HoKhauPanelController {
         
         JScrollPane scroll = new JScrollPane();
         scroll.getViewport().add(table);
+        scroll.setPreferredSize(new Dimension(1350, 400));
         tableJpn.removeAll();
         tableJpn.setLayout(new BorderLayout());
         tableJpn.add(scroll);
