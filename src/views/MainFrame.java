@@ -145,7 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        slidepane.add(nhanKhauBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, 50));
+        slidepane.add(nhanKhauBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 50));
 
         hoKhauBtn.setBackground(new java.awt.Color(85, 65, 118));
 
@@ -178,7 +178,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        slidepane.add(hoKhauBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, 50));
+        slidepane.add(hoKhauBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 280, 50));
 
         khoanThuBtn.setBackground(new java.awt.Color(85, 65, 118));
 
@@ -211,7 +211,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        slidepane.add(khoanThuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, 50));
+        slidepane.add(khoanThuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 280, 50));
 
         nopTienBtn.setBackground(new java.awt.Color(85, 65, 118));
 
@@ -244,7 +244,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        slidepane.add(nopTienBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, 50));
+        slidepane.add(nopTienBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 280, 50));
 
         thongKeBtn.setBackground(new java.awt.Color(85, 65, 118));
 
@@ -277,7 +277,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        slidepane.add(thongKeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, -1, -1));
+        slidepane.add(thongKeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 280, 50));
 
         headerText.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         headerText.setForeground(new java.awt.Color(204, 204, 204));
@@ -289,17 +289,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         bg.add(slidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 610));
 
-        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
-        infoPanel.setLayout(infoPanelLayout);
-        infoPanelLayout.setHorizontalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
-        );
-        infoPanelLayout.setVerticalGroup(
-            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
-        );
-
+        infoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         bg.add(infoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 850, 610));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
