@@ -1,66 +1,43 @@
 package controllers;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import component.Card;
+import component.Model_Card;
 import javax.swing.JLabel;
-import services.MysqlConnection;
+import javax.swing.ImageIcon;
 import services.TrangChuService;
 
 public class TrangChuPanelController {
     private TrangChuService trangChuService;
-    private JLabel tongNhanKhauLb;
-    private JLabel tongHoKhauLb;
-    private JLabel nhanKhauTamTruLb;
-    private JLabel nhanKhauTamVangLb;
-
-    public TrangChuPanelController(JLabel tongNhanKhauLb, JLabel tongHoKhau, JLabel nhanKhauTamTruLb, JLabel nhanKhauTamVangLb) {
-        this.tongNhanKhauLb = tongNhanKhauLb;
-        this.tongHoKhauLb = tongHoKhau;
-        this.nhanKhauTamTruLb = nhanKhauTamTruLb;
-        this.nhanKhauTamVangLb = nhanKhauTamVangLb;
+    private Card nhanKhau;
+    private Card hoKhau;
+    private Card tamVang;
+    private Card tamTru;
+    
+    public TrangChuPanelController(Card nhanKhau, Card hoKhau, Card tamTru, Card tamVang) {
+        this.nhanKhau = nhanKhau;
+        this.hoKhau = hoKhau;
+        this.tamTru = tamTru;
+        this.tamVang = tamVang;
         this.trangChuService = new TrangChuService();
         setData();
     }
     
     public void setData() {
-        this.tongNhanKhauLb.setText(String.valueOf(trangChuService.TongNhanKhau()));
-        this.tongHoKhauLb.setText(String.valueOf(trangChuService.TongHoKhau()));
-        this.nhanKhauTamTruLb.setText(String.valueOf(trangChuService.TongTamTru()));
-        this.nhanKhauTamVangLb.setText(String.valueOf(trangChuService.TongTamVang()));
+        this.nhanKhau.setData(new Model_Card(new ImageIcon(getClass().getResource("/Icons/tongnhankhau.png")),
+        "Tổng nhân khẩu",
+        String.valueOf(trangChuService.TongNhanKhau()),
+        "Các nhân khẩu được quản lý"));
+        this.hoKhau.setData(new Model_Card(new ImageIcon(getClass().getResource("/Icons/tonghokhau.png")),
+        "Tổng hộ khẩu",
+        String.valueOf(trangChuService.TongHoKhau()),
+        "Các hộ khẩu được quản lý"));
+        this.tamTru.setData(new Model_Card(new ImageIcon(getClass().getResource("/Icons/tongtamtru.png")),
+        "Tổng tạm trú",
+        String.valueOf(trangChuService.TongTamTru()),
+        "Các tạm trú được quản lý"));
+        this.tamVang.setData(new Model_Card(new ImageIcon(getClass().getResource("/Icons/tongtamvang.png")),
+        "Tổng tạm vắng",
+        String.valueOf(trangChuService.TongTamVang()),
+        "Các tạm vắng được quản lý"));
     }
-
-    public JLabel getTongNhanKhauLb() {
-        return tongNhanKhauLb;
-    }
-
-    public void setTongNhanKhauLb(JLabel tongNhanKhauLb) {
-        this.tongNhanKhauLb = tongNhanKhauLb;
-    }
-
-    public JLabel getTongHoKhauLb() {
-        return tongHoKhauLb;
-    }
-
-    public void setTongHoKhau(JLabel tongHoKhauLb) {
-        this.tongHoKhauLb = tongHoKhauLb;
-    }
-
-    public JLabel getNhanKhauTamTruLb() {
-        return nhanKhauTamTruLb;
-    }
-
-    public void setNhanKhauTamTruLb(JLabel nhanKhauTamTruLb) {
-        this.nhanKhauTamTruLb = nhanKhauTamTruLb;
-    }
-
-    public JLabel getNhanKhauTamVangLb() {
-        return nhanKhauTamVangLb;
-    }
-
-    public void setNhanKhauTamVangLb(JLabel nhanKhauTamVangLb) {
-        this.nhanKhauTamVangLb = nhanKhauTamVangLb;
-    }
-    
-    
 }
