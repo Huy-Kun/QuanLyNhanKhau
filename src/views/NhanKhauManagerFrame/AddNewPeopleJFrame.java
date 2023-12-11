@@ -51,19 +51,6 @@ public class AddNewPeopleJFrame extends javax.swing.JFrame {
     }
     
     public AddNewPeopleJFrame(JFrame parentJFrame) {
-        this.parentController = new NhanKhauManagerPanelController(){
-            @Override
-            public void refreshData() {
-                // do nothing
-            }
-
-            @Override
-            public void initAction() {
-                // do nothing
-            }
-            
-            
-        };
         this.parentFrame = parentJFrame;
         this.parentFrame.setEnabled(false);
         this.nhanKhauBean = new NhanKhauBean();
@@ -683,7 +670,7 @@ public class AddNewPeopleJFrame extends javax.swing.JFrame {
                 if (this.controller.addNewPeople(this.nhanKhauBean)) {
                     JOptionPane.showMessageDialog(null, "Thêm thành công!!");
                     close();
-                    parentController.refreshData();
+                    parentController.Refresh();
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
