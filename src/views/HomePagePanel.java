@@ -7,7 +7,7 @@ public class HomePagePanel extends javax.swing.JPanel {
     private TrangChuPanelController cotroller;
     public HomePagePanel() {
         initComponents();
-        this.cotroller = new TrangChuPanelController(nhanKhau, hoKhau, tamTru, tamVang);
+        this.cotroller = new TrangChuPanelController(nhanKhau, hoKhau, tamTru, tamVang, chart1, chartPie1);
     }
 
     /**
@@ -26,6 +26,10 @@ public class HomePagePanel extends javax.swing.JPanel {
         hoKhau = new component.Card();
         tamTru = new component.Card();
         tamVang = new component.Card();
+        panelBorder2 = new com.raven.swing.PanelBorder();
+        chart1 = new component.Chart();
+        panelBorder4 = new com.raven.swing.PanelBorder();
+        chartPie1 = new component.ChartPie();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(850, 610));
@@ -73,13 +77,55 @@ public class HomePagePanel extends javax.swing.JPanel {
                 .addGap(6, 6, 6))
         );
 
+        panelBorder2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
+        panelBorder2.setLayout(panelBorder2Layout);
+        panelBorder2Layout.setHorizontalGroup(
+            panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chart1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelBorder2Layout.setVerticalGroup(
+            panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(chart1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
+        );
+
+        panelBorder4.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout panelBorder4Layout = new javax.swing.GroupLayout(panelBorder4);
+        panelBorder4.setLayout(panelBorder4Layout);
+        panelBorder4Layout.setHorizontalGroup(
+            panelBorder4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chartPie1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelBorder4Layout.setVerticalGroup(
+            panelBorder4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chartPie1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelBorder2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelBorder4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel2)
                     .addComponent(panelBorder3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -91,17 +137,25 @@ public class HomePagePanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addGap(15, 15, 15)
                 .addComponent(panelBorder3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelBorder2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelBorder4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private component.Chart chart1;
+    private component.ChartPie chartPie1;
     private component.Card hoKhau;
     private javax.swing.JLabel jLabel2;
     private component.Card nhanKhau;
     private com.raven.swing.PanelBorder panelBorder1;
+    private com.raven.swing.PanelBorder panelBorder2;
     private com.raven.swing.PanelBorder panelBorder3;
+    private com.raven.swing.PanelBorder panelBorder4;
     private component.Card tamTru;
     private component.Card tamVang;
     // End of variables declaration//GEN-END:variables
