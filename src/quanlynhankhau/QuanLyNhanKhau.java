@@ -2,8 +2,6 @@ package quanlynhankhau;
 
 import java.util.Calendar;
 import javax.swing.UIManager;
-import views.NewLogin;
-import views.LoginUI;
 import views.MainFrame;
 
 public class QuanLyNhanKhau {
@@ -15,14 +13,12 @@ public class QuanLyNhanKhau {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
         }
-//        MainFrame mainFrame = new MainFrame();
-//        mainFrame.setLocationRelativeTo(null);
-//        mainFrame.setResizable(false);
-//        mainFrame.setVisible(true);
-//        LoginUI loginUI = new LoginUI();
-//        loginUI.setVisible(true); 
-        NewLogin newLogin = new NewLogin();
-        newLogin.setVisible(true);
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setResizable(false);
+        mainFrame.setVisible(true);
+//        NewLogin newLogin = new NewLogin();
+//        newLogin.setVisible(true);
     }
 
 }

@@ -9,14 +9,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import services.HoKhauService;
 
-public class HoKhauPanelController {
+public class HoKhauManagerPanelController {
 
     private JFrame parentJFrame;
     private JTable tableJpn;
     private final HoKhauService hoKhauService;
     private List<HoKhauBean> list;
 
-    public HoKhauPanelController(JFrame parentJFrame, JTable tableJpn) {
+    public HoKhauManagerPanelController(JFrame parentJFrame, JTable tableJpn) {
         this.parentJFrame = parentJFrame;
         this.tableJpn = tableJpn;
         this.hoKhauService = new HoKhauService();

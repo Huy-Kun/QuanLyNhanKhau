@@ -1,6 +1,6 @@
 package views;
 
-import controllers.HoKhauPanelController;
+import controllers.NopTienManagerPanelController;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -8,18 +8,18 @@ import component.ScrollBar;
 import java.awt.Color;
 import javax.swing.*;
 
-public class HoKhauManagePanel extends javax.swing.JPanel {
+public class NopTienPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form NopTienManagePanel
+     * Creates new form NopTienPanel
      */
     private JFrame parentFrame;
-    private HoKhauPanelController controller;
+    private NopTienManagerPanelController controller;
 
-    public HoKhauManagePanel(JFrame parentFrame) {
+    public NopTienPanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
-        this.controller = new HoKhauPanelController(parentFrame, jTable1);
+        this.controller = new NopTienManagerPanelController(parentFrame, jTable1);
         jScrollPane2.setVerticalScrollBar(new ScrollBar());
         jScrollPane2.getVerticalScrollBar().setBackground(Color.WHITE);
         jScrollPane2.getViewport().setBackground(Color.WHITE);
@@ -46,7 +46,6 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
         jTable1 = new component.Table();
         jLabel1 = new javax.swing.JLabel();
         myButton2 = new component.MyButton();
-        myButton3 = new component.MyButton();
         textFieldAnimation1 = new component.TextFieldAnimation();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -66,7 +65,7 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Mã hộ khẩu", "Chủ hộ", "Địa chỉ", "Ngày tạo"
+                "ID", "Mã hộ khẩu", "Tên khoản thu", "Số tiền thu", "Ngày nộp"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -95,17 +94,12 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Hộ khẩu");
+        jLabel1.setText("Nộp Tiền");
 
         myButton2.setForeground(new java.awt.Color(28, 95, 192));
-        myButton2.setText(" +  Thêm hộ khẩu ");
+        myButton2.setText(" +  Thêm nộp tiền");
         myButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton2.setRadius(25);
-
-        myButton3.setForeground(new java.awt.Color(28, 95, 192));
-        myButton3.setText(" Tách hộ khẩu ");
-        myButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        myButton3.setRadius(25);
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -118,8 +112,6 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(myButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -129,8 +121,7 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(myButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -180,7 +171,6 @@ public class HoKhauManagePanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private component.Table jTable1;
     private component.MyButton myButton2;
-    private component.MyButton myButton3;
     private com.raven.swing.PanelBorder panelBorder1;
     private com.raven.swing.PanelBorder panelBorder2;
     private component.TextFieldAnimation textFieldAnimation1;

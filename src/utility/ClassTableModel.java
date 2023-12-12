@@ -10,9 +10,6 @@ import models.KhoanThuModel;
 import models.NopTienModel;
 import Bean.KhoanTienBean;
 
-/**
- * class dinh nghia cac dang table co trong phan mem
- */
 public class ClassTableModel {
 
     // bang cho main frame

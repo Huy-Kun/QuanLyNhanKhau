@@ -8,13 +8,12 @@ import java.awt.event.MouseListener;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import views.HoKhauManagePanel;
-import views.HomePagePanel;
-import views.NhanKhauManagePanel;
-import views.ThongKePanel;
+import views.HoKhauPanel;
+import views.TrangChuPanel;
+import views.NhanKhauPanel;
 import views.TimKiemPanel;
-import views.KhoanThuManagePanel;
-import views.NopTienManagePanel;
+import views.KhoanThuPanel;
+import views.NopTienPanel;
 
 public class MainController {
     private JFrame jfrMain;
@@ -34,22 +33,22 @@ public class MainController {
         JPanel view = new  JPanel();
         switch(kind) {
                 case "TrangChu":
-                    view = new HomePagePanel();
+                    view = new TrangChuPanel();
                     break;
                 case "NhanKhau":
-                    view = new NhanKhauManagePanel(this.jfrMain);
+                    view = new NhanKhauPanel(this.jfrMain);
                     break;
                 case "HoKhau":
-                    view = new HoKhauManagePanel(this.jfrMain);
+                    view = new HoKhauPanel(this.jfrMain);
                     break;
                 case "TimKiem":
                     view = new TimKiemPanel(this.jfrMain);
                     break;
                 case "KhoanThu":
-                    view = new KhoanThuManagePanel(this.jfrMain);
+                    view = new KhoanThuPanel(this.jfrMain);
                     break;
                 case "NopTien":
-                    view = new NopTienManagePanel(this.jfrMain);
+                    view = new NopTienPanel(this.jfrMain);
                     break;
                 //any more
                 default:
@@ -98,22 +97,22 @@ public class MainController {
         public void mouseClicked(MouseEvent e) {
             switch(kind) {
                 case "TrangChu":
-                    view = new HomePagePanel();
+                    view = new TrangChuPanel();
                     break;
                 case "NhanKhau":
-                    view = new NhanKhauManagePanel(this.jfrMain);
+                    view = new NhanKhauPanel(this.jfrMain);
                     break;
                  case "HoKhau":
-                    view = new HoKhauManagePanel(this.jfrMain);
+                    view = new HoKhauPanel(this.jfrMain);
                     break;
                 case "TimKiem":
                     view = new TimKiemPanel(this.jfrMain);
                     break;
                 case "KhoanThu":
-                    view = new KhoanThuManagePanel(this.jfrMain);
+                    view = new KhoanThuPanel(this.jfrMain);
                     break;
                 case "NopTien":
-                    view = new NopTienManagePanel(this.jfrMain);
+                    view = new NopTienPanel(this.jfrMain);
                     break;
                 default:
                     break;

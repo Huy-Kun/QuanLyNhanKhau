@@ -1,6 +1,6 @@
 package views;
 
-import controllers.KhoanThuManagerPanelController;
+import controllers.NhanKhauManagerPanelController;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -8,18 +8,18 @@ import component.ScrollBar;
 import java.awt.Color;
 import javax.swing.*;
 
-public class KhoanThuManagePanel extends javax.swing.JPanel {
+public class NhanKhauPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form NopTienManagePanel
      */
     private JFrame parentFrame;
-    private KhoanThuManagerPanelController controller;
+    private NhanKhauManagerPanelController controller;
 
-    public KhoanThuManagePanel(JFrame parentFrame) {
+    public NhanKhauPanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
-        this.controller = new KhoanThuManagerPanelController(parentFrame, jTable1);
+        this.controller = new NhanKhauManagerPanelController(parentFrame, jTable1);
         jScrollPane2.setVerticalScrollBar(new ScrollBar());
         jScrollPane2.getVerticalScrollBar().setBackground(Color.WHITE);
         jScrollPane2.getViewport().setBackground(Color.WHITE);
@@ -46,6 +46,8 @@ public class KhoanThuManagePanel extends javax.swing.JPanel {
         jTable1 = new component.Table();
         jLabel1 = new javax.swing.JLabel();
         myButton2 = new component.MyButton();
+        myButton3 = new component.MyButton();
+        myButton4 = new component.MyButton();
         textFieldAnimation1 = new component.TextFieldAnimation();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -65,11 +67,11 @@ public class KhoanThuManagePanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Tên khoản tiền", "Số tiền", "Loại", "Số hộ đã nộp", "Tổng số tiền"
+                "ID", "Họ tên", "Ngày sinh", "Giới tính", "Địa chỉ"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -94,12 +96,22 @@ public class KhoanThuManagePanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Khoản Thu");
+        jLabel1.setText("Nhân khẩu");
 
         myButton2.setForeground(new java.awt.Color(28, 95, 192));
-        myButton2.setText(" +  Thêm khoản thu");
+        myButton2.setText(" +  Thêm hộ khẩu ");
         myButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton2.setRadius(25);
+
+        myButton3.setForeground(new java.awt.Color(28, 95, 192));
+        myButton3.setText(" +  Thêm tạm trú ");
+        myButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        myButton3.setRadius(25);
+
+        myButton4.setForeground(new java.awt.Color(28, 95, 192));
+        myButton4.setText(" +  Thêm tạm vắng ");
+        myButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        myButton4.setRadius(25);
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -112,6 +124,10 @@ public class KhoanThuManagePanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(myButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(myButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -121,7 +137,9 @@ public class KhoanThuManagePanel extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(myButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(myButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -171,6 +189,8 @@ public class KhoanThuManagePanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private component.Table jTable1;
     private component.MyButton myButton2;
+    private component.MyButton myButton3;
+    private component.MyButton myButton4;
     private com.raven.swing.PanelBorder panelBorder1;
     private com.raven.swing.PanelBorder panelBorder2;
     private component.TextFieldAnimation textFieldAnimation1;
