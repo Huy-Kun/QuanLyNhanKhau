@@ -1,15 +1,12 @@
 package controllers;
 
 import Bean.NhanKhauBean;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTable;
-import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import models.NhanKhauModel;
 import services.NhanKhauService;
-import utility.ClassTableModel;
 
 public class NhanKhauManagerPanelController {
     
@@ -55,7 +52,7 @@ public class NhanKhauManagerPanelController {
         DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
         this.listNhanKhauBeans.forEach(nhanKhau -> {
             NhanKhauModel nhanKhauModel = nhanKhau.getNhanKhauModel();
-            model.addRow(new Object[]{nhanKhauModel.getID(), nhanKhauModel.getHoTen(), nhanKhauModel.getNamSinh(), nhanKhauModel.getGioiTinh(), nhanKhauModel.getDiaChiHienNay()});
+            model.addRow(new Object[]{nhanKhauModel.getSoCCCD(), nhanKhauModel.getHoTen(), nhanKhauModel.getNgaySinh(), nhanKhauModel.getGioiTinh(), nhanKhauModel.getNoiThuongTru()});
         });
       
     }

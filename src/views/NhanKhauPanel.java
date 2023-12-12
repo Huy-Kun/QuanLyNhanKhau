@@ -7,7 +7,7 @@ import javax.swing.JScrollPane;
 import component.ScrollBar;
 import java.awt.Color;
 import javax.swing.*;
-import views.NhanKhauManagerFrame.AddNewPeopleJFrame;
+import views.NhanKhauManagerFrame.ThemNhanKhauFrame;
 import views.NhanKhauManagerFrame.DangKyTamTruJFrame;
 import views.NhanKhauManagerFrame.DangKyTamVangJFrame;
 
@@ -218,10 +218,10 @@ public class NhanKhauPanel extends javax.swing.JPanel {
 
     private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
         // TODO add your handling code here:
-        AddNewPeopleJFrame addNewPeopleJFrame = new AddNewPeopleJFrame(this.controller, this.parentFrame);
-        addNewPeopleJFrame.setLocationRelativeTo(null);
-        addNewPeopleJFrame.setResizable(false);
-        addNewPeopleJFrame.setVisible(true);
+        ThemNhanKhauFrame themNhanKhauFrame = new ThemNhanKhauFrame(this.controller, this.parentFrame);
+        themNhanKhauFrame.setLocationRelativeTo(null);
+        themNhanKhauFrame.setResizable(false);
+        themNhanKhauFrame.setVisible(true);
     }//GEN-LAST:event_myButton2ActionPerformed
 
 

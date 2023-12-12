@@ -1,32 +1,51 @@
 package models;
 
 public class ThanhVienCuaHoModel {
-    private int idNhanKhau;
-    private int idHoKhau;
+    private String cccdNhanKhau;
+    private String maHoKhau;
     private String quanHeVoiChuHo;
 
-    public int getIdNhanKhau() {
-        return idNhanKhau;
+    /**
+     * @return the cccdNhanKhau
+     */
+    public String getCccdNhanKhau() {
+        return cccdNhanKhau;
     }
 
-    public void setIdNhanKhau(int idNhanKhau) {
-        this.idNhanKhau = idNhanKhau;
+    /**
+     * @param cccdNhanKhau the cccdNhanKhau to set
+     */
+    public void setCccdNhanKhau(String cccdNhanKhau) {
+        this.cccdNhanKhau = cccdNhanKhau;
     }
 
-    public int getIdHoKhau() {
-        return idHoKhau;
+    /**
+     * @return the maHoKhau
+     */
+    public String getMaHoKhau() {
+        return maHoKhau;
     }
 
-    public void setIdHoKhau(int idHoKhau) {
-        this.idHoKhau = idHoKhau;
+    /**
+     * @param maHoKhau the maHoKhau to set
+     */
+    public void setMaHoKhau(String maHoKhau) {
+        this.maHoKhau = maHoKhau;
     }
 
+    /**
+     * @return the quanHeVoiChuHo
+     */
     public String getQuanHeVoiChuHo() {
         return quanHeVoiChuHo;
     }
 
+    /**
+     * @param quanHeVoiChuHo the quanHeVoiChuHo to set
+     */
     public void setQuanHeVoiChuHo(String quanHeVoiChuHo) {
         this.quanHeVoiChuHo = quanHeVoiChuHo;
     }
+    
     
 }

@@ -80,7 +80,7 @@ public class HoKhauBean {
                     + listNhanKhauModels.get(i).getHoTen()
                     + "</td>"
                     + "<td>"
-                    + listNhanKhauModels.get(i).getNamSinh().toString()
+                    + listNhanKhauModels.get(i).getNgaySinh().toString()
                     + "</td>"
                     + "<td>"
                     + listNhanKhauModels.get(i).getGioiTinh()

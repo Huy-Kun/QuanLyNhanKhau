@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
 import models.ChungMinhThuModel;
 import models.NhanKhauModel;
 
-public class AddNewPeopleJFrame extends javax.swing.JFrame {
+public class ThemNhanKhauFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form AddNewPeopleJFrame
+     * Creates new form ThemNhanKhauFrame
      */
     private NhanKhauManagerPanelController parentController;
     private JFrame parentFrame;
@@ -22,14 +22,14 @@ public class AddNewPeopleJFrame extends javax.swing.JFrame {
     private AddNewController controller;
 
 
-//    public AddNewPeopleJFrame() {
+//    public ThemNhanKhauFrame() {
 //        initComponents();
 //        setTitle("Thêm mới nhân khẩu");
 //        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //        controller = new AddNewController();
 //    }
 
-    public AddNewPeopleJFrame(NhanKhauManagerPanelController parentController, JFrame parentJFrame) {
+    public ThemNhanKhauFrame(NhanKhauManagerPanelController parentController, JFrame parentJFrame) {
         this.parentController = parentController;
         this.parentFrame = parentJFrame;
         this.parentFrame.setEnabled(false);
@@ -50,7 +50,7 @@ public class AddNewPeopleJFrame extends javax.swing.JFrame {
         });
     }
     
-    public AddNewPeopleJFrame(JFrame parentJFrame) {
+    public ThemNhanKhauFrame(JFrame parentJFrame) {
         this.parentFrame = parentJFrame;
         this.parentFrame.setEnabled(false);
         this.nhanKhauBean = new NhanKhauBean();

@@ -88,7 +88,7 @@ public class ChangeListPeopleController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    if (hoKhauService.checkPerson(peopleSelected.getNhanKhauModel().getID())) {
+                    if (hoKhauService.checkPerson(peopleSelected.getNhanKhauModel().getSoCCCD())) {
                         MemOfFamily temp = new MemOfFamily();
                         temp.setNhanKhau(peopleSelected);
                         String quanHeVoiChuHo = JOptionPane.showInputDialog(null, "Nhập quan hệ với chủ hộ:");

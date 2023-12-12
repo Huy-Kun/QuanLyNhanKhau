@@ -3,66 +3,78 @@ package models;
 import java.util.Date;
 
 public class TamVangModel {
-    private int ID;
-    private int idNhanKhau;
-    private String maGiayTamVang;
-    private String noiTamTru;
+    private String cccdNhanKhau;
+    private String diaChiMoi;
     private Date tuNgay;
     private Date denNgay;
     private String lyDo;
 
-    public int getID() {
-        return ID;
+    /**
+     * @return the cccdNhanKhau
+     */
+    public String getCccdNhanKhau() {
+        return cccdNhanKhau;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    /**
+     * @param cccdNhanKhau the cccdNhanKhau to set
+     */
+    public void setCccdNhanKhau(String cccdNhanKhau) {
+        this.cccdNhanKhau = cccdNhanKhau;
     }
 
-    public int getIdNhanKhau() {
-        return idNhanKhau;
+    /**
+     * @return the diaChiMoi
+     */
+    public String getDiaChiMoi() {
+        return diaChiMoi;
     }
 
-    public void setIdNhanKhau(int idNhanKhau) {
-        this.idNhanKhau = idNhanKhau;
+    /**
+     * @param diaChiMoi the diaChiMoi to set
+     */
+    public void setDiaChiMoi(String diaChiMoi) {
+        this.diaChiMoi = diaChiMoi;
     }
 
-    public String getMaGiayTamVang() {
-        return maGiayTamVang;
-    }
-
-    public void setMaGiayTamVang(String maGiayTamVang) {
-        this.maGiayTamVang = maGiayTamVang;
-    }
-
-    public String getNoiTamTru() {
-        return noiTamTru;
-    }
-
-    public void setNoiTamTru(String noiTamTru) {
-        this.noiTamTru = noiTamTru;
-    }
-
+    /**
+     * @return the tuNgay
+     */
     public Date getTuNgay() {
         return tuNgay;
     }
 
+    /**
+     * @param tuNgay the tuNgay to set
+     */
     public void setTuNgay(Date tuNgay) {
         this.tuNgay = tuNgay;
     }
 
+    /**
+     * @return the denNgay
+     */
     public Date getDenNgay() {
         return denNgay;
     }
 
+    /**
+     * @param denNgay the denNgay to set
+     */
     public void setDenNgay(Date denNgay) {
         this.denNgay = denNgay;
     }
 
+    /**
+     * @return the lyDo
+     */
     public String getLyDo() {
         return lyDo;
     }
 
+    /**
+     * @param lyDo the lyDo to set
+     */
     public void setLyDo(String lyDo) {
         this.lyDo = lyDo;
     }
