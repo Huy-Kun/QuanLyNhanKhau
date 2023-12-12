@@ -1,6 +1,7 @@
 package views;
 
 import controllers.NopTienManagerPanelController;
+import views.NopTienManagerFrame.ThemNopTien;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -100,6 +101,11 @@ public class NopTienPanel extends javax.swing.JPanel {
         myButton2.setText(" +  Thêm nộp tiền");
         myButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton2.setRadius(25);
+        myButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -163,6 +169,14 @@ public class NopTienPanel extends javax.swing.JPanel {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
+        // TODO add your handling code here:
+        ThemNopTien themNopTien = new ThemNopTien(this.parentFrame, this.controller);
+        themNopTien.setLocationRelativeTo(null);
+        themNopTien.setResizable(false);
+        themNopTien.setVisible(true);
+    }//GEN-LAST:event_myButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

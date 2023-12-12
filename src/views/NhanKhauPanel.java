@@ -7,6 +7,9 @@ import javax.swing.JScrollPane;
 import component.ScrollBar;
 import java.awt.Color;
 import javax.swing.*;
+import views.NhanKhauManagerFrame.AddNewPeopleJFrame;
+import views.NhanKhauManagerFrame.DangKyTamTruJFrame;
+import views.NhanKhauManagerFrame.DangKyTamVangJFrame;
 
 public class NhanKhauPanel extends javax.swing.JPanel {
 
@@ -99,19 +102,34 @@ public class NhanKhauPanel extends javax.swing.JPanel {
         jLabel1.setText("Nhân khẩu");
 
         myButton2.setForeground(new java.awt.Color(28, 95, 192));
-        myButton2.setText(" +  Thêm hộ khẩu ");
+        myButton2.setText(" +  Thêm nhân khẩu  ");
         myButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton2.setRadius(25);
+        myButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton2ActionPerformed(evt);
+            }
+        });
 
         myButton3.setForeground(new java.awt.Color(28, 95, 192));
-        myButton3.setText(" +  Thêm tạm trú ");
+        myButton3.setText(" +  Thêm tạm trú  ");
         myButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton3.setRadius(25);
+        myButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton3ActionPerformed(evt);
+            }
+        });
 
         myButton4.setForeground(new java.awt.Color(28, 95, 192));
-        myButton4.setText(" +  Thêm tạm vắng ");
+        myButton4.setText(" +  Thêm tạm vắng  ");
         myButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton4.setRadius(25);
+        myButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -181,6 +199,30 @@ public class NhanKhauPanel extends javax.swing.JPanel {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void myButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton4ActionPerformed
+        // TODO add your handling code here:
+        DangKyTamVangJFrame dangKyTamVangJFrame = new DangKyTamVangJFrame(this.parentFrame);
+        dangKyTamVangJFrame.setLocationRelativeTo(null);
+        dangKyTamVangJFrame.setResizable(false);
+        dangKyTamVangJFrame.setVisible(true);
+    }//GEN-LAST:event_myButton4ActionPerformed
+
+    private void myButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton3ActionPerformed
+        // TODO add your handling code here:
+        DangKyTamTruJFrame dangKyTamTruJFrame = new DangKyTamTruJFrame(this.parentFrame);
+        dangKyTamTruJFrame.setLocationRelativeTo(null);
+        dangKyTamTruJFrame.setResizable(false);
+        dangKyTamTruJFrame.setVisible(true);
+    }//GEN-LAST:event_myButton3ActionPerformed
+
+    private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
+        // TODO add your handling code here:
+        AddNewPeopleJFrame addNewPeopleJFrame = new AddNewPeopleJFrame(this.controller, this.parentFrame);
+        addNewPeopleJFrame.setLocationRelativeTo(null);
+        addNewPeopleJFrame.setResizable(false);
+        addNewPeopleJFrame.setVisible(true);
+    }//GEN-LAST:event_myButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

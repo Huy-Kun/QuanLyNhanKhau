@@ -7,6 +7,8 @@ import javax.swing.JScrollPane;
 import component.ScrollBar;
 import java.awt.Color;
 import javax.swing.*;
+import views.HoKhauManagerFrame.TachHoKhau;
+import views.HoKhauManagerFrame.ThemMoiHoKhau;
 
 public class HoKhauPanel extends javax.swing.JPanel {
 
@@ -101,11 +103,21 @@ public class HoKhauPanel extends javax.swing.JPanel {
         myButton2.setText(" +  Thêm hộ khẩu ");
         myButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton2.setRadius(25);
+        myButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton2ActionPerformed(evt);
+            }
+        });
 
         myButton3.setForeground(new java.awt.Color(28, 95, 192));
         myButton3.setText(" Tách hộ khẩu ");
         myButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myButton3.setRadius(25);
+        myButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBorder2Layout = new javax.swing.GroupLayout(panelBorder2);
         panelBorder2.setLayout(panelBorder2Layout);
@@ -172,6 +184,22 @@ public class HoKhauPanel extends javax.swing.JPanel {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void myButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton3ActionPerformed
+        // TODO add your handling code here:
+        TachHoKhau tachHoKhau = new TachHoKhau(this.parentFrame);
+        tachHoKhau.setLocationRelativeTo(null);
+        tachHoKhau.setResizable(false);
+        tachHoKhau.setVisible(true);
+    }//GEN-LAST:event_myButton3ActionPerformed
+
+    private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
+        // TODO add your handling code here:
+        ThemMoiHoKhau themMoiHoKhau = new ThemMoiHoKhau(this.parentFrame);
+        themMoiHoKhau.setLocationRelativeTo(null);
+        themMoiHoKhau.setResizable(false);
+        themMoiHoKhau.setVisible(true);
+    }//GEN-LAST:event_myButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

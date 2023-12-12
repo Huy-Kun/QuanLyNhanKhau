@@ -1,4 +1,4 @@
-package views.NopPhiManagerFrame;
+package views.NopTienManagerFrame;
 
 import controllers.NopTienManagerController.ThemNopTienController;
 import controllers.NopTienManagerPanelController;
