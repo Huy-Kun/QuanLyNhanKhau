@@ -14,13 +14,9 @@ import models.TieuSuModel;
 
 public class NhanKhauService {
     
-    /* 
-     * Ham lay ra 1 nhan khau trong db bang chung minh thu
-     * 
-     */
+ 
     public NhanKhauBean getNhanKhau(String cmt) {
         NhanKhauBean nhanKhauBean = new NhanKhauBean();  
-        // truy cap db
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
             String query = "SELECT * FROM nhan_khau INNER JOIN chung_minh_thu ON nhan_khau.ID = chung_minh_thu.idNhanKhau WHERE soCMT = " + cmt;
@@ -295,9 +291,6 @@ public class NhanKhauService {
         return list;
     }
     
-    /*
-     * Ham sử lý ngoại lệ : thông báo ra lỗi nhận được
-     */
     private void exceptionHandle(String message) {
         JOptionPane.showMessageDialog(null, message, "Warning", JOptionPane.ERROR_MESSAGE);
     }

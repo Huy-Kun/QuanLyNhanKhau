@@ -2,7 +2,7 @@ package views.NhanKhauManagerFrame;
 
 import Bean.NhanKhauBean;
 import controllers.LoginController;
-import controllers.NhanKhauManagerController.AddNewController;
+import controllers.NhanKhauManagerController.ThemNhanKhauController;
 import controllers.NhanKhauManagerPanelController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -19,46 +19,22 @@ public class ThemNhanKhauFrame extends javax.swing.JFrame {
     private NhanKhauManagerPanelController parentController;
     private JFrame parentFrame;
     private NhanKhauBean nhanKhauBean;
-    private AddNewController controller;
-
-
-//    public ThemNhanKhauFrame() {
-//        initComponents();
-//        setTitle("Thêm mới nhân khẩu");
-//        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//        controller = new AddNewController();
-//    }
+    private ThemNhanKhauController controller;
 
     public ThemNhanKhauFrame(NhanKhauManagerPanelController parentController, JFrame parentJFrame) {
         this.parentController = parentController;
+        this.nhanKhauBean = new NhanKhauBean();
+        this.controller = new ThemNhanKhauController();
         this.parentFrame = parentJFrame;
         this.parentFrame.setEnabled(false);
-        this.nhanKhauBean = new NhanKhauBean();
         initComponents();
+        InitAction();
         setTitle("Thêm mới nhân khẩu");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        controller = new AddNewController();
-        
-        this.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
-                    close();
-                }
-            }
-            
-        });
     }
     
-    public ThemNhanKhauFrame(JFrame parentJFrame) {
-        this.parentFrame = parentJFrame;
-        this.parentFrame.setEnabled(false);
-        this.nhanKhauBean = new NhanKhauBean();
-        initComponents();
-        setTitle("Thêm mới nhân khẩu");
-        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        controller = new AddNewController();
-        
+    public void InitAction()
+    {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -681,39 +657,6 @@ public class ThemNhanKhauFrame extends javax.swing.JFrame {
     
     
     // check cac gia tri duoc nhap vao form
-    private boolean validateValueInForm() {
-        // check null
-        if (hoTenTxb.getText().trim().isEmpty() 
-                || nguyenQuanTxb.getText().trim().isEmpty()
-                || tonGiaoTxb.getText().trim().isEmpty()
-                || danTocTxb.getText().trim().isEmpty()
-                || quocTichTxb.getText().trim().isEmpty()
-                || soCMTTxb.getText().trim().isEmpty()
-                || noiThuongTruTxb.getText().trim().isEmpty()
-                || diaChiHienNayTxb.getText().trim().isEmpty()
-                || trinhDoHocVanTxb.getText().trim().isEmpty()
-                || trinhDoChuyenMonTxb.getText().trim().isEmpty()
-                || trinhDoNgoaiNguTxb.getText().trim().isEmpty()
-                || bietTiengDanTocTxb.getText().trim().isEmpty()
-                || ngheNghiepTxb.getText().trim().isEmpty()
-                || noiLamViecTxb.getText().trim().isEmpty()){
-            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-        // check dinh dang so chung minh thu
-        try {
-                long d = Long.parseLong(soCMTTxb.getText());
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(rootPane, "Số CMT không thể chứa các ký tự", "Warning", JOptionPane.WARNING_MESSAGE);
-                return false;
-            }
-        // kiem tra do dai cmt
-        if (soCMTTxb.getText().length() != 9 && soCMTTxb.getText().length() != 12) {
-            JOptionPane.showMessageDialog(rootPane, "Vui lòng nhập đúng định dạng CMT", "Warning", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-        return true;
-    }
     
     private void hoTenTxbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoTenTxbActionPerformed
         // TODO add your handling code here:
