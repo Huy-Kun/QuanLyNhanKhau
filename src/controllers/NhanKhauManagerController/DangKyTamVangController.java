@@ -3,48 +3,69 @@ package controllers.NhanKhauManagerController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.TamVangModel;
 import services.MysqlConnection;
 
 public class DangKyTamVangController {
     
-    public int checkCMT(String cmt) {
-        try {
-            Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT * FROM nhan_khau LEFT JOIN chung_minh_thu ON nhan_khau.ID = chung_minh_thu.idNhanKhau WHERE soCMT = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, cmt);
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next()) {
-                return rs.getInt("ID");
+    public void DangKi(String cccdNhanKhau, String diaChiMoi, Date tuNgay, Date denNgay, String lyDo)
+            throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "INSERT INTO tam_vang(cccdNhanKhau, diaChi, tuNgay, denNgay, lyDo)"
+                + " value (?, ?, ?, ?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, cccdNhanKhau);
+        preparedStatement.setString(2, diaChiMoi);
+        preparedStatement.setDate(3, new java.sql.Date(tuNgay.getTime()));
+        preparedStatement.setDate(4, new java.sql.Date(denNgay.getTime()));
+        preparedStatement.setString(5, lyDo);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
+    }
+
+    public boolean CheckCCCD(String cccd) throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "SELECT * FROM nhan_khau LEFT JOIN can_cuoc ON nhan_khau.cccdNhanKhau = can_cuoc.soCCCD WHERE soCCCD = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, cccd);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            if (!rs.getString("cccdNhanKhau").trim().isEmpty()) {
+                preparedStatement.close();
+                connection.close();
+                return true;
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Có lỗi xảy ra! vui lòng kiểm tra lại.", "Warning!!", JOptionPane.WARNING_MESSAGE);
         }
-        return -1;
+        preparedStatement.close();
+        connection.close();
+        return false;
     }
     
-    public boolean addNew(TamVangModel tamVangModel) {
-        try {
-            Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "INSERT INTO tam_vang(idNhanKhau, maGiayTamVang, noiTamTru, tuNgay, denNgay, lyDo)" + " value (?, ?, ?, ?, ?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-//            preparedStatement.setInt(1, tamVangModel.getIdNhanKhau());
-//            preparedStatement.setString(2, tamVangModel.getMaGiayTamVang());
-//            preparedStatement.setString(3, tamVangModel.getNoiTamTru());
-            java.sql.Date tuNgay = new java.sql.Date(tamVangModel.getTuNgay().getTime());
-            preparedStatement.setDate(4, tuNgay);
-            java.sql.Date denNgay = new java.sql.Date(tamVangModel.getDenNgay().getTime());
-            preparedStatement.setDate(5, denNgay);
-            preparedStatement.setString(6, tamVangModel.getLyDo());
-            preparedStatement.execute();
-            preparedStatement.close();
-            connection.close();
-            return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Có lỗi xảy ra! vui lòng kiểm tra lại.", "Warning!!", JOptionPane.WARNING_MESSAGE);
+    public boolean ValidateValue(JFrame root, String temp) {
+        if (temp.isEmpty()) {
+            JOptionPane.showMessageDialog(root, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
             return false;
         }
+        return true;
+    }
+    
+    public boolean ValidateValueForCCCD(JFrame root, String cccd) {
+        try {
+            long soCCCD = Long.parseLong(cccd);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(root, "Số CCCD không thể chứa các ký tự", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        if (cccd.length() != 12) {
+            JOptionPane.showMessageDialog(root, "Vui lòng nhập đúng định dạng căn cước công dân", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
     }
 }
