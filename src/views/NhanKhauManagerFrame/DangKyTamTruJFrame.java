@@ -293,27 +293,27 @@ public class DangKyTamTruJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBtnActionPerformed
-        if (checkCMT(soCmtJtf.getText())) {
-            int idNhanKhau = this.controller.checkCMT(soCmtJtf.getText());
-            if (idNhanKhau > 0) {
-                this.tamTruModel.setIdNhanKhau(idNhanKhau);
-                soCmtJtf.setEnabled(false);
-                checkBtn.setEnabled(false);
-                availableIcon.setEnabled(true);
-                maGiayTamTruJtf.setEnabled(true);
-                soDienThoaiJtf.setEnabled(true);
-                tuNgayDc.setEnabled(true);
-                denNgayDc.setEnabled(true);
-                lyDoTar.setEnabled(true);
-            } else {
-                if (JOptionPane.showConfirmDialog(null, "Không tìm thấy người có số CMT: " + soCmtJtf.getText() + ". Thêm mới?", "Confirm", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
-                    ThemNhanKhauFrame addNewPeopleJFrame = new ThemNhanKhauFrame(this);
-                    addNewPeopleJFrame.setLocationRelativeTo(null);
-                    addNewPeopleJFrame.setResizable(false);
-                    addNewPeopleJFrame.setVisible(true);
-                }
-            }
-        }
+//        if (checkCMT(soCmtJtf.getText())) {
+//            int idNhanKhau = this.controller.checkCMT(soCmtJtf.getText());
+//            if (idNhanKhau > 0) {
+//                this.tamTruModel.setIdNhanKhau(idNhanKhau);
+//                soCmtJtf.setEnabled(false);
+//                checkBtn.setEnabled(false);
+//                availableIcon.setEnabled(true);
+//                maGiayTamTruJtf.setEnabled(true);
+//                soDienThoaiJtf.setEnabled(true);
+//                tuNgayDc.setEnabled(true);
+//                denNgayDc.setEnabled(true);
+//                lyDoTar.setEnabled(true);
+//            } else {
+//                if (JOptionPane.showConfirmDialog(null, "Không tìm thấy người có số CMT: " + soCmtJtf.getText() + ". Thêm mới?", "Confirm", JOptionPane.YES_NO_OPTION) == JOptionPane.OK_OPTION) {
+//                    ThemNhanKhauFrame addNewPeopleJFrame = new ThemNhanKhauFrame(this);
+//                    addNewPeopleJFrame.setLocationRelativeTo(null);
+//                    addNewPeopleJFrame.setResizable(false);
+//                    addNewPeopleJFrame.setVisible(true);
+//                }
+//            }
+//        }
     }//GEN-LAST:event_checkBtnActionPerformed
 
     private void maGiayTamTruJtfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maGiayTamTruJtfActionPerformed
@@ -329,19 +329,19 @@ public class DangKyTamTruJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
-        if (validateForm()) {
-            this.tamTruModel.setMaGiayTamTru(maGiayTamTruJtf.getText().trim());
-            this.tamTruModel.setSoDienThoaiNguoiDangKy(soDienThoaiJtf.getText().trim());
-            this.tamTruModel.setTuNgay(tuNgayDc.getDate());
-            this.tamTruModel.setDenNgay(denNgayDc.getDate());
-            this.tamTruModel.setLyDo(lyDoTar.getText().trim());
-            if (this.controller.addNew(this.tamTruModel)) {
-                this.parentFrame.setEnabled(true);
-                dispose();
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!", "Warning!", JOptionPane.WARNING_MESSAGE);
-        }
+//        if (validateForm()) {
+//            this.tamTruModel.setMaGiayTamTru(maGiayTamTruJtf.getText().trim());
+//            this.tamTruModel.setSoDienThoaiNguoiDangKy(soDienThoaiJtf.getText().trim());
+//            this.tamTruModel.setTuNgay(tuNgayDc.getDate());
+//            this.tamTruModel.setDenNgay(denNgayDc.getDate());
+//            this.tamTruModel.setLyDo(lyDoTar.getText().trim());
+//            if (this.controller.addNew(this.tamTruModel)) {
+//                this.parentFrame.setEnabled(true);
+//                dispose();
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!", "Warning!", JOptionPane.WARNING_MESSAGE);
+//        }
     }//GEN-LAST:event_acceptBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

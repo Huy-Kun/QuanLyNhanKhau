@@ -78,7 +78,7 @@ public class DangKyTamVangJFrame extends javax.swing.JFrame {
             this.denNgayJdc.setEnabled(true);
             this.lyDoJta.setEnabled(true);
             
-            this.tamVangModel.setIdNhanKhau(tempID);
+            //this.tamVangModel.setIdNhanKhau(tempID);
             this.availableIcon.setEnabled(true);
             JOptionPane.showMessageDialog(this, "OK!!");
         } else {
@@ -353,8 +353,8 @@ public class DangKyTamVangJFrame extends javax.swing.JFrame {
         if (!validateForm()) {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!", "Warning!!", JOptionPane.WARNING_MESSAGE);
         } else {
-            this.tamVangModel.setMaGiayTamVang(this.maGiayTamVangJtf.getText().trim());
-            this.tamVangModel.setNoiTamTru(this.noiTamTruJtf.getText().trim());
+//            this.tamVangModel.setMaGiayTamVang(this.maGiayTamVangJtf.getText().trim());
+//            this.tamVangModel.setNoiTamTru(this.noiTamTruJtf.getText().trim());
             this.tamVangModel.setTuNgay(this.tuNgayJdc.getDate());
             this.tamVangModel.setDenNgay(this.denNgayJdc.getDate());
             this.tamVangModel.setLyDo(this.lyDoJta.getText().trim());

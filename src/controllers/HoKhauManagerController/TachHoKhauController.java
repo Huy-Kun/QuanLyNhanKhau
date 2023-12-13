@@ -102,51 +102,51 @@ public class TachHoKhauController {
         addBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                try {
-                    boolean isInHoMoi = false;
-                    for(ThanhVienCuaHoModel item : hoKhauMoi.getListThanhVienCuaHo()) {
-                        if (item.getIdNhanKhau() == thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID()) {
-                            isInHoMoi = true;
-                        }
-                    }
-                    if (isInHoMoi || hoKhauMoi.getChuHo().getID() == thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID()) {
-                        JOptionPane.showMessageDialog(null, "Nhân khẩu đã nằm trong hộ mới.");
-                    } else {
-                        String quanHeVoiChuHo = "";
-                        while (quanHeVoiChuHo.trim().isEmpty()) {                        
-                            quanHeVoiChuHo = JOptionPane.showInputDialog(null, "Nhập quan hệ với chủ hộ: ", thanhVienSeclected.getNhanKhau().getNhanKhauModel().getHoTen(), 0);
-                        }
-                        if (quanHeVoiChuHo.equalsIgnoreCase("Chủ hộ")) {
-                            chuHoMoiJtf.setText(thanhVienSeclected.getNhanKhau().getNhanKhauModel().getHoTen());
-                            hoKhauMoi.setChuHo(thanhVienSeclected.getNhanKhau().getNhanKhauModel());
-                        } else {
-                            hoKhauMoi.getListNhanKhauModels().add(thanhVienSeclected.getNhanKhau().getNhanKhauModel());
-                            ThanhVienCuaHoModel thanhVienCuaHoModel = new ThanhVienCuaHoModel();
-                            thanhVienCuaHoModel.setIdNhanKhau(thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID());
-                            thanhVienCuaHoModel.setQuanHeVoiChuHo(quanHeVoiChuHo);
-                            hoKhauMoi.getListThanhVienCuaHo().add(thanhVienCuaHoModel);
-                            setDataHoMoi();
-                        }
-                    }
-                } catch (Exception exception) {
-                }
+//                try {
+//                    boolean isInHoMoi = false;
+//                    for(ThanhVienCuaHoModel item : hoKhauMoi.getListThanhVienCuaHo()) {
+//                        if (item.getIdNhanKhau() == thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID()) {
+//                            isInHoMoi = true;
+//                        }
+//                    }
+//                    if (isInHoMoi || hoKhauMoi.getChuHo().getID() == thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID()) {
+//                        JOptionPane.showMessageDialog(null, "Nhân khẩu đã nằm trong hộ mới.");
+//                    } else {
+//                        String quanHeVoiChuHo = "";
+//                        while (quanHeVoiChuHo.trim().isEmpty()) {                        
+//                            quanHeVoiChuHo = JOptionPane.showInputDialog(null, "Nhập quan hệ với chủ hộ: ", thanhVienSeclected.getNhanKhau().getNhanKhauModel().getHoTen(), 0);
+//                        }
+//                        if (quanHeVoiChuHo.equalsIgnoreCase("Chủ hộ")) {
+//                            chuHoMoiJtf.setText(thanhVienSeclected.getNhanKhau().getNhanKhauModel().getHoTen());
+//                            hoKhauMoi.setChuHo(thanhVienSeclected.getNhanKhau().getNhanKhauModel());
+//                        } else {
+//                            hoKhauMoi.getListNhanKhauModels().add(thanhVienSeclected.getNhanKhau().getNhanKhauModel());
+//                            ThanhVienCuaHoModel thanhVienCuaHoModel = new ThanhVienCuaHoModel();
+//                            thanhVienCuaHoModel.setIdNhanKhau(thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID());
+//                            thanhVienCuaHoModel.setQuanHeVoiChuHo(quanHeVoiChuHo);
+//                            hoKhauMoi.getListThanhVienCuaHo().add(thanhVienCuaHoModel);
+//                            setDataHoMoi();
+//                        }
+//                    }
+//                } catch (Exception exception) {
+//                }
             }
         });
         
         removeBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                try {
-                    for (int i = 0; i < hoKhauMoi.getListNhanKhauModels().size(); i++) {
-                        if (hoKhauMoi.getListNhanKhauModels().get(i).getID() == thanhVienHoMoiSeclected.getNhanKhau().getNhanKhauModel().getID()) {
-                            hoKhauMoi.getListNhanKhauModels().remove(i);
-                            hoKhauMoi.getListThanhVienCuaHo().remove(i);
-                            thanhVienHoMoiSeclected = null;
-                            setDataHoMoi();
-                        }
-                    }
-                } catch (Exception exception) {
-                }
+//                try {
+//                    for (int i = 0; i < hoKhauMoi.getListNhanKhauModels().size(); i++) {
+//                        if (hoKhauMoi.getListNhanKhauModels().get(i).getID() == thanhVienHoMoiSeclected.getNhanKhau().getNhanKhauModel().getID()) {
+//                            hoKhauMoi.getListNhanKhauModels().remove(i);
+//                            hoKhauMoi.getListThanhVienCuaHo().remove(i);
+//                            thanhVienHoMoiSeclected = null;
+//                            setDataHoMoi();
+//                        }
+//                    }
+//                } catch (Exception exception) {
+//                }
             }
             
         });
@@ -154,20 +154,20 @@ public class TachHoKhauController {
         acceptBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (maKhuVucJtf.getText().trim().isEmpty() 
-                        || diaChiJtf.getText().trim().isEmpty() 
-                        || maHoKhauMoiJtf.getText().trim().isEmpty() 
-                        || chuHoMoiJtf.getText().trim().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!");
-                } else {
-                    hoKhauMoi.getHoKhauModel().setDiaChi(diaChiJtf.getText().trim());
-                    hoKhauMoi.getHoKhauModel().setMaHoKhau( maHoKhauMoiJtf.getText().trim());
-                    hoKhauMoi.getHoKhauModel().setMaKhuVuc(maKhuVucJtf.getText().trim());
-                    hoKhauService.tachHoKhau(hoKhauMoi);
-                    TachHoKhau tachHoKhau = (TachHoKhau)tachHoKhauJFrame;
-                    tachHoKhau.getParentJFrame().setEnabled(true);
-                    tachHoKhau.dispose();
-                }
+//                if (maKhuVucJtf.getText().trim().isEmpty() 
+//                        || diaChiJtf.getText().trim().isEmpty() 
+//                        || maHoKhauMoiJtf.getText().trim().isEmpty() 
+//                        || chuHoMoiJtf.getText().trim().isEmpty()) {
+//                    JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!");
+//                } else {
+//                    hoKhauMoi.getHoKhauModel().setDiaChi(diaChiJtf.getText().trim());
+//                    hoKhauMoi.getHoKhauModel().setMaHoKhau( maHoKhauMoiJtf.getText().trim());
+//                    hoKhauMoi.getHoKhauModel().setMaKhuVuc(maKhuVucJtf.getText().trim());
+//                    hoKhauService.tachHoKhau(hoKhauMoi);
+//                    TachHoKhau tachHoKhau = (TachHoKhau)tachHoKhauJFrame;
+//                    tachHoKhau.getParentJFrame().setEnabled(true);
+//                    tachHoKhau.dispose();
+//                }
             }
             
         });
@@ -191,17 +191,17 @@ public class TachHoKhauController {
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                HoKhauBean temp = listHoKhau.get(table.getSelectedRow());
-                if (e.getClickCount() > 1) {
-                    InfoJframe infoJframe = new InfoJframe(temp.toString(), tachHoKhauJFrame);
-                    infoJframe.setLocationRelativeTo(null);
-                    infoJframe.setVisible(true);
-                } else {
-                    // selected data
-                    hoKhauSelected = temp;
-                    chuHoHienTaiJtf.setText(hoKhauSelected.getChuHo().getHoTen());
-                    setDataChoose();
-                }
+//                HoKhauBean temp = listHoKhau.get(table.getSelectedRow());
+//                if (e.getClickCount() > 1) {
+//                    InfoJframe infoJframe = new InfoJframe(temp.toString(), tachHoKhauJFrame);
+//                    infoJframe.setLocationRelativeTo(null);
+//                    infoJframe.setVisible(true);
+//                } else {
+//                    // selected data
+//                    hoKhauSelected = temp;
+//                    chuHoHienTaiJtf.setText(hoKhauSelected.getChuHo().getHoTen());
+//                    setDataChoose();
+//                }
             }
             
         });

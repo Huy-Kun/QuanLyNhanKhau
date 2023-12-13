@@ -48,9 +48,9 @@ public class ThemMoiHoKhau extends javax.swing.JFrame {
     }
     
     public void setDataChuHo() {
-        this.tenChuHoJtf.setText(this.chuHo.getNhanKhauModel().getHoTen());
-        this.ngaySinhChuHoJtf.setText(this.chuHo.getNhanKhauModel().getNamSinh().toString());
-        this.soCMTChuHo.setText(this.chuHo.getChungMinhThuModel().getSoCMT());
+//        this.tenChuHoJtf.setText(this.chuHo.getNhanKhauModel().getHoTen());
+//        this.ngaySinhChuHoJtf.setText(this.chuHo.getNhanKhauModel().getNamSinh().toString());
+//        this.soCMTChuHo.setText(this.chuHo.getChungMinhThuModel().getSoCMT());
     }
 
     public void setDataThanhVien() {
@@ -392,31 +392,31 @@ public class ThemMoiHoKhau extends javax.swing.JFrame {
     }//GEN-LAST:event_editBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        if (this.maHoKhauJtf.getText().trim().isEmpty() 
-                || this.maKhuVucJtf.getText().trim().isEmpty()
-                || this.diaChiJtf.getText().trim().isEmpty()
-                || this.chuHo.getNhanKhauModel().getHoTen() == null
-                || this.list.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các thông tin bắt buộc", "Warning", JOptionPane.ERROR_MESSAGE);
-        } else {
-            this.hoKhauBean.setChuHo(chuHo.getNhanKhauModel());
-            this.list.forEach(person -> {
-                ThanhVienCuaHoModel temp = new ThanhVienCuaHoModel();
-                temp.setIdNhanKhau(person.getNhanKhau().getNhanKhauModel().getID());
-                temp.setQuanHeVoiChuHo(person.getThanhVienCuaHoModel().getQuanHeVoiChuHo());
-                this.hoKhauBean.getListThanhVienCuaHo().add(temp);
-            });
-            this.hoKhauBean.getHoKhauModel().setMaHoKhau(maHoKhauJtf.getText().trim());
-            this.hoKhauBean.getHoKhauModel().setMaKhuVuc(maKhuVucJtf.getText().trim());
-            this.hoKhauBean.getHoKhauModel().setDiaChi(diaChiJtf.getText().trim());
-            try {
-                this.controller.addNew(hoKhauBean);
-                this.parentJFrame.setEnabled(true);
-                dispose();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
+//        if (this.maHoKhauJtf.getText().trim().isEmpty() 
+//                || this.maKhuVucJtf.getText().trim().isEmpty()
+//                || this.diaChiJtf.getText().trim().isEmpty()
+//                || this.chuHo.getNhanKhauModel().getHoTen() == null
+//                || this.list.isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các thông tin bắt buộc", "Warning", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            this.hoKhauBean.setChuHo(chuHo.getNhanKhauModel());
+//            this.list.forEach(person -> {
+//                ThanhVienCuaHoModel temp = new ThanhVienCuaHoModel();
+//                temp.setIdNhanKhau(person.getNhanKhau().getNhanKhauModel().getID());
+//                temp.setQuanHeVoiChuHo(person.getThanhVienCuaHoModel().getQuanHeVoiChuHo());
+//                this.hoKhauBean.getListThanhVienCuaHo().add(temp);
+//            });
+//            this.hoKhauBean.getHoKhauModel().setMaHoKhau(maHoKhauJtf.getText().trim());
+//            this.hoKhauBean.getHoKhauModel().setMaKhuVuc(maKhuVucJtf.getText().trim());
+//            this.hoKhauBean.getHoKhauModel().setDiaChi(diaChiJtf.getText().trim());
+//            try {
+//                this.controller.addNew(hoKhauBean);
+//                this.parentJFrame.setEnabled(true);
+//                dispose();
+//            } catch (Exception e) {
+//                System.out.println(e.getMessage());
+//            }
+//        }
     }//GEN-LAST:event_saveBtnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

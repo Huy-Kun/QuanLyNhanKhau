@@ -160,17 +160,17 @@ public class ChoosePeople extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
-        if (this.nhanKhauBeanTemp.getNhanKhauModel().getHoTen() == null) {
-            Close();
-        }
-        this.nhanKhauBean.setNhanKhauModel(this.nhanKhauBeanTemp.getNhanKhauModel());
-        this.nhanKhauBean.setChungMinhThuModel(this.nhanKhauBeanTemp.getChungMinhThuModel());
-        this.nhanKhauBean.setListGiaDinhModels(this.nhanKhauBeanTemp.getListGiaDinhModels());
-        this.nhanKhauBean.setListTieuSuModels(this.nhanKhauBeanTemp.getListTieuSuModels());
-        this.parentJFrame.setEnabled(true);
-        ThemMoiHoKhau themMoiHoKhau = (ThemMoiHoKhau)this.parentJFrame;
-        themMoiHoKhau.setDataChuHo();
-        dispose();
+//        if (this.nhanKhauBeanTemp.getNhanKhauModel().getHoTen() == null) {
+//            Close();
+//        }
+//        this.nhanKhauBean.setNhanKhauModel(this.nhanKhauBeanTemp.getNhanKhauModel());
+//        this.nhanKhauBean.setChungMinhThuModel(this.nhanKhauBeanTemp.getChungMinhThuModel());
+//        this.nhanKhauBean.setListGiaDinhModels(this.nhanKhauBeanTemp.getListGiaDinhModels());
+//        this.nhanKhauBean.setListTieuSuModels(this.nhanKhauBeanTemp.getListTieuSuModels());
+//        this.parentJFrame.setEnabled(true);
+//        ThemMoiHoKhau themMoiHoKhau = (ThemMoiHoKhau)this.parentJFrame;
+//        themMoiHoKhau.setDataChuHo();
+//        dispose();
     }//GEN-LAST:event_confirmBtnActionPerformed
 
 

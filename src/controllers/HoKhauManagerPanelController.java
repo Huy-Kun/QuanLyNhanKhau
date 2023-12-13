@@ -62,14 +62,14 @@ public class HoKhauManagerPanelController {
 //    }
 
     public void setData() {
-        DefaultTableModel model = (DefaultTableModel)tableJpn.getModel();
-        this.list.forEach(hoKhauBean -> {
-            model.addRow(new Object[]{hoKhauBean.getHoKhauModel().getID(),
-            hoKhauBean.getHoKhauModel().getMaHoKhau(),
-            hoKhauBean.getChuHo().getHoTen(),
-            hoKhauBean.getHoKhauModel().getDiaChi(),
-            hoKhauBean.getHoKhauModel().getNgayLap()});
-        });
+//        DefaultTableModel model = (DefaultTableModel)tableJpn.getModel();
+//        this.list.forEach(hoKhauBean -> {
+//            model.addRow(new Object[]{hoKhauBean.getHoKhauModel().getID(),
+//            hoKhauBean.getHoKhauModel().getMaHoKhau(),
+//            hoKhauBean.getChuHo().getHoTen(),
+//            hoKhauBean.getHoKhauModel().getDiaChi(),
+//            hoKhauBean.getHoKhauModel().getNgayLap()});
+//        });
     }
     
     public void Refresh()

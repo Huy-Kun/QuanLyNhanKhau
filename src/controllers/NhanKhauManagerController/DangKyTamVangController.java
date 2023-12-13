@@ -30,9 +30,9 @@ public class DangKyTamVangController {
             Connection connection = MysqlConnection.getMysqlConnection();
             String query = "INSERT INTO tam_vang(idNhanKhau, maGiayTamVang, noiTamTru, tuNgay, denNgay, lyDo)" + " value (?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, tamVangModel.getIdNhanKhau());
-            preparedStatement.setString(2, tamVangModel.getMaGiayTamVang());
-            preparedStatement.setString(3, tamVangModel.getNoiTamTru());
+//            preparedStatement.setInt(1, tamVangModel.getIdNhanKhau());
+//            preparedStatement.setString(2, tamVangModel.getMaGiayTamVang());
+//            preparedStatement.setString(3, tamVangModel.getNoiTamTru());
             java.sql.Date tuNgay = new java.sql.Date(tamVangModel.getTuNgay().getTime());
             preparedStatement.setDate(4, tuNgay);
             java.sql.Date denNgay = new java.sql.Date(tamVangModel.getDenNgay().getTime());

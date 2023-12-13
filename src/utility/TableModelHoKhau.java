@@ -22,14 +22,14 @@ public class TableModelHoKhau {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        listItem.forEach((NhanKhauBean item) -> {  
-            obj[0] = item.getNhanKhauModel().getHoTen();
-            obj[1] = item.getNhanKhauModel().getGioiTinh();
-            obj[2] = item.getNhanKhauModel().getNamSinh();
-            obj[3] = item.getNhanKhauModel().getDiaChiHienNay();
-            obj[4] = item.getChungMinhThuModel().getSoCMT();
-            dtm.addRow(obj);
-        });
+//        listItem.forEach((NhanKhauBean item) -> {  
+//            obj[0] = item.getNhanKhauModel().getHoTen();
+//            obj[1] = item.getNhanKhauModel().getGioiTinh();
+//            obj[2] = item.getNhanKhauModel().getNamSinh();
+//            obj[3] = item.getNhanKhauModel().getDiaChiHienNay();
+//            obj[4] = item.getChungMinhThuModel().getSoCMT();
+//            dtm.addRow(obj);
+//        });
         return dtm;
     }
     
@@ -48,12 +48,12 @@ public class TableModelHoKhau {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        listItem.forEach((MemOfFamily item) -> {  
-            obj[0] = item.getNhanKhau().getNhanKhauModel().getHoTen();
-            obj[1] = item.getNhanKhau().getNhanKhauModel().getNamSinh();
-            obj[2] = item.getThanhVienCuaHoModel().getQuanHeVoiChuHo();
-            dtm.addRow(obj);
-        });
+//        listItem.forEach((MemOfFamily item) -> {  
+//            obj[0] = item.getNhanKhau().getNhanKhauModel().getHoTen();
+//            obj[1] = item.getNhanKhau().getNhanKhauModel().getNamSinh();
+//            obj[2] = item.getThanhVienCuaHoModel().getQuanHeVoiChuHo();
+//            dtm.addRow(obj);
+//        });
         return dtm;
     }
     
@@ -72,12 +72,12 @@ public class TableModelHoKhau {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        listItem.forEach((HoKhauBean item) -> {  
-            obj[0] = item.getHoKhauModel().getMaHoKhau();
-            obj[1] = item.getChuHo().getHoTen();
-            obj[2] = item.getHoKhauModel().getDiaChi();
-            dtm.addRow(obj);
-        });
+//        listItem.forEach((HoKhauBean item) -> {  
+//            obj[0] = item.getHoKhauModel().getMaHoKhau();
+//            obj[1] = item.getChuHo().getHoTen();
+//            obj[2] = item.getHoKhauModel().getDiaChi();
+//            dtm.addRow(obj);
+//        });
         return dtm;
     }
 }

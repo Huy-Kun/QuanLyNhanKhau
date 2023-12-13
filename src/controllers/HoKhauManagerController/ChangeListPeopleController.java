@@ -87,21 +87,21 @@ public class ChangeListPeopleController {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                try {
-                    if (hoKhauService.checkPerson(peopleSelected.getNhanKhauModel().getSoCCCD())) {
-                        MemOfFamily temp = new MemOfFamily();
-                        temp.setNhanKhau(peopleSelected);
-                        String quanHeVoiChuHo = JOptionPane.showInputDialog(null, "Nhập quan hệ với chủ hộ:");
-                        temp.getThanhVienCuaHoModel().setQuanHeVoiChuHo(quanHeVoiChuHo);
-                        listMember.add(temp);
-                        setData();
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Nhân khẩu đã nằm trong hộ khẩu khác!", "Warning", JOptionPane.NO_OPTION);
-                    }
-                    
-                } catch (Exception exception) {
-                    System.err.print(exception.getMessage());
-                }
+//                try {
+//                    if (hoKhauService.checkPerson(peopleSelected.getNhanKhauModel().getSoCCCD())) {
+//                        MemOfFamily temp = new MemOfFamily();
+//                        temp.setNhanKhau(peopleSelected);
+//                        String quanHeVoiChuHo = JOptionPane.showInputDialog(null, "Nhập quan hệ với chủ hộ:");
+//                        temp.getThanhVienCuaHoModel().setQuanHeVoiChuHo(quanHeVoiChuHo);
+//                        listMember.add(temp);
+//                        setData();
+//                    } else {
+//                        JOptionPane.showMessageDialog(null, "Nhân khẩu đã nằm trong hộ khẩu khác!", "Warning", JOptionPane.NO_OPTION);
+//                    }
+//                    
+//                } catch (Exception exception) {
+//                    System.err.print(exception.getMessage());
+//                }
             }
         });
         removeBtn.addMouseListener(new MouseAdapter() {

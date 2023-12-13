@@ -49,11 +49,11 @@ public class NhanKhauManagerPanelController {
 //    }
     
     public void setDataTable() {
-        DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
-        this.listNhanKhauBeans.forEach(nhanKhau -> {
-            NhanKhauModel nhanKhauModel = nhanKhau.getNhanKhauModel();
-            model.addRow(new Object[]{nhanKhauModel.getSoCCCD(), nhanKhauModel.getHoTen(), nhanKhauModel.getNgaySinh(), nhanKhauModel.getGioiTinh(), nhanKhauModel.getNoiThuongTru()});
-        });
+//        DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+//        this.listNhanKhauBeans.forEach(nhanKhau -> {
+//            NhanKhauModel nhanKhauModel = nhanKhau.getNhanKhauModel();
+//            model.addRow(new Object[]{nhanKhauModel.getSoCCCD(), nhanKhauModel.getHoTen(), nhanKhauModel.getNgaySinh(), nhanKhauModel.getGioiTinh(), nhanKhauModel.getNoiThuongTru()});
+//        });
       
     }
     

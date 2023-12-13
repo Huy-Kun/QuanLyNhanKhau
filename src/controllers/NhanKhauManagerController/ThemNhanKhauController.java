@@ -1,26 +1,26 @@
 package controllers.NhanKhauManagerController;
 
-import Bean.NhanKhauBean;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import models.ChungMinhThuModel;
-import models.NhanKhauModel;
+import javax.swing.JFrame;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import services.MysqlConnection;
 
 public class ThemNhanKhauController {
+
     public void ThemMoiNhanKhau(String soCCCD, String hoTen, Date ngaySinh, String gioiTinh, String quocTich,
             String queQuan, String noiThuongTru, Date ngayCapCCCD, String noiCapCCCD,
-            String biDanh, String danToc, String tonGiao, String ngheNghiep, String noiLamViec, Date ngayChuyenDen) 
-            throws SQLException, ClassNotFoundException{
-        
+            String biDanh, String danToc, String tonGiao, String ngheNghiep, String noiLamViec, Date ngayChuyenDen)
+            throws SQLException, ClassNotFoundException {
+
+
         Connection connection = MysqlConnection.getMysqlConnection();
-        
-        String query = "INSERT INTO nhan_khau (cccdNhanKhau, biDanh, danToc, tonGiao, ngheNghiep, noiLamViec, ngayChuyenDen)" 
-                        + " values (?, ?, ?, ?, ?, ?, ?)";
+
+        String query = "INSERT INTO nhan_khau (cccdNhanKhau, biDanh, danToc, tonGiao, ngheNghiep, noiLamViec, ngayChuyenDen)"
+                + " values (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, soCCCD);
         preparedStatement.setString(2, biDanh);
@@ -31,9 +31,9 @@ public class ThemNhanKhauController {
         preparedStatement.setDate(7, new java.sql.Date(ngayChuyenDen.getTime()));
         preparedStatement.executeUpdate();
         preparedStatement.close();
-        
-        query = query = "INSERT INTO nhan_khau (cccdNhanKhau, hoTen, ngaySinh, gioiTinh, quocTich, queQuan, noiThuongTru, ngayCapCCCD, noiCapCCCD)" 
-                        + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        query = "INSERT INTO nhan_khau (cccdNhanKhau, hoTen, ngaySinh, gioiTinh, quocTich, queQuan, noiThuongTru, ngayCapCCCD, noiCapCCCD)"
+                + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, soCCCD);
         preparedStatement.setString(2, hoTen);
@@ -46,7 +46,32 @@ public class ThemNhanKhauController {
         preparedStatement.setString(9, noiCapCCCD);
         preparedStatement.executeUpdate();
         preparedStatement.close();
-        
+
         connection.close();
+
     }
+
+    public boolean ValidateValue(JFrame root, String temp) {
+        if (temp.isEmpty()) {
+            JOptionPane.showMessageDialog(root, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean ValidateValueForCCCD(JFrame root, String cccd) {
+        try {
+            long soCCCD = Long.parseLong(cccd);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(root, "Số CCCD không thể chứa các ký tự", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        if (cccd.length() != 12) {
+            JOptionPane.showMessageDialog(root, "Vui lòng nhập đúng định dạng căn cước công dân", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
 }

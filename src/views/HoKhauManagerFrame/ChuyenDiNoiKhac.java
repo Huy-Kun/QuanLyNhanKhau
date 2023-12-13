@@ -324,13 +324,13 @@ public class ChuyenDiNoiKhac extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void confirmBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBtnActionPerformed
-        if (this.diaChiChuyenDenJtf.getText().trim().isEmpty() || this.lyDoJta.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!!", "Warning!", JOptionPane.NO_OPTION);
-        } else {
-            this.controller.getHoKhauService().chuyenDi(this.hoKhauBean.getHoKhauModel().getID(), diaChiChuyenDenJtf.getText().trim(), lyDoJta.getText().trim());
-            this.parentJFrame.setEnabled(true);
-            dispose();
-        }
+//        if (this.diaChiChuyenDenJtf.getText().trim().isEmpty() || this.lyDoJta.getText().trim().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!!", "Warning!", JOptionPane.NO_OPTION);
+//        } else {
+//            this.controller.getHoKhauService().chuyenDi(this.hoKhauBean.getHoKhauModel().getID(), diaChiChuyenDenJtf.getText().trim(), lyDoJta.getText().trim());
+//            this.parentJFrame.setEnabled(true);
+//            dispose();
+//        }
     }//GEN-LAST:event_confirmBtnActionPerformed
 
 

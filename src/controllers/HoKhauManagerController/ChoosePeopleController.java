@@ -89,15 +89,15 @@ public class ChoosePeopleController {
                     JOptionPane.showMessageDialog(null, "aa");
                 }
                 NhanKhauBean temp = list.get(table.getSelectedRow());
-                if (hoKhauService.checkPerson(temp.getNhanKhauModel().getID())) {
-                    nhanKhauBean.setNhanKhauModel(temp.getNhanKhauModel());
-                    nhanKhauBean.setChungMinhThuModel(temp.getChungMinhThuModel());
-                    nhanKhauBean.setListGiaDinhModels(temp.getListGiaDinhModels());
-                    nhanKhauBean.setListTieuSuModels(temp.getListTieuSuModels());
-                    selectedJtf.setText(nhanKhauBean.getNhanKhauModel().getHoTen());
-                } else {
-                    JOptionPane.showMessageDialog(null, "Nhân khẩu đã nằm trong hộ khẩu khác!", "Warning", JOptionPane.NO_OPTION);
-                }
+//                if (hoKhauService.checkPerson(temp.getNhanKhauModel().getID())) {
+//                    nhanKhauBean.setNhanKhauModel(temp.getNhanKhauModel());
+//                    nhanKhauBean.setChungMinhThuModel(temp.getChungMinhThuModel());
+//                    nhanKhauBean.setListGiaDinhModels(temp.getListGiaDinhModels());
+//                    nhanKhauBean.setListTieuSuModels(temp.getListTieuSuModels());
+//                    selectedJtf.setText(nhanKhauBean.getNhanKhauModel().getHoTen());
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Nhân khẩu đã nằm trong hộ khẩu khác!", "Warning", JOptionPane.NO_OPTION);
+//                }
             }
         });
         

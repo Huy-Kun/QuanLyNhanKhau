@@ -11,6 +11,9 @@ import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import org.jdesktop.animation.timing.Animator;
@@ -33,6 +36,12 @@ public class TextField extends JTextField {
 
     public void setLineColor(Color lineColor) {
         this.lineColor = lineColor;
+    }
+    
+    public Date getDate() throws ParseException {
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = (Date) df.parse(super.getText());
+        return date;
     }
 
     private final Animator animator;
@@ -100,7 +109,7 @@ public class TextField extends JTextField {
         location = 1f - location;
         animator.start();
     }
-
+    
     @Override
     public void paint(Graphics grphcs) {
         super.paint(grphcs);

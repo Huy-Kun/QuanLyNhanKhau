@@ -29,14 +29,14 @@ public class ClassTableModel {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        listItem.forEach((NhanKhauModel item) -> {
-            obj[0] = item.getID();
-            obj[1] = item.getHoTen();
-            obj[2] = item.getNamSinh();
-            obj[3] = item.getGioiTinh();
-            obj[4] = item.getDiaChiHienNay();
-            dtm.addRow(obj);
-        });
+//        listItem.forEach((NhanKhauModel item) -> {
+//            obj[0] = item.getID();
+//            obj[1] = item.getHoTen();
+//            obj[2] = item.getNamSinh();
+//            obj[3] = item.getGioiTinh();
+//            obj[4] = item.getDiaChiHienNay();
+//            dtm.addRow(obj);
+//        });
         return dtm;
     }
 
@@ -133,14 +133,14 @@ public class ClassTableModel {
         dtm.setColumnIdentifiers(listColumn);
         Object[] obj;
         obj = new Object[columns];
-        listItem.forEach((HoKhauBean item) -> {
-            obj[0] = item.getHoKhauModel().getID();
-            obj[1] = item.getHoKhauModel().getMaHoKhau();
-            obj[2] = item.getChuHo().getHoTen();
-            obj[3] = item.getHoKhauModel().getDiaChi();
-            obj[4] = item.getHoKhauModel().getNgayLap();
-            dtm.addRow(obj);
-        });
+//        listItem.forEach((HoKhauBean item) -> {
+//            obj[0] = item.getHoKhauModel().getID();
+//            obj[1] = item.getHoKhauModel().getMaHoKhau();
+//            obj[2] = item.getChuHo().getHoTen();
+//            obj[3] = item.getHoKhauModel().getDiaChi();
+//            obj[4] = item.getHoKhauModel().getNgayLap();
+//            dtm.addRow(obj);
+//        });
         return dtm;
     }
 

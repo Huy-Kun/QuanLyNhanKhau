@@ -64,7 +64,7 @@ public class HoKhauBean {
         String res = "<html> <style>p {padding: 5px; margin-left: 20px} table, th, td {border: 1px solid black; border-collapse: collapse;} table {width: 500px}</style> <div>"
                 + "<h3>Thông tin cơ bản"
                 + "<p>Mã hộ khẩu: <b>" + hoKhauModel.getMaHoKhau() + "</p>"
-                + "<p>Họ tên chủ hộ: <b>" + chuHo.getHoTen() + "</p>"
+                //+ "<p>Họ tên chủ hộ: <b>" + chuHo.getHoTen() + "</p>"
                 + "<p>Địa chỉ: <b>" + hoKhauModel.getDiaChi() + "</p>"
                 + "<p>Ngày lập: <b>" + hoKhauModel.getNgayLap().toString() + "</p>"
                 + "<h4>Danh sách thành viên<table>"
@@ -77,13 +77,13 @@ public class HoKhauBean {
         for (int i = 0; i < listNhanKhauModels.size(); i++) {
             res += "<tr>"
                     + "<td>"
-                    + listNhanKhauModels.get(i).getHoTen()
+                    //+ listNhanKhauModels.get(i).getHoTen()
                     + "</td>"
                     + "<td>"
-                    + listNhanKhauModels.get(i).getNgaySinh().toString()
+                    //+ listNhanKhauModels.get(i).getNgaySinh().toString()
                     + "</td>"
                     + "<td>"
-                    + listNhanKhauModels.get(i).getGioiTinh()
+                    //+ listNhanKhauModels.get(i).getGioiTinh()
                     + "</td>"
                     + "<td>"
                     + listThanhVienCuaHo.get(i).getQuanHeVoiChuHo()
