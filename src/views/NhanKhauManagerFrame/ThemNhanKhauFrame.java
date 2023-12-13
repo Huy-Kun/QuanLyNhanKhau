@@ -12,15 +12,13 @@ public class ThemNhanKhauFrame extends javax.swing.JFrame {
 
     private NhanKhauManagerPanelController parentController;
     private JFrame parentFrame;
-    private NhanKhauBean nhanKhauBean;
     private ThemNhanKhauController controller;
 
     public ThemNhanKhauFrame(NhanKhauManagerPanelController parentController, JFrame parentJFrame) {
-        this.parentController = parentController;
-        this.nhanKhauBean = new NhanKhauBean();
-        this.controller = new ThemNhanKhauController();
         this.parentFrame = parentJFrame;
         this.parentFrame.setEnabled(false);
+        this.parentController = parentController;
+        this.controller = new ThemNhanKhauController();
         initComponents();
         InitAction();
         setTitle("Thêm mới nhân khẩu");
