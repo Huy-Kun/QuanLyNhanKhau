@@ -1,7 +1,7 @@
 package views;
 
 import controllers.KhoanThuManagerPanelController;
-import views.KhoanThuManagerFrame.ThemKhoanThu;
+import views.KhoanThuManagerFrame.ThemKhoanThuJFrame;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -172,10 +172,10 @@ public class KhoanThuPanel extends javax.swing.JPanel {
 
     private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
         // TODO add your handling code here:
-        ThemKhoanThu themKhoanThu = new ThemKhoanThu(this.parentFrame, this.controller);
-        themKhoanThu.setLocationRelativeTo(null);
-        themKhoanThu.setResizable(false);
-        themKhoanThu.setVisible(true);
+        ThemKhoanThuJFrame themKhoanThuJFrame = new ThemKhoanThuJFrame(this.parentFrame, this.controller);
+        themKhoanThuJFrame.setLocationRelativeTo(null);
+        themKhoanThuJFrame.setResizable(false);
+        themKhoanThuJFrame.setVisible(true);
     }//GEN-LAST:event_myButton2ActionPerformed
 
 

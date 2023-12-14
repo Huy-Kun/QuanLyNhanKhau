@@ -1,7 +1,7 @@
 package views;
 
 import controllers.NopTienManagerPanelController;
-import views.NopTienManagerFrame.ThemNopTien;
+import views.NopTienManagerFrame.ThemNopTienJFrame;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -172,10 +172,10 @@ public class NopTienPanel extends javax.swing.JPanel {
 
     private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
         // TODO add your handling code here:
-        ThemNopTien themNopTien = new ThemNopTien(this.parentFrame, this.controller);
-        themNopTien.setLocationRelativeTo(null);
-        themNopTien.setResizable(false);
-        themNopTien.setVisible(true);
+        ThemNopTienJFrame themNopTienJFrame = new ThemNopTienJFrame(this.parentFrame, this.controller);
+        themNopTienJFrame.setLocationRelativeTo(null);
+        themNopTienJFrame.setResizable(false);
+        themNopTienJFrame.setVisible(true);
     }//GEN-LAST:event_myButton2ActionPerformed
 
 
