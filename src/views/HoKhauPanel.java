@@ -8,7 +8,7 @@ import component.ScrollBar;
 import java.awt.Color;
 import javax.swing.*;
 import views.HoKhauManagerFrame.TachHoKhau;
-import views.HoKhauManagerFrame.ThemMoiHoKhau;
+import views.HoKhauManagerFrame.ThemHoKhauJFrame;
 
 public class HoKhauPanel extends javax.swing.JPanel {
 
@@ -195,10 +195,10 @@ public class HoKhauPanel extends javax.swing.JPanel {
 
     private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
         // TODO add your handling code here:
-        ThemMoiHoKhau themMoiHoKhau = new ThemMoiHoKhau(this.parentFrame);
-        themMoiHoKhau.setLocationRelativeTo(null);
-        themMoiHoKhau.setResizable(false);
-        themMoiHoKhau.setVisible(true);
+        ThemHoKhauJFrame themHoKhauJFrame = new ThemHoKhauJFrame(this.parentFrame);
+        themHoKhauJFrame.setLocationRelativeTo(null);
+        themHoKhauJFrame.setResizable(false);
+        themHoKhauJFrame.setVisible(true);
     }//GEN-LAST:event_myButton2ActionPerformed
 
 

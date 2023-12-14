@@ -7,7 +7,7 @@ import javax.swing.JScrollPane;
 import component.ScrollBar;
 import java.awt.Color;
 import javax.swing.*;
-import views.NhanKhauManagerFrame.ThemNhanKhauFrame;
+import views.NhanKhauManagerFrame.ThemNhanKhauJFrame;
 import views.NhanKhauManagerFrame.DangKyTamTruJFrame;
 import views.NhanKhauManagerFrame.DangKyTamVangJFrame;
 
@@ -67,20 +67,12 @@ public class NhanKhauPanel extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null}
             },
             new String [] {
                 "ID", "Họ tên", "Ngày sinh", "Giới tính", "Địa chỉ"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
@@ -218,7 +210,7 @@ public class NhanKhauPanel extends javax.swing.JPanel {
 
     private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
         // TODO add your handling code here:
-        ThemNhanKhauFrame themNhanKhauFrame = new ThemNhanKhauFrame(this.controller, this.parentFrame);
+        ThemNhanKhauJFrame themNhanKhauFrame = new ThemNhanKhauJFrame(this.controller, this.parentFrame);
         themNhanKhauFrame.setLocationRelativeTo(null);
         themNhanKhauFrame.setResizable(false);
         themNhanKhauFrame.setVisible(true);

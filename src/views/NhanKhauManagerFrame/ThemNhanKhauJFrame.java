@@ -8,13 +8,13 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class ThemNhanKhauFrame extends javax.swing.JFrame {
+public class ThemNhanKhauJFrame extends javax.swing.JFrame {
 
     private NhanKhauManagerPanelController parentController;
     private JFrame parentFrame;
     private ThemNhanKhauController controller;
 
-    public ThemNhanKhauFrame(NhanKhauManagerPanelController parentController, JFrame parentJFrame) {
+    public ThemNhanKhauJFrame(NhanKhauManagerPanelController parentController, JFrame parentJFrame) {
         this.parentFrame = parentJFrame;
         this.parentFrame.setEnabled(false);
         this.parentController = parentController;
