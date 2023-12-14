@@ -1,42 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 import java.util.Date;
 
 public class NopTienModel {
-    private int ID;
-    private int maHoKhau;
+    private String maHoKhau;
     private String tenKhoanThu;
-    private int soTienThu;
+    private int soTienNop;
     private Date ngayNop;
-
-    /**
-     * @return the ID
-     */
-    public int getID() {
-        return ID;
-    }
-
-    /**
-     * @param ID the ID to set
-     */
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     /**
      * @return the maHoKhau
      */
-    public int getMaHoKhau() {
+    public String getMaHoKhau() {
         return maHoKhau;
     }
 
     /**
      * @param maHoKhau the maHoKhau to set
      */
-    public void setMaHoKhau(int maHoKhau) {
+    public void setMaHoKhau(String maHoKhau) {
         this.maHoKhau = maHoKhau;
     }
 
@@ -55,17 +36,17 @@ public class NopTienModel {
     }
 
     /**
-     * @return the soTienThu
+     * @return the soTienNop
      */
-    public int getSoTienThu() {
-        return soTienThu;
+    public int getSoTienNop() {
+        return soTienNop;
     }
 
     /**
-     * @param soTienThu the soTienThu to set
+     * @param soTienNop the soTienNop to set
      */
-    public void setSoTienThu(int soTienThu) {
-        this.soTienThu = soTienThu;
+    public void setSoTienNop(int soTienNop) {
+        this.soTienNop = soTienNop;
     }
 
     /**
@@ -81,4 +62,6 @@ public class NopTienModel {
     public void setNgayNop(Date ngayNop) {
         this.ngayNop = ngayNop;
     }
+
+    
 }

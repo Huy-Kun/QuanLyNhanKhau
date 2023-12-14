@@ -66,7 +66,7 @@ public class KhoanThuPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Tên khoản tiền", "Số tiền", "Loại", "Số hộ đã nộp", "Tổng số tiền"
+                "Mã khoản thu", "Tên khoản thu", "Loại khoản thu", "Số tiền", "Số hộ đã nộp", "Tổng số tiền"
             }
         ) {
             boolean[] canEdit = new boolean [] {

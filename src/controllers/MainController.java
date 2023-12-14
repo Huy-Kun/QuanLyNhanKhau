@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import views.HoKhauPanel;
 import views.TrangChuPanel;
 import views.NhanKhauPanel;
-import views.TimKiemPanel;
 import views.KhoanThuPanel;
 import views.NopTienPanel;
 
@@ -40,9 +39,6 @@ public class MainController {
                     break;
                 case "HoKhau":
                     view = new HoKhauPanel(this.jfrMain);
-                    break;
-                case "TimKiem":
-                    view = new TimKiemPanel(this.jfrMain);
                     break;
                 case "KhoanThu":
                     view = new KhoanThuPanel(this.jfrMain);
@@ -104,9 +100,6 @@ public class MainController {
                     break;
                  case "HoKhau":
                     view = new HoKhauPanel(this.jfrMain);
-                    break;
-                case "TimKiem":
-                    view = new TimKiemPanel(this.jfrMain);
                     break;
                 case "KhoanThu":
                     view = new KhoanThuPanel(this.jfrMain);

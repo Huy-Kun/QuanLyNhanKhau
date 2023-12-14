@@ -6,7 +6,7 @@ public class HoKhauModel {
     private String maHoKhau;
     private String cccdChuHo;
     private String diaChi;
-    private Date ngayLap;
+    private Date ngayTao;
 
     /**
      * @return the maHoKhau
@@ -53,15 +53,15 @@ public class HoKhauModel {
     /**
      * @return the ngayLap
      */
-    public Date getNgayLap() {
-        return ngayLap;
+    public Date getNgayTao() {
+        return ngayTao;
     }
 
     /**
      * @param ngayLap the ngayLap to set
      */
-    public void setNgayLap(Date ngayLap) {
-        this.ngayLap = ngayLap;
+    public void setNgayTao(Date ngayTao) {
+        this.ngayTao = ngayTao;
     }
     
     

@@ -35,7 +35,7 @@ public class NopTienManagerPanelController {
     {
         DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
         this.listThuTienModel.forEach(thuTienModel -> {
-            model.addRow(new Object[]{thuTienModel.getID(), thuTienModel.getMaHoKhau(), thuTienModel.getTenKhoanThu(), thuTienModel.getSoTienThu(), thuTienModel.getNgayNop()});
+            model.addRow(new Object[]{thuTienModel.getMaHoKhau(), thuTienModel.getTenKhoanThu(), thuTienModel.getSoTienNop(), thuTienModel.getNgayNop()});
         });
     }
     public void Refresh()

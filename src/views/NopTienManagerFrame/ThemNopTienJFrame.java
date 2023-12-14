@@ -54,20 +54,20 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         BG = new javax.swing.JPanel();
-        txtMaHo = new component.TextField();
+        txtMaHoKhau = new component.TextField();
         txtTenChuHo = new component.TextField();
         txtSoTienNop = new component.TextField();
         jLabel1 = new javax.swing.JLabel();
         btnThem = new component.MyButton();
-        ccbLoaiKhoanThu = new component.Combobox();
+        ccbTenKhoanThu = new component.Combobox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtMaHo.setBackground(new java.awt.Color(255, 255, 255));
-        txtMaHo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtMaHo.setLabelText("Mã hộ");
+        txtMaHoKhau.setBackground(new java.awt.Color(255, 255, 255));
+        txtMaHoKhau.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtMaHoKhau.setLabelText("Mã hộ khẩu");
 
         txtTenChuHo.setBackground(new java.awt.Color(255, 255, 255));
         txtTenChuHo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -92,7 +92,7 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
             }
         });
 
-        ccbLoaiKhoanThu.setLabeText("Loại khoản thu");
+        ccbTenKhoanThu.setLabeText("Chọn khoản thu");
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
@@ -106,12 +106,12 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
                     .addGroup(BGLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ccbLoaiKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ccbTenKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                 .addComponent(txtSoTienNop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtTenChuHo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtMaHo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(txtMaHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         BGLayout.setVerticalGroup(
@@ -120,11 +120,11 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(45, 45, 45)
-                .addComponent(txtMaHo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtMaHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(txtTenChuHo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(ccbLoaiKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ccbTenKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(txtSoTienNop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -154,9 +154,9 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private component.MyButton btnThem;
-    private component.Combobox ccbLoaiKhoanThu;
+    private component.Combobox ccbTenKhoanThu;
     private javax.swing.JLabel jLabel1;
-    private component.TextField txtMaHo;
+    private component.TextField txtMaHoKhau;
     private component.TextField txtSoTienNop;
     private component.TextField txtTenChuHo;
     // End of variables declaration//GEN-END:variables

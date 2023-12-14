@@ -8,7 +8,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import models.KhoanThuModel;
 import models.NopTienModel;
-import Bean.KhoanTienBean;
 
 public class NopTienService {
 
@@ -37,13 +36,12 @@ public class NopTienService {
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                NopTienModel thuTienModel = new NopTienModel();
-                thuTienModel.setID(rs.getInt("ID"));
-                thuTienModel.setMaHoKhau(rs.getInt("maHoKhau"));
-                thuTienModel.setTenKhoanThu(rs.getString("tenKhoanThu"));
-                thuTienModel.setSoTienThu(rs.getInt("soTienThu"));
-                thuTienModel.setNgayNop(rs.getDate("ngayNop"));
-                list.add(thuTienModel);
+                NopTienModel nopTienModel = new NopTienModel();
+                nopTienModel.setMaHoKhau(rs.getString("maHoKhau"));
+                nopTienModel.setTenKhoanThu(rs.getString("tenKhoanThu"));
+                nopTienModel.setSoTienNop(rs.getInt("soTienNop"));
+                nopTienModel.setNgayNop(rs.getDate("ngayNop"));
+                list.add(nopTienModel);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

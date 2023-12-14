@@ -1,27 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 
 public class KhoanThuModel {
-    private int ID;
+    private String maKhoanThu;
     private String tenKhoanThu;
-    private int soTien;
     private String loaiKhoanThu;
+    private int soTien;
 
     /**
-     * @return the ID
+     * @return the maKhoanThu
      */
-    public int getID() {
-        return ID;
+    public String getMaKhoanThu() {
+        return maKhoanThu;
     }
 
     /**
-     * @param ID the ID to set
+     * @param maKhoanThu the maKhoanThu to set
      */
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setMaKhoanThu(String maKhoanThu) {
+        this.maKhoanThu = maKhoanThu;
     }
 
     /**
@@ -39,20 +35,6 @@ public class KhoanThuModel {
     }
 
     /**
-     * @return the soTien
-     */
-    public int getSoTien() {
-        return soTien;
-    }
-
-    /**
-     * @param soTien the soTien to set
-     */
-    public void setSoTien(int soTien) {
-        this.soTien = soTien;
-    }
-
-    /**
      * @return the loaiKhoanThu
      */
     public String getLoaiKhoanThu() {
@@ -65,6 +47,18 @@ public class KhoanThuModel {
     public void setLoaiKhoanThu(String loaiKhoanThu) {
         this.loaiKhoanThu = loaiKhoanThu;
     }
-    
-    
+
+    /**
+     * @return the soTien
+     */
+    public int getSoTien() {
+        return soTien;
+    }
+
+    /**
+     * @param soTien the soTien to set
+     */
+    public void setSoTien(int soTien) {
+        this.soTien = soTien;
+    }
 }

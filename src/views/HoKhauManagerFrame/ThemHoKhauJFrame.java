@@ -1,7 +1,5 @@
 package views.HoKhauManagerFrame;
 
-import Bean.MemOfFamily;
-import Bean.NhanKhauBean;
 import component.ScrollBar;
 import controllers.HoKhauManagerController.ThemMoiController;
 import java.awt.Color;
@@ -19,8 +17,6 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;
     private ThemMoiController controller;
-    private List<MemOfFamily> list;
-    private NhanKhauBean chuHo;
 
     public ThemHoKhauJFrame() {
     }
@@ -29,7 +25,6 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         this.parentFrame = parentFrame;
         this.parentFrame.setEnabled(false);
         this.controller = new ThemMoiController();
-        this.list = new ArrayList<>();
         initComponents();
         InitAction();
         setTitle("Thêm hộ khẩu");
@@ -244,18 +239,10 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonChuHoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonChuHoActionPerformed
         // TODO add your handling code here:
-        ChoosePeople choosePeople = new ChoosePeople(this.chuHo, this);
-        choosePeople.setLocationRelativeTo(null);
-        choosePeople.setResizable(false);
-        choosePeople.setVisible(true);
     }//GEN-LAST:event_btnChonChuHoActionPerformed
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed
         // TODO add your handling code here:
-        ChangeListPeopleJframe changeListPeopleJframe = new ChangeListPeopleJframe(list, this);
-        changeListPeopleJframe.setLocationRelativeTo(null);
-        changeListPeopleJframe.setResizable(false);
-        changeListPeopleJframe.setVisible(true);
     }//GEN-LAST:event_btnThemThanhVienActionPerformed
 
 

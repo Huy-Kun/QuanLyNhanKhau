@@ -1,12 +1,8 @@
 package controllers;
 
-import Bean.HoKhauBean;
-import models.HoKhauModel;
-import models.NhanKhauModel;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import services.HoKhauService;
 
 public class HoKhauManagerPanelController {
@@ -14,7 +10,6 @@ public class HoKhauManagerPanelController {
     private JFrame parentJFrame;
     private JTable tableJpn;
     private final HoKhauService hoKhauService;
-    private List<HoKhauBean> list;
 
     public HoKhauManagerPanelController(JFrame parentJFrame, JTable tableJpn) {
         this.parentJFrame = parentJFrame;
@@ -62,19 +57,10 @@ public class HoKhauManagerPanelController {
 //    }
 
     public void setData() {
-//        DefaultTableModel model = (DefaultTableModel)tableJpn.getModel();
-//        this.list.forEach(hoKhauBean -> {
-//            model.addRow(new Object[]{hoKhauBean.getHoKhauModel().getID(),
-//            hoKhauBean.getHoKhauModel().getMaHoKhau(),
-//            hoKhauBean.getChuHo().getHoTen(),
-//            hoKhauBean.getHoKhauModel().getDiaChi(),
-//            hoKhauBean.getHoKhauModel().getNgayLap()});
-//        });
     }
     
     public void Refresh()
     {
-        this.list = hoKhauService.getListHoKhau();
         setData();
     }
 }

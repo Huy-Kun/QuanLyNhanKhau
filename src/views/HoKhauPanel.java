@@ -68,11 +68,11 @@ public class HoKhauPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Mã hộ khẩu", "Chủ hộ", "Địa chỉ", "Ngày tạo"
+                "Mã hộ khẩu", "Chủ hộ", "Địa chỉ", "Ngày tạo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

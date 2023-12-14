@@ -66,11 +66,11 @@ public class NopTienPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Mã hộ khẩu", "Tên khoản thu", "Số tiền thu", "Ngày nộp"
+                "Mã hộ khẩu", "Tên khoản thu", "Số tiền nộp", "Ngày nộp"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

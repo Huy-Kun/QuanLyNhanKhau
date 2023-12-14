@@ -67,11 +67,11 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
 
         txtMaKhoanTien.setBackground(new java.awt.Color(255, 255, 255));
         txtMaKhoanTien.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtMaKhoanTien.setLabelText("Mã khoản tiền");
+        txtMaKhoanTien.setLabelText("Mã khoản thu");
 
         txtTenKhoanTien.setBackground(new java.awt.Color(255, 255, 255));
         txtTenKhoanTien.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtTenKhoanTien.setLabelText("Tên khoản tiền");
+        txtTenKhoanTien.setLabelText("Tên khoản thu");
 
         txtSoTien.setBackground(new java.awt.Color(255, 255, 255));
         txtSoTien.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -93,7 +93,7 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
         });
 
         ccbLoaiKhoanTien.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Bắt buộc", "Tự nguyện", " " }));
-        ccbLoaiKhoanTien.setLabeText("Loại khoản tiền");
+        ccbLoaiKhoanTien.setLabeText("Loại khoản thu");
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);

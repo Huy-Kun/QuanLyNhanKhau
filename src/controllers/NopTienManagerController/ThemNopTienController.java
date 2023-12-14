@@ -8,15 +8,15 @@ import models.NopTienModel;
 import services.MysqlConnection;
 
 public class ThemNopTienController {
-    public boolean ThemMoiNopTien(NopTienModel thuTienModel) throws SQLException, ClassNotFoundException {
+    public boolean ThemMoiNopTien(NopTienModel nopTienModel) throws SQLException, ClassNotFoundException {
         Connection connection = MysqlConnection.getMysqlConnection();
-        String query = "INSERT INTO nop_tien (maHoKhau, tenKhoanThu, soTienThu, ngayNop)"
+        String query = "INSERT INTO nop_tien (maHoKhau, tenKhoanThu, soTienNop, ngayNop)"
                 + " values (?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setInt(1, thuTienModel.getMaHoKhau());
-        preparedStatement.setString(2, thuTienModel.getTenKhoanThu());
-        preparedStatement.setInt(3, thuTienModel.getSoTienThu());
-        java.sql.Date ngayNop = new java.sql.Date(thuTienModel.getNgayNop().getTime());
+        preparedStatement.setString(1, nopTienModel.getMaHoKhau());
+        preparedStatement.setString(2, nopTienModel.getTenKhoanThu());
+        preparedStatement.setInt(3, nopTienModel.getSoTienNop());
+        java.sql.Date ngayNop = new java.sql.Date(nopTienModel.getNgayNop().getTime());
         preparedStatement.setDate(4, ngayNop);
         preparedStatement.executeUpdate();
         preparedStatement.close();

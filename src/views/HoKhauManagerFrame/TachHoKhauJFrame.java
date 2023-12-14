@@ -1,7 +1,5 @@
 package views.HoKhauManagerFrame;
 
-import Bean.MemOfFamily;
-import Bean.NhanKhauBean;
 import component.ScrollBar;
 import controllers.HoKhauManagerController.TachHoKhauController;
 import java.awt.Color;
@@ -19,8 +17,6 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;
     private TachHoKhauController controller;
-    private List<MemOfFamily> list;
-    private NhanKhauBean chuHo;
 
     public TachHoKhauJFrame() {
     }
@@ -29,7 +25,6 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
         this.parentFrame = parentFrame;
         this.parentFrame.setEnabled(false);
         this.controller = new TachHoKhauController(parentFrame);
-        this.list = new ArrayList<>();
         initComponents();
         InitAction();
         setTitle("Tách hộ khẩu");
@@ -265,18 +260,10 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonChuHoMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonChuHoMoiActionPerformed
         // TODO add your handling code here:
-        ChoosePeople choosePeople = new ChoosePeople(this.chuHo, this);
-        choosePeople.setLocationRelativeTo(null);
-        choosePeople.setResizable(false);
-        choosePeople.setVisible(true);
     }//GEN-LAST:event_btnChonChuHoMoiActionPerformed
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed
         // TODO add your handling code here:
-        ChangeListPeopleJframe changeListPeopleJframe = new ChangeListPeopleJframe(list, this);
-        changeListPeopleJframe.setLocationRelativeTo(null);
-        changeListPeopleJframe.setResizable(false);
-        changeListPeopleJframe.setVisible(true);
     }//GEN-LAST:event_btnThemThanhVienActionPerformed
 
     private void btnChonHoKhauCanTachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonHoKhauCanTachActionPerformed

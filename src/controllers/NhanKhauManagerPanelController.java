@@ -1,6 +1,5 @@
 package controllers;
 
-import Bean.NhanKhauBean;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -13,7 +12,6 @@ public class NhanKhauManagerPanelController {
     private JFrame parentJFrame;
     private JTable tableJpn;
     private NhanKhauService nhanKhauService;
-    private List<NhanKhauBean> listNhanKhauBeans;
 
     public NhanKhauManagerPanelController(JFrame parentJFrame, JTable tableJpn) {
         this.tableJpn = tableJpn;
@@ -58,7 +56,6 @@ public class NhanKhauManagerPanelController {
     }
     
     public void Refresh() {
-        this.listNhanKhauBeans = this.nhanKhauService.getListNhanKhau();
         setDataTable();
     }
 }

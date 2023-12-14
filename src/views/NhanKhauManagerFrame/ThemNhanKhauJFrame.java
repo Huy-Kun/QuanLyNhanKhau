@@ -1,6 +1,5 @@
 package views.NhanKhauManagerFrame;
 
-import Bean.NhanKhauBean;
 import controllers.NhanKhauManagerController.ThemNhanKhauController;
 import controllers.NhanKhauManagerPanelController;
 import java.awt.event.WindowAdapter;
