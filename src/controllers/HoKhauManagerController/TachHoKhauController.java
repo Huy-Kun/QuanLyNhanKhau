@@ -25,7 +25,7 @@ import javax.swing.table.TableModel;
 import models.ThanhVienCuaHoModel;
 import services.HoKhauService;
 import utility.TableModelHoKhau;
-import views.HoKhauManagerFrame.TachHoKhau;
+import views.HoKhauManagerFrame.TachHoKhauJFrame;
 import views.infoViews.InfoJframe;
 
 public class TachHoKhauController {
