@@ -5,8 +5,6 @@ import controllers.HoKhauManagerController.TachHoKhauController;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
-import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -260,6 +258,10 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonChuHoMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonChuHoMoiActionPerformed
         // TODO add your handling code here:
+        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
+        chonNhanKhauJFrame.setLocationRelativeTo(null);
+        chonNhanKhauJFrame.setResizable(false);
+        chonNhanKhauJFrame.setVisible(true);
     }//GEN-LAST:event_btnChonChuHoMoiActionPerformed
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed
@@ -268,6 +270,10 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonHoKhauCanTachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonHoKhauCanTachActionPerformed
         // TODO add your handling code here:
+        ChonHoKhauJFrame chonHoKhauJFrame = new ChonHoKhauJFrame();
+        chonHoKhauJFrame.setLocationRelativeTo(null);
+        chonHoKhauJFrame.setResizable(false);
+        chonHoKhauJFrame.setVisible(true);
     }//GEN-LAST:event_btnChonHoKhauCanTachActionPerformed
 
 

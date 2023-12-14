@@ -5,8 +5,6 @@ import controllers.HoKhauManagerController.ThemMoiController;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
-import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -239,6 +237,10 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonChuHoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonChuHoActionPerformed
         // TODO add your handling code here:
+        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
+        chonNhanKhauJFrame.setLocationRelativeTo(null);
+        chonNhanKhauJFrame.setResizable(false);
+        chonNhanKhauJFrame.setVisible(true);
     }//GEN-LAST:event_btnChonChuHoActionPerformed
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed

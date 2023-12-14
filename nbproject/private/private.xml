@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NhanKhauManagerFrame/ThemNhanKhauFrame.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/ThemNhanKhauController.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/KhoanThuPanel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/DangKyTamTruController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/HoKhauModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ThemMoiHoKhau.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NhanKhauManagerPanelController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NhanKhauPanel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ChangeListPeopleJframe.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/models/ThanhVienCuaHoModel.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ChangeListPeopleController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauPanel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ThemHoKhauJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ChonHoKhauJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/TachHoKhauJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ChonNhanKhauJFrame.java</file>
         </group>
     </open-files>
 </project-private>
