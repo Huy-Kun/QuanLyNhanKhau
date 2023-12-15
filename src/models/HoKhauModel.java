@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class HoKhauModel {
     private String maHoKhau;
-    private String cccdChuHo;
     private String diaChi;
     private Date ngayTao;
 
@@ -20,20 +19,6 @@ public class HoKhauModel {
      */
     public void setMaHoKhau(String maHoKhau) {
         this.maHoKhau = maHoKhau;
-    }
-
-    /**
-     * @return the cccdChuHo
-     */
-    public String getCccdChuHo() {
-        return cccdChuHo;
-    }
-
-    /**
-     * @param cccdChuHo the cccdChuHo to set
-     */
-    public void setCccdChuHo(String cccdChuHo) {
-        this.cccdChuHo = cccdChuHo;
     }
 
     /**

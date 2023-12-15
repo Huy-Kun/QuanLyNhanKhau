@@ -1,23 +1,11 @@
 package models;
 
 public class ThanhVienCuaHoModel {
-    private String cccdNhanKhau;
+    private String soCCCD;
     private String maHoKhau;
     private String quanHeVoiChuHo;
 
-    /**
-     * @return the cccdNhanKhau
-     */
-    public String getCccdNhanKhau() {
-        return cccdNhanKhau;
-    }
 
-    /**
-     * @param cccdNhanKhau the cccdNhanKhau to set
-     */
-    public void setCccdNhanKhau(String cccdNhanKhau) {
-        this.cccdNhanKhau = cccdNhanKhau;
-    }
 
     /**
      * @return the maHoKhau
@@ -45,6 +33,20 @@ public class ThanhVienCuaHoModel {
      */
     public void setQuanHeVoiChuHo(String quanHeVoiChuHo) {
         this.quanHeVoiChuHo = quanHeVoiChuHo;
+    }
+
+    /**
+     * @return the soCCCD
+     */
+    public String getSoCCCD() {
+        return soCCCD;
+    }
+
+    /**
+     * @param soCCCD the soCCCD to set
+     */
+    public void setSoCCCD(String soCCCD) {
+        this.soCCCD = soCCCD;
     }
     
     

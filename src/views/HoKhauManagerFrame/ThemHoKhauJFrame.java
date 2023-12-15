@@ -1,10 +1,12 @@
 package views.HoKhauManagerFrame;
 
 import component.ScrollBar;
-import controllers.HoKhauManagerController.ThemMoiController;
+import controllers.HoKhauManagerController.ThemHoKhauController;
+import controllers.HoKhauManagerPanelController;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -14,15 +16,19 @@ import javax.swing.JScrollPane;
 public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;
-    private ThemMoiController controller;
+    private HoKhauManagerPanelController parentController;
+    private ThemHoKhauController controller;
+    
+    String soCCCDChuHo;
 
     public ThemHoKhauJFrame() {
     }
 
-    public ThemHoKhauJFrame(JFrame parentFrame) {
+    public ThemHoKhauJFrame(JFrame parentFrame, HoKhauManagerPanelController parentController) {
         this.parentFrame = parentFrame;
+        this.parentController = parentController;
         this.parentFrame.setEnabled(false);
-        this.controller = new ThemMoiController();
+        this.controller = new ThemHoKhauController();
         initComponents();
         InitAction();
         setTitle("Thêm hộ khẩu");
@@ -245,6 +251,20 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed
         // TODO add your handling code here:
+        if(!this.controller.ValidateValue(this, txtChuHo.getText())) return;
+        if(!this.controller.ValidateValue(this, txtDiaChi.getText())) return;
+        if(!this.controller.ValidateValue(this, txtMaHoKhau.getText())) return;
+        try {
+            controller.ThemMoiHoKhau(txtMaHoKhau.getText(), txtDiaChi.getText(), new Date(System.currentTimeMillis()));
+            controller.ThemMoiChuHo(soCCCDChuHo, txtMaHoKhau.getText());
+            
+            JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+            close();
+            parentController.Refresh();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnThemThanhVienActionPerformed
 
 

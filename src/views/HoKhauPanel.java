@@ -195,7 +195,7 @@ public class HoKhauPanel extends javax.swing.JPanel {
 
     private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
         // TODO add your handling code here:
-        ThemHoKhauJFrame themHoKhauJFrame = new ThemHoKhauJFrame(this.parentFrame);
+        ThemHoKhauJFrame themHoKhauJFrame = new ThemHoKhauJFrame(this.parentFrame, this.controller);
         themHoKhauJFrame.setLocationRelativeTo(null);
         themHoKhauJFrame.setResizable(false);
         themHoKhauJFrame.setVisible(true);
