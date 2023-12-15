@@ -147,7 +147,18 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        
+        if(!this.controller.ValidateValue(this, txtMaKhoanTien.getText())) return;
+        if(!this.controller.ValidateValue(this, txtSoTien.getText())) return;
+        if(!this.controller.ValidateValue(this, txtTenKhoanTien.getText())) return;
+        if(!this.controller.ValidateValue(this, ccbLoaiKhoanTien.getSelectedItem().toString())) return;
+        try {
+            JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+            close();
+            parentController.Refresh();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
