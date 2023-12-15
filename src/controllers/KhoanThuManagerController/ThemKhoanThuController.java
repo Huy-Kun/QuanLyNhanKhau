@@ -15,7 +15,7 @@ public class ThemKhoanThuController {
         String query = "INSERT INTO khoan_thu (maKhoanThu, tenKhoanThu, loaiKhoanThu, soTien)"
                 + " values (?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setString(1,maKhoanThu);
+        preparedStatement.setString(1, maKhoanThu);
         preparedStatement.setString(2, tenKhoanThu);
         preparedStatement.setString(3, loaiKhoanThu);
         preparedStatement.setInt(4, soTien);
@@ -24,10 +24,20 @@ public class ThemKhoanThuController {
         connection.close();
         return true;
     }
-    
+
     public boolean ValidateValue(JFrame root, String temp) {
         if (temp.isEmpty()) {
             JOptionPane.showMessageDialog(root, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean ValidateIntValue(JFrame root, String temp) {
+        try {
+            long intValue = Long.parseLong(temp);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(root, "Không đúng định dạng số!", "Warning", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         return true;

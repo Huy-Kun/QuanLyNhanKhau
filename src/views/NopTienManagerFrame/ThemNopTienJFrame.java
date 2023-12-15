@@ -4,6 +4,8 @@ import controllers.NopTienManagerController.ThemNopTienController;
 import controllers.NopTienManagerPanelController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import static java.lang.Integer.parseInt;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -148,6 +150,20 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
+        if(!this.controller.ValidateValue(this, txtMaHoKhau.getText())) return;
+        if(!this.controller.ValidateValue(this, txtSoTienNop.getText())) return;
+        if(!this.controller.ValidateValue(this, ccbTenKhoanThu.getSelectedItem().toString())) return;
+        if(!this.controller.ValidateIntValue(this, txtSoTienNop.getText())) return;
+        try {
+            this.controller.ThemMoiNopTien(txtMaHoKhau.getText(), ccbTenKhoanThu.getSelectedItem().toString(),
+                    parseInt(txtSoTienNop.getText()), new Date(System.currentTimeMillis()));
+            JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+            close();
+            parentController.Refresh();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
        
     }//GEN-LAST:event_btnThemActionPerformed
 

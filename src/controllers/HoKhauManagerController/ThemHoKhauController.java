@@ -10,15 +10,15 @@ import services.MysqlConnection;
 
 
 public class ThemHoKhauController {
-    public void ThemMoiHoKhau(String maHoKhau, String diaChi, Date ngaoTao)
+    public void ThemMoiHoKhau(String maHoKhau, String diaChi, Date ngayTao)
             throws SQLException, ClassNotFoundException {
         Connection connection = MysqlConnection.getMysqlConnection();
-        String query = "INSERT INTO ho_khau(maHoKhau, diaChi, ngaoTao)"
+        String query = "INSERT INTO ho_khau(maHoKhau, diaChi, ngayTao)"
                 + " value (?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, maHoKhau);
         preparedStatement.setString(2, diaChi);
-        preparedStatement.setDate(3, new java.sql.Date(ngaoTao.getTime()));
+        preparedStatement.setDate(3, new java.sql.Date(ngayTao.getTime()));
         preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();

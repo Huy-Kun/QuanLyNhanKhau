@@ -4,6 +4,7 @@ import controllers.KhoanThuManagerController.ThemKhoanThuController;
 import controllers.KhoanThuManagerPanelController;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import static java.lang.Integer.parseInt;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -54,24 +55,24 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         BG = new javax.swing.JPanel();
-        txtMaKhoanTien = new component.TextField();
-        txtTenKhoanTien = new component.TextField();
+        txtMaKhoanThu = new component.TextField();
+        txtTenKhoanThu = new component.TextField();
         txtSoTien = new component.TextField();
         jLabel1 = new javax.swing.JLabel();
         btnThem = new component.MyButton();
-        ccbLoaiKhoanTien = new component.Combobox();
+        ccbLoaiKhoanThu = new component.Combobox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtMaKhoanTien.setBackground(new java.awt.Color(255, 255, 255));
-        txtMaKhoanTien.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtMaKhoanTien.setLabelText("Mã khoản thu");
+        txtMaKhoanThu.setBackground(new java.awt.Color(255, 255, 255));
+        txtMaKhoanThu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtMaKhoanThu.setLabelText("Mã khoản thu");
 
-        txtTenKhoanTien.setBackground(new java.awt.Color(255, 255, 255));
-        txtTenKhoanTien.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        txtTenKhoanTien.setLabelText("Tên khoản thu");
+        txtTenKhoanThu.setBackground(new java.awt.Color(255, 255, 255));
+        txtTenKhoanThu.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtTenKhoanThu.setLabelText("Tên khoản thu");
 
         txtSoTien.setBackground(new java.awt.Color(255, 255, 255));
         txtSoTien.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -92,8 +93,8 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
             }
         });
 
-        ccbLoaiKhoanTien.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Bắt buộc", "Tự nguyện", " " }));
-        ccbLoaiKhoanTien.setLabeText("Loại khoản thu");
+        ccbLoaiKhoanThu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Bắt buộc", "Tự nguyện", " " }));
+        ccbLoaiKhoanThu.setLabeText("Loại khoản thu");
 
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
@@ -102,12 +103,12 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
             .addGroup(BGLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ccbLoaiKhoanTien, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ccbLoaiKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1)
                         .addComponent(txtSoTien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                        .addComponent(txtTenKhoanTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtMaKhoanTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtTenKhoanThu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtMaKhoanThu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -117,11 +118,11 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(45, 45, 45)
-                .addComponent(txtMaKhoanTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtMaKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(txtTenKhoanTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTenKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(ccbLoaiKhoanTien, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ccbLoaiKhoanThu, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(txtSoTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
@@ -147,11 +148,14 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if(!this.controller.ValidateValue(this, txtMaKhoanTien.getText())) return;
+        if(!this.controller.ValidateValue(this, txtMaKhoanThu.getText())) return;
         if(!this.controller.ValidateValue(this, txtSoTien.getText())) return;
-        if(!this.controller.ValidateValue(this, txtTenKhoanTien.getText())) return;
-        if(!this.controller.ValidateValue(this, ccbLoaiKhoanTien.getSelectedItem().toString())) return;
+        if(!this.controller.ValidateValue(this, txtTenKhoanThu.getText())) return;
+        if(!this.controller.ValidateValue(this, ccbLoaiKhoanThu.getSelectedItem().toString())) return;
+        if(!this.controller.ValidateIntValue(this, txtSoTien.getText())) return;
         try {
+            this.controller.ThemMoiKhoanThu(txtMaKhoanThu.getText(), txtTenKhoanThu.getText(),
+                    ccbLoaiKhoanThu.getSelectedItem().toString(), parseInt(txtSoTien.getText()));
             JOptionPane.showMessageDialog(null, "Thêm thành công!!");
             close();
             parentController.Refresh();
@@ -164,11 +168,11 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
     private component.MyButton btnThem;
-    private component.Combobox ccbLoaiKhoanTien;
+    private component.Combobox ccbLoaiKhoanThu;
     private javax.swing.JLabel jLabel1;
-    private component.TextField txtMaKhoanTien;
+    private component.TextField txtMaKhoanThu;
     private component.TextField txtSoTien;
-    private component.TextField txtTenKhoanTien;
+    private component.TextField txtTenKhoanThu;
     // End of variables declaration//GEN-END:variables
 
 }

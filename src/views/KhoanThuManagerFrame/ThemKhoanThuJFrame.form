@@ -49,12 +49,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ccbLoaiKhoanTien" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="ccbLoaiKhoanThu" min="-2" pref="200" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="txtSoTien" alignment="1" pref="200" max="32767" attributes="0"/>
-                          <Component id="txtTenKhoanTien" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtMaKhoanTien" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtTenKhoanThu" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtMaKhoanThu" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnThem" alignment="0" pref="200" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -68,11 +68,11 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="txtMaKhoanTien" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMaKhoanThu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="txtTenKhoanTien" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTenKhoanThu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="ccbLoaiKhoanTien" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="ccbLoaiKhoanThu" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="txtSoTien" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -83,7 +83,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="component.TextField" name="txtMaKhoanTien">
+        <Component class="component.TextField" name="txtMaKhoanThu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -94,7 +94,7 @@
             <Property name="labelText" type="java.lang.String" value="M&#xe3; kho&#x1ea3;n thu"/>
           </Properties>
         </Component>
-        <Component class="component.TextField" name="txtTenKhoanTien">
+        <Component class="component.TextField" name="txtTenKhoanThu">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -145,7 +145,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemActionPerformed"/>
           </Events>
         </Component>
-        <Component class="component.Combobox" name="ccbLoaiKhoanTien">
+        <Component class="component.Combobox" name="ccbLoaiKhoanThu">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
