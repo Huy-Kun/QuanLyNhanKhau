@@ -3,64 +3,37 @@ package controllers;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import models.CanCuocModel;
+import models.ChuHoModel;
+import models.HoKhauModel;
 import services.HoKhauService;
 
 public class HoKhauManagerPanelController {
 
     private JFrame parentJFrame;
     private JTable tableJpn;
-    private final HoKhauService hoKhauService;
+    private HoKhauService hoKhauService;
+    private List<HoKhauModel> listHoKhauModel;
 
     public HoKhauManagerPanelController(JFrame parentJFrame, JTable tableJpn) {
         this.parentJFrame = parentJFrame;
         this.tableJpn = tableJpn;
         this.hoKhauService = new HoKhauService();
         Refresh();
-        //initAction();
     }
 
-//    public void initAction() {
-//        this.searchJtf.getDocument().addDocumentListener(new DocumentListener() {
-//            @Override
-//            public void insertUpdate(DocumentEvent e) {
-//                String key = searchJtf.getText().trim();
-//                if (key.isEmpty()) {
-//                    list = hoKhauService.getListHoKhau();
-//                } else {
-//                    list = hoKhauService.search(key);
-//                }
-//                setData();
-//            }
-//
-//            @Override
-//            public void removeUpdate(DocumentEvent e) {
-//                String key = searchJtf.getText().trim();
-//                if (key.isEmpty()) {
-//                    list = hoKhauService.getListHoKhau();
-//                } else {
-//                    list = hoKhauService.search(key);
-//                }
-//                setData();
-//            }
-//
-//            @Override
-//            public void changedUpdate(DocumentEvent e) {
-//                String key = searchJtf.getText().trim();
-//                if (key.isEmpty()) {
-//                    list = hoKhauService.getListHoKhau();
-//                } else {
-//                    list = hoKhauService.search(key);
-//                }
-//                setData();
-//            }
-//        });
-//    }
-
-    public void setData() {
+    public void SetData() {
+        this.listHoKhauModel.forEach(hoKhauModel -> {
+            DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+            ChuHoModel chuHoModel = this.hoKhauService.GetChuHo(hoKhauModel.getMaHoKhau());
+            CanCuocModel canCuocChuHo = this.hoKhauService.GetCanCuoc(chuHoModel.getSoCCCD());
+            model.addRow(new Object[]{hoKhauModel.getMaHoKhau(), canCuocChuHo.getHoTen(), hoKhauModel.getDiaChi(), hoKhauModel.getNgayTao().toString()});
+        });
     }
-    
-    public void Refresh()
-    {
-        setData();
+
+    public void Refresh() {
+        this.listHoKhauModel = hoKhauService.GetListHoKhau();
+        SetData();
     }
 }

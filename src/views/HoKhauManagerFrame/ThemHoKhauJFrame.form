@@ -200,7 +200,7 @@
                           <Table columnCount="3" rowCount="4">
                             <Column editable="false" title="S&#x1ed1; CCCD" type="java.lang.Object"/>
                             <Column editable="false" title="H&#x1ecd; t&#xea;n" type="java.lang.Object"/>
-                            <Column editable="false" title="Quan h&#x1ec7; v&#x1edb;i ch&#x1ee7; h&#x1ed9;" type="java.lang.Object"/>
+                            <Column editable="true" title="Quan h&#x1ec7; v&#x1edb;i ch&#x1ee7; h&#x1ed9;" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

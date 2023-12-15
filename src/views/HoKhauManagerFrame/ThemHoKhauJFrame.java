@@ -4,14 +4,17 @@ import component.ScrollBar;
 import controllers.HoKhauManagerController.ThemHoKhauController;
 import controllers.HoKhauManagerPanelController;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
@@ -110,7 +113,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -255,13 +258,17 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateValue(this, txtDiaChi.getText())) return;
         if(!this.controller.ValidateValue(this, txtMaHoKhau.getText())) return;
         try {
-            controller.ThemMoiHoKhau(txtMaHoKhau.getText(), txtDiaChi.getText(), new Date(System.currentTimeMillis()));
-            controller.ThemMoiChuHo(soCCCDChuHo, txtMaHoKhau.getText());
-            
+            this.controller.ThemMoiHoKhau(txtMaHoKhau.getText(), txtDiaChi.getText(), new Date(System.currentTimeMillis()));
+            this.controller.ThemMoiChuHo(soCCCDChuHo, txtMaHoKhau.getText());
+            for (int i = 0; i < jTable1.getRowCount(); i++) {
+                   this.controller.ThemMoiThanhVien(jTable1.getValueAt(i, 0).toString(),
+                           jTable1.getValueAt(i, 1).toString(),
+                           jTable1.getValueAt(i, 2).toString());
+            }
             JOptionPane.showMessageDialog(null, "Thêm thành công!!");
             close();
             parentController.Refresh();
-        } catch (Exception e) {
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }

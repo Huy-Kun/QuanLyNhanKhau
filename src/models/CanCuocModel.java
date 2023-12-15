@@ -10,7 +10,7 @@ public class CanCuocModel {
     private String quocTich;
     private String queQuan;
     private String noiThuongTru;
-    private String ngayCapCCCD;
+    private Date ngayCapCCCD;
     private String noiCapCCCD;
 
     /**
@@ -114,14 +114,14 @@ public class CanCuocModel {
     /**
      * @return the ngayCapCCCD
      */
-    public String getNgayCapCCCD() {
+    public Date getNgayCapCCCD() {
         return ngayCapCCCD;
     }
 
     /**
      * @param ngayCapCCCD the ngayCapCCCD to set
      */
-    public void setNgayCapCCCD(String ngayCapCCCD) {
+    public void setNgayCapCCCD(Date ngayCapCCCD) {
         this.ngayCapCCCD = ngayCapCCCD;
     }
 
