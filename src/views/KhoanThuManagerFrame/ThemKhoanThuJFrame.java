@@ -154,6 +154,15 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateValue(this, ccbLoaiKhoanThu.getSelectedItem().toString())) return;
         if(!this.controller.ValidateIntValue(this, txtSoTien.getText())) return;
         try {
+            if (!this.controller.CheckMaKhoanThu(txtMaKhoanThu.getText())) {
+                JOptionPane.showConfirmDialog(null, "Mã khoản thu đã tổn tại!", "Confirm", JOptionPane.YES_NO_OPTION);
+                return;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        try {
             this.controller.ThemMoiKhoanThu(txtMaKhoanThu.getText(), txtTenKhoanThu.getText(),
                     ccbLoaiKhoanThu.getSelectedItem().toString(), parseInt(txtSoTien.getText()));
             JOptionPane.showMessageDialog(null, "Thêm thành công!!");

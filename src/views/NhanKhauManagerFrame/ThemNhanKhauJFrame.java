@@ -285,6 +285,15 @@ public class ThemNhanKhauJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateValue(this, txtSoCCCD.getText())) return;
         if(!this.controller.ValidateValue(this, txtTonGiao.getText())) return;
         if(!this.controller.ValidateValueForCCCD(this, txtSoCCCD.getText())) return;
+        try {
+            if (!this.controller.CheckCCCD(txtSoCCCD.getText())) {
+                JOptionPane.showConfirmDialog(null, "Số CCCD đã tổn tại!", "Confirm", JOptionPane.YES_NO_OPTION);
+                return;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
         try{
             this.controller.ThemMoiNhanKhau(txtSoCCCD.getText(), txtHoTen.getText(), textNgaySinh.getDate(),
                     ccbGioiTinh.getSelectedItem().toString(), txtQuocTich.getText(), txtQueQuan.getText(),

@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import models.TamVangModel;
 import services.MysqlConnection;
 
 public class DangKyTamVangController {

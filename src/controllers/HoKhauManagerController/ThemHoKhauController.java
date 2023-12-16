@@ -2,6 +2,7 @@ package controllers.HoKhauManagerController;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JFrame;
@@ -57,6 +58,23 @@ public class ThemHoKhauController {
             return false;
         }
         return true;
+    }
+    
+    public boolean CheckMaHoKhau(String maHoKhau) throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "SELECT * FROM ho_khau WHERE ho_khau.maHoKhau = " + maHoKhau;
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            if (!rs.getString("maHoKhau").trim().isEmpty()) {
+                preparedStatement.close();
+                connection.close();
+                return true;
+            }
+        }
+        preparedStatement.close();
+        connection.close();
+        return false;
     }
     
 }

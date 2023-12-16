@@ -258,6 +258,15 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateValue(this, txtDiaChi.getText())) return;
         if(!this.controller.ValidateValue(this, txtMaHoKhau.getText())) return;
         try {
+            if (!this.controller.CheckMaHoKhau(txtMaHoKhau.getText())) {
+                JOptionPane.showConfirmDialog(null, "Mã hộ khẩu đã tổn tại!", "Confirm", JOptionPane.YES_NO_OPTION);
+                return;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        try {
             this.controller.ThemMoiHoKhau(txtMaHoKhau.getText(), txtDiaChi.getText(), new Date(System.currentTimeMillis()));
             this.controller.ThemMoiChuHo(soCCCDChuHo, txtMaHoKhau.getText());
             for (int i = 0; i < jTable1.getRowCount(); i++) {

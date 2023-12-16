@@ -1,7 +1,10 @@
 package controllers;
 
+import java.util.List;
 import javax.swing.JTable;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import models.KhoanThuModel;
 import services.KhoanThuService;
 
 public class KhoanThuManagerPanelController {
@@ -9,6 +12,7 @@ public class KhoanThuManagerPanelController {
     private JFrame parentJFrame;
     private JTable tableJpn;
     private KhoanThuService khoanThuService;
+    private List<KhoanThuModel> listKhoanThu;
 
     public KhoanThuManagerPanelController(JFrame parentJFrame, JTable tableJpn) {
         this.parentJFrame = parentJFrame;
@@ -18,19 +22,17 @@ public class KhoanThuManagerPanelController {
     }
 
     public void SetData() {
-//        DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
-//        this.listKhoanTienBean.forEach(khoanTienBean -> {
-//            model.addRow(new Object[]{khoanTienBean.getKhoanTienModel().getID(),
-//            khoanTienBean.getKhoanTienModel().getTenKhoanThu(),
-//            khoanTienBean.getKhoanTienModel().getSoTien(),
-//            khoanTienBean.getKhoanTienModel().getLoaiKhoanThu(),
-//            khoanTienBean.getSoHoDaNop(),
-//            khoanTienBean.getTongSoTien()});
-//        });
-        
+        DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+        this.listKhoanThu.forEach(khoanThuModel -> {
+            int count = this.khoanThuService.GetTongNopTien(khoanThuModel);
+            int sum = this.khoanThuService.GetTongTienNop(khoanThuModel);
+            model.addRow(new Object[]{khoanThuModel.getMaKhoanThu(), khoanThuModel.getTenKhoanThu(), khoanThuModel.getLoaiKhoanThu(),
+                khoanThuModel.getSoTien(), count, sum});
+        });
     }
 
     public void Refresh() {
+        this.listKhoanThu = khoanThuService.GetListKhoanThu();
         SetData();
     }
 }

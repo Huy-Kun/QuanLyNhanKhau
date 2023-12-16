@@ -2,6 +2,7 @@ package controllers.NhanKhauManagerController;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JFrame;
@@ -72,6 +73,24 @@ public class ThemNhanKhauController {
             return false;
         }
         return true;
+    }
+    
+    public boolean CheckCCCD(String cccd) throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "SELECT * FROM nhan_khau LEFT JOIN can_cuoc ON nhan_khau.cccdNhanKhau = can_cuoc.soCCCD WHERE soCCCD = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, cccd);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            if (rs.getString("cccdNhanKhau").trim().isEmpty()) {
+                preparedStatement.close();
+                connection.close();
+                return true;
+            }
+        }
+        preparedStatement.close();
+        connection.close();
+        return false;
     }
     
 }
