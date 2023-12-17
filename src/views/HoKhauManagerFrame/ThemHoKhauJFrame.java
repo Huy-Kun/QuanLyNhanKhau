@@ -14,25 +14,22 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.table.DefaultTableModel;
 
 public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;
     private HoKhauManagerPanelController parentController;
     private ThemHoKhauController controller;
-    
-    String soCCCDChuHo;
 
     public ThemHoKhauJFrame() {
     }
 
     public ThemHoKhauJFrame(JFrame parentFrame, HoKhauManagerPanelController parentController) {
+        initComponents();
         this.parentFrame = parentFrame;
         this.parentController = parentController;
         this.parentFrame.setEnabled(false);
-        this.controller = new ThemHoKhauController();
-        initComponents();
+        this.controller = new ThemHoKhauController(jTable1, btnChonChuHo, btnThemThanhVien, txtChuHo);
         InitAction();
         setTitle("Thêm hộ khẩu");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -44,6 +41,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         jScrollPane2.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         jScrollPane2.setViewportBorder(null);
         jScrollPane2.setBorder(BorderFactory.createEmptyBorder());
+        btnThemThanhVien.setEnabled(false);
     }
 
     void InitAction() {
@@ -79,6 +77,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         btnChonChuHo = new component.MyButton();
         txtChuHo = new component.TextField();
         jLabel2 = new javax.swing.JLabel();
+        btnThemNgay = new component.MyButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,7 +125,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         panelBorder1.setLayout(panelBorder1Layout);
         panelBorder1Layout.setHorizontalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,14 +156,12 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
             .addGroup(panelBorder2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorder2Layout.createSequentialGroup()
-                        .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
                     .addGroup(panelBorder2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                        .addComponent(btnThemThanhVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(132, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnThemThanhVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         panelBorder2Layout.setVerticalGroup(
             panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,6 +182,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
             }
         });
 
+        txtChuHo.setEditable(false);
         txtChuHo.setBackground(new java.awt.Color(255, 255, 255));
         txtChuHo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtChuHo.setLabelText("Chủ hộ");
@@ -193,6 +191,16 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Thêm hộ khẩu");
+
+        btnThemNgay.setForeground(new java.awt.Color(51, 51, 51));
+        btnThemNgay.setText("Thêm ngay");
+        btnThemNgay.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThemNgay.setRadius(5);
+        btnThemNgay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemNgayActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -211,6 +219,10 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
                             .addComponent(btnChonChuHo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(panelBorder2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnThemNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(197, 197, 197))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +239,9 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
                 .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(panelBorder2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(btnThemNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,13 +260,21 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonChuHoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonChuHoActionPerformed
         // TODO add your handling code here:
-        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
-        chonNhanKhauJFrame.setLocationRelativeTo(null);
-        chonNhanKhauJFrame.setResizable(false);
-        chonNhanKhauJFrame.setVisible(true);
+//        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
+//        chonNhanKhauJFrame.setLocationRelativeTo(null);
+//        chonNhanKhauJFrame.setResizable(false);
+//        chonNhanKhauJFrame.setVisible(true);
     }//GEN-LAST:event_btnChonChuHoActionPerformed
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed
+        // TODO add your handling code here:
+//        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
+//        chonNhanKhauJFrame.setLocationRelativeTo(null);
+//        chonNhanKhauJFrame.setResizable(false);
+//        chonNhanKhauJFrame.setVisible(true);
+    }//GEN-LAST:event_btnThemThanhVienActionPerformed
+
+    private void btnThemNgayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemNgayActionPerformed
         // TODO add your handling code here:
         if(!this.controller.ValidateValue(this, txtChuHo.getText())) return;
         if(!this.controller.ValidateValue(this, txtDiaChi.getText())) return;
@@ -268,10 +290,10 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         }
         try {
             this.controller.ThemMoiHoKhau(txtMaHoKhau.getText(), txtDiaChi.getText(), new Date(System.currentTimeMillis()));
-            this.controller.ThemMoiChuHo(soCCCDChuHo, txtMaHoKhau.getText());
+            this.controller.ThemMoiChuHo(controller.GetSoCCCDChuHo(), txtMaHoKhau.getText());
             for (int i = 0; i < jTable1.getRowCount(); i++) {
                    this.controller.ThemMoiThanhVien(jTable1.getValueAt(i, 0).toString(),
-                           jTable1.getValueAt(i, 1).toString(),
+                           txtMaHoKhau.getText(),
                            jTable1.getValueAt(i, 2).toString());
             }
             JOptionPane.showMessageDialog(null, "Thêm thành công!!");
@@ -281,11 +303,12 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_btnThemThanhVienActionPerformed
+    }//GEN-LAST:event_btnThemNgayActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private component.MyButton btnChonChuHo;
+    private component.MyButton btnThemNgay;
     private component.MyButton btnThemThanhVien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

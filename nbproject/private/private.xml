@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Hieu/Desktop/Projects/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ThemHoKhauJFrame.java</file>
-            <file>file:/C:/Users/Hieu/Desktop/Projects/QuanLyNhanKhau/src/controllers/NhanKhauManagerController/ThemNhanKhauController.java</file>
-            <file>file:/C:/Users/Hieu/Desktop/Projects/QuanLyNhanKhau/src/views/HoKhauPanel.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/TachHoKhauController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ThemHoKhauJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/TachHoKhauJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ThemHoKhauController.java</file>
         </group>
     </open-files>
 </project-private>

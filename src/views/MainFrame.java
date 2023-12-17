@@ -37,6 +37,11 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void SetData()
+    {
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

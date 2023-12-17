@@ -1,8 +1,8 @@
-package views.HoKhauManagerFrame;
+package views.NopTienManagerFrame;
 
 import component.ScrollBar;
-import controllers.HoKhauManagerController.TachHoKhauController;
-import controllers.HoKhauManagerController.ChonHoKhauController;
+import controllers.NopTienManagerController.ThemNopTienController;
+import controllers.NopTienManagerController.ChonHoKhauNopTienController;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -14,19 +14,21 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import models.HoKhauModel;
 
-public class ChonHoKhauJFrame extends javax.swing.JFrame {
+public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
 
     private JFrame parentJframe;
-    private TachHoKhauController parentController;
-    private ChonHoKhauController controller;
+    private ThemNopTienController parentController;
+    private ChonHoKhauNopTienController controller;
     private List<HoKhauModel> list;
+    private HoKhauModel hoKhauModel;
 
-    public ChonHoKhauJFrame(JFrame parentJframe, TachHoKhauController parentController) {
+    public ChonHoKhauNopTienJFrame(JFrame parentJframe, ThemNopTienController parentController, HoKhauModel hoKhauModel) {
         initComponents();
         this.parentJframe = parentJframe;
         this.parentJframe.setEnabled(false);
         this.parentController = parentController;
-        this.controller = new ChonHoKhauController(this, jTable3);
+        this.hoKhauModel = hoKhauModel;
+        this.controller = new ChonHoKhauNopTienController(jTable3, parentController.GetListHoKhau());
         InitAction();
         setTitle("Chọn hộ khẩu");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -40,22 +42,21 @@ public class ChonHoKhauJFrame extends javax.swing.JFrame {
         jScrollPane4.setBorder(BorderFactory.createEmptyBorder());
     }
 
-    void InitAction() {
+    public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                parentJframe.setEnabled(true);
-                Close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
 
         });
     }
 
-    public void Close() {
-        if (JOptionPane.showConfirmDialog(this, "Are you sure to close??", "Confirm", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-            this.parentJframe.setEnabled(true);
-            dispose();
-        }
+    void close() {
+        this.parentJframe.setEnabled(true);
+        dispose();
     }
 
     @SuppressWarnings("unchecked")
@@ -84,7 +85,7 @@ public class ChonHoKhauJFrame extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "", "Mã hộ khẩu", "Chủ hộ", "Địa chỉ", "Ngày tạo"
@@ -94,7 +95,7 @@ public class ChonHoKhauJFrame extends javax.swing.JFrame {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false
+                true, true, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -204,7 +205,12 @@ public class ChonHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnTiepTucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiepTucActionPerformed
         // TODO add your handling code here:
-
+        HoKhauModel _hoKhauModel = controller.GetPickedHoKhauModel();
+        this.hoKhauModel.setMaHoKhau(_hoKhauModel.getMaHoKhau());
+        this.hoKhauModel.setDiaChi(_hoKhauModel.getDiaChi());
+        this.hoKhauModel.setNgayTao(hoKhauModel.getNgayTao());
+        this.parentController.SetData();
+        close();
     }//GEN-LAST:event_btnTiepTucActionPerformed
 
 

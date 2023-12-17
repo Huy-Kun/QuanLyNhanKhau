@@ -52,21 +52,26 @@
                           <Component id="btnChonHoKhauCanTach" min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel2" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtChuHoMoi" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="btnChonChuHoMoi" min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel2" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
                           <Component id="txtMaHoKhauMoi" pref="147" max="32767" attributes="0"/>
                       </Group>
                       <Component id="panelBorder2" alignment="0" pref="480" max="32767" attributes="0"/>
                       <Component id="txtDiaChiMoi" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="60" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnTach" min="-2" pref="200" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -80,18 +85,25 @@
                       <Component id="txtMaHoKhauCanTach" min="-2" max="-2" attributes="0"/>
                       <Component id="btnChonHoKhauCanTach" min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtChuHoMoi" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnChonChuHoMoi" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="txtMaHoKhauMoi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtChuHoMoi" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMaHoKhauMoi" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnChonChuHoMoi" min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="txtDiaChiMoi" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="panelBorder2" min="-2" pref="318" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btnTach" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -100,6 +112,7 @@
       <SubComponents>
         <Component class="component.TextField" name="txtMaHoKhauCanTach">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -211,7 +224,7 @@
                           <Table columnCount="3" rowCount="4">
                             <Column editable="false" title="S&#x1ed1; CCCD" type="java.lang.Object"/>
                             <Column editable="false" title="H&#x1ecd; t&#xea;n" type="java.lang.Object"/>
-                            <Column editable="false" title="Quan h&#x1ec7; v&#x1edb;i ch&#x1ee7; h&#x1ed9;" type="java.lang.Object"/>
+                            <Column editable="true" title="Quan h&#x1ec7; v&#x1edb;i ch&#x1ee7; h&#x1ed9; m&#x1edb;i" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -280,6 +293,7 @@
         </Component>
         <Component class="component.TextField" name="txtChuHoMoi">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -321,6 +335,21 @@
             </Property>
             <Property name="labelText" type="java.lang.String" value="M&#xe3; h&#x1ed9; kh&#x1ea9;u m&#x1edb;i"/>
           </Properties>
+        </Component>
+        <Component class="component.MyButton" name="btnTach">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="T&#xe1;ch ngay"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="radius" type="int" value="5"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTachActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

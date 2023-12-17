@@ -1,15 +1,33 @@
 package views.HoKhauManagerFrame;
 
 import component.ScrollBar;
+import controllers.HoKhauManagerController.ChonNhanKhauController;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import models.NhanKhauModel;
 
 public class ChonNhanKhauJFrame extends javax.swing.JFrame {
 
-    public ChonNhanKhauJFrame() {
+    private JFrame parentJframe;
+    private ChonNhanKhauController controller;
+    private List <NhanKhauModel> list;
+    
+    public ChonNhanKhauJFrame(JFrame parentJframe, List <NhanKhauModel> list) {
         initComponents();
+        this.parentJframe = parentJframe;
+        this.parentJframe.setEnabled(false);
+        this.list = list;
+        this.controller = new ChonNhanKhauController(list,jTable3);
+        InitAction();
+        setTitle("Chọn nhân khẩu");
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jScrollPane4.setVerticalScrollBar(new ScrollBar());
         jScrollPane4.getVerticalScrollBar().setBackground(Color.WHITE);
         jScrollPane4.getViewport().setBackground(Color.WHITE);
@@ -18,6 +36,23 @@ public class ChonNhanKhauJFrame extends javax.swing.JFrame {
         jScrollPane4.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         jScrollPane4.setViewportBorder(null);
         jScrollPane4.setBorder(BorderFactory.createEmptyBorder());
+    }
+    
+    void InitAction() {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                close();
+            }
+
+        });
+    }
+
+    void close() {
+        if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
+            this.parentJframe.setEnabled(true);
+            dispose();
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -45,7 +80,7 @@ public class ChonNhanKhauJFrame extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "", "Số CCCD", "Họ tên", "Ngày sinh", "Giới tính", "Địa chỉ", "Ngày chuyển đến"

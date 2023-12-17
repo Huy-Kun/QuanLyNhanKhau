@@ -24,21 +24,21 @@ public class DangKyTamTruJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
-    void InitAction() {
+    public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
 
         });
     }
 
     void close() {
-        if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
-            this.parentFrame.setEnabled(true);
-            dispose();
-        }
+        this.parentFrame.setEnabled(true);
+        dispose();
     }
 
     /**
@@ -193,6 +193,8 @@ public class DangKyTamTruJFrame extends javax.swing.JFrame {
         try {
             this.controller.DangKi(txtSoCCCD.getText(), txtDiaChi.getText(),
                     txtTuNgay.getDate(), txtDenNgay.getDate(), txtLyDo.getText());
+            JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+            close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);

@@ -24,6 +24,7 @@ public class NhanKhauManagerPanelController {
     
     public void SetData() {
         DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+        model.setRowCount(0);
         this.listNhanKhau.forEach(nhanKhauModel -> {
             CanCuocModel canCuocModel = nhanKhauService.GetCanCuoc(nhanKhauModel.getCccdNhanKhau());
             model.addRow(new Object[]{nhanKhauModel.getCccdNhanKhau(), canCuocModel.getHoTen(),

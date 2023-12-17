@@ -36,7 +36,7 @@ public class KhoanThuService {
         int count = 0;
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT count(*) as count FROM nop_tien WHERE nop_tien.tenKhoanThu = " + khoanThuModel.getTenKhoanThu();
+            String query = "SELECT count(*) as count FROM nop_tien WHERE nop_tien.tenKhoanThu = '" + khoanThuModel.getTenKhoanThu() + "'";
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -53,7 +53,7 @@ public class KhoanThuService {
         int sum = 0;
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT SUM(soTienNop) as sum FROM nop_tien WHERE nop_tien.tenKhoanThu = " + khoanThuModel.getTenKhoanThu();
+            String query = "SELECT SUM(soTienNop) as sum FROM nop_tien WHERE nop_tien.tenKhoanThu = '" + khoanThuModel.getTenKhoanThu() + "'";
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

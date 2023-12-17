@@ -43,18 +43,16 @@ public class ThemKhoanThuController {
         }
         return true;
     }
-    
+
     public boolean CheckMaKhoanThu(String maKhoanThu) throws SQLException, ClassNotFoundException {
         Connection connection = MysqlConnection.getMysqlConnection();
-        String query = "SELECT * FROM khoan_thu WHERE khoan_thu.maKhoanThu = " + maKhoanThu;
+        String query = "SELECT * FROM khoan_thu WHERE khoan_thu.maKhoanThu = '" + maKhoanThu + "'";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         ResultSet rs = preparedStatement.executeQuery();
-        if (rs.next()) {
-            if (!rs.getString("maKhoanThu").trim().isEmpty()) {
-                preparedStatement.close();
-                connection.close();
-                return true;
-            }
+        if (rs.next() == false) {
+            preparedStatement.close();
+            connection.close();
+            return true;
         }
         preparedStatement.close();
         connection.close();

@@ -24,8 +24,9 @@ public class HoKhauManagerPanelController {
     }
 
     public void SetData() {
+        DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+        model.setRowCount(0);
         this.listHoKhauModel.forEach(hoKhauModel -> {
-            DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
             ChuHoModel chuHoModel = this.hoKhauService.GetChuHo(hoKhauModel.getMaHoKhau());
             CanCuocModel canCuocChuHo = this.hoKhauService.GetCanCuoc(chuHoModel.getSoCCCD());
             model.addRow(new Object[]{hoKhauModel.getMaHoKhau(), canCuocChuHo.getHoTen(), hoKhauModel.getDiaChi(), hoKhauModel.getNgayTao().toString()});

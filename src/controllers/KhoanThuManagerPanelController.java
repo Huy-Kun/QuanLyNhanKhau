@@ -23,6 +23,7 @@ public class KhoanThuManagerPanelController {
 
     public void SetData() {
         DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+        model.setRowCount(0);
         this.listKhoanThu.forEach(khoanThuModel -> {
             int count = this.khoanThuService.GetTongNopTien(khoanThuModel);
             int sum = this.khoanThuService.GetTongTienNop(khoanThuModel);

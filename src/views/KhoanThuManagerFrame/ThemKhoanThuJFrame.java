@@ -28,21 +28,21 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
-    void InitAction() {
+    public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
 
         });
     }
 
     void close() {
-        if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
-            this.parentFrame.setEnabled(true);
-            dispose();
-        }
+        this.parentFrame.setEnabled(true);
+        dispose();
     }
 
     /**
@@ -155,12 +155,13 @@ public class ThemKhoanThuJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateIntValue(this, txtSoTien.getText())) return;
         try {
             if (!this.controller.CheckMaKhoanThu(txtMaKhoanThu.getText())) {
-                JOptionPane.showConfirmDialog(null, "Mã khoản thu đã tổn tại!", "Confirm", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(rootPane, "Mã khoản thu đã tổn tại!", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
         }
         try {
             this.controller.ThemMoiKhoanThu(txtMaKhoanThu.getText(), txtTenKhoanThu.getText(),

@@ -57,7 +57,11 @@
                                   <Component id="btnThem" pref="200" max="32767" attributes="0"/>
                                   <Component id="txtSoTienNop" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtTenChuHo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtMaHoKhau" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="txtMaHoKhau" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnChonHoKhau" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -72,7 +76,10 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="txtMaHoKhau" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="txtMaHoKhau" max="32767" attributes="0"/>
+                      <Component id="btnChonHoKhau" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="txtTenChuHo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -89,6 +96,7 @@
       <SubComponents>
         <Component class="component.TextField" name="txtMaHoKhau">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -100,6 +108,7 @@
         </Component>
         <Component class="component.TextField" name="txtTenChuHo">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -153,6 +162,14 @@
           <Properties>
             <Property name="labeText" type="java.lang.String" value="Ch&#x1ecd;n kho&#x1ea3;n thu"/>
           </Properties>
+        </Component>
+        <Component class="component.MyButton" name="btnChonHoKhau">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ch&#x1ecd;n ..."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChonHoKhauActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

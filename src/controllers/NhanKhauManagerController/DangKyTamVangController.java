@@ -14,7 +14,7 @@ public class DangKyTamVangController {
     public void DangKi(String cccdNhanKhau, String diaChiMoi, Date tuNgay, Date denNgay, String lyDo)
             throws SQLException, ClassNotFoundException {
         Connection connection = MysqlConnection.getMysqlConnection();
-        String query = "INSERT INTO tam_vang(cccdNhanKhau, diaChi, tuNgay, denNgay, lyDo)"
+        String query = "INSERT INTO tam_vang(cccdNhanKhau, diaChiMoi, tuNgay, denNgay, lyDo)"
                 + " value (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, cccdNhanKhau);

@@ -1,7 +1,3 @@
-/*
- * lớp tạo ra để hỗ trợ việc bắt sự kiện mỗi khi nhấn vào 1 label trong mainFrame
- * tạo danh sách các panel trong mainframe
- */
 package Bean;
 
 import javax.swing.JLabel;

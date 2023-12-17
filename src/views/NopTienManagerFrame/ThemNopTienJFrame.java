@@ -2,48 +2,52 @@ package views.NopTienManagerFrame;
 
 import controllers.NopTienManagerController.ThemNopTienController;
 import controllers.NopTienManagerPanelController;
+import views.NopTienManagerFrame.ChonHoKhauNopTienJFrame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static java.lang.Integer.parseInt;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import models.HoKhauModel;
 
 public class ThemNopTienJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;
     private ThemNopTienController controller;
     private NopTienManagerPanelController parentController;
+    private HoKhauModel hoKhauModel;
 
     public ThemNopTienJFrame() {
     }
 
     public ThemNopTienJFrame(JFrame parentFrame, NopTienManagerPanelController parentController) {
+        initComponents();
         this.parentFrame = parentFrame;
         this.parentFrame.setEnabled(false);
         this.parentController = parentController;
-        this.controller = new ThemNopTienController();
-        initComponents();
+        this.hoKhauModel = new HoKhauModel();
+        this.controller = new ThemNopTienController(this.ccbTenKhoanThu, this.hoKhauModel, this.txtTenChuHo);
         InitAction();
         setTitle("Thêm nộp tiền");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
-    void InitAction() {
+    public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
 
         });
     }
 
     void close() {
-        if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
-            this.parentFrame.setEnabled(true);
-            dispose();
-        }
+        this.parentFrame.setEnabled(true);
+        dispose();
     }
 
     /**
@@ -62,15 +66,18 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnThem = new component.MyButton();
         ccbTenKhoanThu = new component.Combobox();
+        btnChonHoKhau = new component.MyButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BG.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtMaHoKhau.setEditable(false);
         txtMaHoKhau.setBackground(new java.awt.Color(255, 255, 255));
         txtMaHoKhau.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtMaHoKhau.setLabelText("Mã hộ khẩu");
 
+        txtTenChuHo.setEditable(false);
         txtTenChuHo.setBackground(new java.awt.Color(255, 255, 255));
         txtTenChuHo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         txtTenChuHo.setLabelText("Tên chủ hộ");
@@ -96,6 +103,13 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
 
         ccbTenKhoanThu.setLabeText("Chọn khoản thu");
 
+        btnChonHoKhau.setText("Chọn ...");
+        btnChonHoKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChonHoKhauActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BGLayout = new javax.swing.GroupLayout(BG);
         BG.setLayout(BGLayout);
         BGLayout.setHorizontalGroup(
@@ -113,7 +127,10 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
                                 .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                 .addComponent(txtSoTienNop, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtTenChuHo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtMaHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BGLayout.createSequentialGroup()
+                                    .addComponent(txtMaHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnChonHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         BGLayout.setVerticalGroup(
@@ -122,7 +139,9 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
                 .addGap(45, 45, 45)
-                .addComponent(txtMaHoKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtMaHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnChonHoKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15)
                 .addComponent(txtTenChuHo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
@@ -150,10 +169,18 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        if(!this.controller.ValidateValue(this, txtMaHoKhau.getText())) return;
-        if(!this.controller.ValidateValue(this, txtSoTienNop.getText())) return;
-        if(!this.controller.ValidateValue(this, ccbTenKhoanThu.getSelectedItem().toString())) return;
-        if(!this.controller.ValidateIntValue(this, txtSoTienNop.getText())) return;
+        if (!this.controller.ValidateValue(this, txtMaHoKhau.getText())) {
+            return;
+        }
+        if (!this.controller.ValidateValue(this, txtSoTienNop.getText())) {
+            return;
+        }
+        if (!this.controller.ValidateValue(this, ccbTenKhoanThu.getSelectedItem().toString())) {
+            return;
+        }
+        if (!this.controller.ValidateIntValue(this, txtSoTienNop.getText())) {
+            return;
+        }
         try {
             this.controller.ThemMoiNopTien(txtMaHoKhau.getText(), ccbTenKhoanThu.getSelectedItem().toString(),
                     parseInt(txtSoTienNop.getText()), new Date(System.currentTimeMillis()));
@@ -164,11 +191,24 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
-       
+
     }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnChonHoKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonHoKhauActionPerformed
+        // TODO add your handling code here:
+        if (this.controller.GetListHoKhau().size() == 0) {
+            JOptionPane.showMessageDialog(null, "Không tồn tại hộ khẩu nào!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        ChonHoKhauNopTienJFrame chonHoKhauNopTienJFrame = new ChonHoKhauNopTienJFrame(this.parentFrame, this.controller, this.hoKhauModel);
+        chonHoKhauNopTienJFrame.setLocationRelativeTo(null);
+        chonHoKhauNopTienJFrame.setResizable(false);
+        chonHoKhauNopTienJFrame.setVisible(true);
+    }//GEN-LAST:event_btnChonHoKhauActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BG;
+    private component.MyButton btnChonHoKhau;
     private component.MyButton btnThem;
     private component.Combobox ccbTenKhoanThu;
     private javax.swing.JLabel jLabel1;

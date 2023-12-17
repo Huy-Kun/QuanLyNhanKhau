@@ -1,142 +1,110 @@
 package controllers.HoKhauManagerController;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.EventObject;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import models.ThanhVienCuaHoModel;
-import services.HoKhauService;
-import views.HoKhauManagerFrame.TachHoKhauJFrame;
-import views.infoViews.InfoJframe;
+import services.MysqlConnection;
 
 public class TachHoKhauController {
-    private JTextField searchJtf;
-    private JPanel tableTopJpn;
-    private JPanel tableBotJpn;
-    private JPanel tableRightJpn;
-    private JTextField chuHoHienTaiJtf;
-    private JTextField maKhuVucJtf;
-    private JTextField diaChiJtf;
-    private JTextField maHoKhauMoiJtf;
-    private JTextField chuHoMoiJtf;
-    private JButton addBtn;
-    private JButton removeBtn;
-    private JButton cancelBtn;
-    private JButton acceptBtn;
-    private final HoKhauService hoKhauService = new HoKhauService();
-    private JFrame tachHoKhauJFrame;
-    
-    public TachHoKhauController(JFrame tachHoKhauJFrame) {
-        this.tachHoKhauJFrame = tachHoKhauJFrame;
+
+    private JFrame parentJframe;
+    private JTable jTable1;
+    private JTextField txtChuHoMoi;
+    private JTextField txtMaHoKhauCanTach;
+    private JButton btnChonChuHoMoi;
+    private JButton btnChonHoKhauCanTach;
+    private JButton btnThemThanhVien;
+    private String soCCCDChuHoMoi;
+
+    public TachHoKhauController(JFrame parentJframe, JTable jTable1, JTextField txtChuHoMoi, JTextField txtMaHoKhauCanTach,
+            JButton btnChonChuHoMoi, JButton btnChonHoKhauCanTach, JButton btnThemThanhVien) {
+        this.parentJframe = parentJframe;
+        this.jTable1 = jTable1;
+        this.txtChuHoMoi = txtChuHoMoi;
+        this.txtMaHoKhauCanTach = txtMaHoKhauCanTach;
+        this.btnChonChuHoMoi = btnChonChuHoMoi;
+        this.btnChonHoKhauCanTach = btnChonHoKhauCanTach;
+        this.btnThemThanhVien = btnThemThanhVien;
+        this.btnChonChuHoMoi.setEnabled(false);
+        this.btnThemThanhVien.setEnabled(false);
+    }
+
+    public void SetTxtMaHoKhauCanTach(String maChuHoCanTach) {
+        txtMaHoKhauCanTach.setText(maChuHoCanTach);
+        txtChuHoMoi.setText("");
+        btnChonChuHoMoi.setEnabled(true);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        btnThemThanhVien.setEnabled(false);
+    }
+
+    public void SetTxtChuHoMoi(String chuHoMoi) {
+        txtChuHoMoi.setText(chuHoMoi);
+        btnThemThanhVien.setEnabled(true);
+    }
+
+    public void AddObjectToTable(Object[] thanhVienModel) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.addRow(thanhVienModel);
     }
     
-    public void init() {
-        
-        searchJtf.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                String key = searchJtf.getText().trim();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                String key = searchJtf.getText().trim();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                String key = searchJtf.getText().trim();
-            }
-        });
-        
-        addBtn.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-//                try {
-//                    boolean isInHoMoi = false;
-//                    for(ThanhVienCuaHoModel item : hoKhauMoi.getListThanhVienCuaHo()) {
-//                        if (item.getIdNhanKhau() == thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID()) {
-//                            isInHoMoi = true;
-//                        }
-//                    }
-//                    if (isInHoMoi || hoKhauMoi.getChuHo().getID() == thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID()) {
-//                        JOptionPane.showMessageDialog(null, "Nhân khẩu đã nằm trong hộ mới.");
-//                    } else {
-//                        String quanHeVoiChuHo = "";
-//                        while (quanHeVoiChuHo.trim().isEmpty()) {                        
-//                            quanHeVoiChuHo = JOptionPane.showInputDialog(null, "Nhập quan hệ với chủ hộ: ", thanhVienSeclected.getNhanKhau().getNhanKhauModel().getHoTen(), 0);
-//                        }
-//                        if (quanHeVoiChuHo.equalsIgnoreCase("Chủ hộ")) {
-//                            chuHoMoiJtf.setText(thanhVienSeclected.getNhanKhau().getNhanKhauModel().getHoTen());
-//                            hoKhauMoi.setChuHo(thanhVienSeclected.getNhanKhau().getNhanKhauModel());
-//                        } else {
-//                            hoKhauMoi.getListNhanKhauModels().add(thanhVienSeclected.getNhanKhau().getNhanKhauModel());
-//                            ThanhVienCuaHoModel thanhVienCuaHoModel = new ThanhVienCuaHoModel();
-//                            thanhVienCuaHoModel.setIdNhanKhau(thanhVienSeclected.getNhanKhau().getNhanKhauModel().getID());
-//                            thanhVienCuaHoModel.setQuanHeVoiChuHo(quanHeVoiChuHo);
-//                            hoKhauMoi.getListThanhVienCuaHo().add(thanhVienCuaHoModel);
-//                            setDataHoMoi();
-//                        }
-//                    }
-//                } catch (Exception exception) {
-//                }
-            }
-        });
-        
-        removeBtn.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-//                try {
-//                    for (int i = 0; i < hoKhauMoi.getListNhanKhauModels().size(); i++) {
-//                        if (hoKhauMoi.getListNhanKhauModels().get(i).getID() == thanhVienHoMoiSeclected.getNhanKhau().getNhanKhauModel().getID()) {
-//                            hoKhauMoi.getListNhanKhauModels().remove(i);
-//                            hoKhauMoi.getListThanhVienCuaHo().remove(i);
-//                            thanhVienHoMoiSeclected = null;
-//                            setDataHoMoi();
-//                        }
-//                    }
-//                } catch (Exception exception) {
-//                }
-            }
-            
-        });
-        
-        acceptBtn.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-//                if (maKhuVucJtf.getText().trim().isEmpty() 
-//                        || diaChiJtf.getText().trim().isEmpty() 
-//                        || maHoKhauMoiJtf.getText().trim().isEmpty() 
-//                        || chuHoMoiJtf.getText().trim().isEmpty()) {
-//                    JOptionPane.showMessageDialog(null, "Vui lòng nhập hết các trường bắt buộc!");
-//                } else {
-//                    hoKhauMoi.getHoKhauModel().setDiaChi(diaChiJtf.getText().trim());
-//                    hoKhauMoi.getHoKhauModel().setMaHoKhau( maHoKhauMoiJtf.getText().trim());
-//                    hoKhauMoi.getHoKhauModel().setMaKhuVuc(maKhuVucJtf.getText().trim());
-//                    hoKhauService.tachHoKhau(hoKhauMoi);
-//                    TachHoKhau tachHoKhau = (TachHoKhau)tachHoKhauJFrame;
-//                    tachHoKhau.getParentJFrame().setEnabled(true);
-//                    tachHoKhau.dispose();
-//                }
-            }
-            
-        });
+    public void ThemMoiHoKhau(String maHoKhau, String diaChi, Date ngayTao)
+            throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "INSERT INTO ho_khau(maHoKhau, diaChi, ngayTao)"
+                + " value (?, ?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, maHoKhau);
+        preparedStatement.setString(2, diaChi);
+        preparedStatement.setDate(3, new java.sql.Date(ngayTao.getTime()));
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
     }
     
+     public void ThemMoiChuHo(String soCCCD, String maHoKhau)
+            throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "INSERT INTO chu_ho(soCCCD, maHoKhau)"
+                + " value (?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, soCCCD);
+        preparedStatement.setString(2, maHoKhau);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
+    }
     
+    public boolean ValidateValue(JFrame root, String temp) {
+        if (temp.isEmpty()) {
+            JOptionPane.showMessageDialog(root, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean CheckMaHoKhau(String maHoKhau) throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "SELECT * FROM ho_khau WHERE ho_khau.maHoKhau = " + maHoKhau;
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            if (!rs.getString("maHoKhau").trim().isEmpty()) {
+                preparedStatement.close();
+                connection.close();
+                return true;
+            }
+        }
+        preparedStatement.close();
+        connection.close();
+        return false;
+    }
 }

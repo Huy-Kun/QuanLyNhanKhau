@@ -17,7 +17,6 @@ public class ThemNhanKhauController {
             String biDanh, String danToc, String tonGiao, String ngheNghiep, String noiLamViec, Date ngayChuyenDen)
             throws SQLException, ClassNotFoundException {
 
-
         Connection connection = MysqlConnection.getMysqlConnection();
 
         String query = "INSERT INTO nhan_khau (cccdNhanKhau, biDanh, danToc, tonGiao, ngheNghiep, noiLamViec, ngayChuyenDen)"
@@ -33,7 +32,7 @@ public class ThemNhanKhauController {
         preparedStatement.executeUpdate();
         preparedStatement.close();
 
-        query = "INSERT INTO nhan_khau (cccdNhanKhau, hoTen, ngaySinh, gioiTinh, quocTich, queQuan, noiThuongTru, ngayCapCCCD, noiCapCCCD)"
+        query = "INSERT INTO can_cuoc (soCCCD   , hoTen, ngaySinh, gioiTinh, quocTich, queQuan, noiThuongTru, ngayCapCCCD, noiCapCCCD)"
                 + " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setString(1, soCCCD);
@@ -74,23 +73,21 @@ public class ThemNhanKhauController {
         }
         return true;
     }
-    
+
     public boolean CheckCCCD(String cccd) throws SQLException, ClassNotFoundException {
         Connection connection = MysqlConnection.getMysqlConnection();
         String query = "SELECT * FROM nhan_khau LEFT JOIN can_cuoc ON nhan_khau.cccdNhanKhau = can_cuoc.soCCCD WHERE soCCCD = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, cccd);
         ResultSet rs = preparedStatement.executeQuery();
-        if (rs.next()) {
-            if (rs.getString("cccdNhanKhau").trim().isEmpty()) {
-                preparedStatement.close();
-                connection.close();
-                return true;
-            }
+        if (rs.next() == false) {
+            preparedStatement.close();
+            connection.close();
+            return true;
         }
         preparedStatement.close();
         connection.close();
         return false;
     }
-    
+
 }

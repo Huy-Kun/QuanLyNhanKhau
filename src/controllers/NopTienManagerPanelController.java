@@ -34,6 +34,7 @@ public class NopTienManagerPanelController {
     public void SetData()
     {
         DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+        model.setRowCount(0);
         this.listThuTienModel.forEach(thuTienModel -> {
             model.addRow(new Object[]{thuTienModel.getMaHoKhau(), thuTienModel.getTenKhoanThu(), thuTienModel.getSoTienNop(), thuTienModel.getNgayNop()});
         });

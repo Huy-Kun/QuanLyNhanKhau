@@ -67,7 +67,7 @@ public class NhanKhauPanel extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Số CCCD", "Họ tên", "Ngày sinh", "Giới tính", "Địa chỉ", "Ngày chuyển đến"
