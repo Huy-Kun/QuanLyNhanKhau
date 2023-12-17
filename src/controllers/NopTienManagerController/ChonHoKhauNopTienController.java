@@ -6,8 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
 import java.util.List;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JCheckBox;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
 import models.CanCuocModel;
 import models.ChuHoModel;
 import models.HoKhauModel;
@@ -22,6 +27,28 @@ public final class ChonHoKhauNopTienController {
         this.tableJpn = tableJpn;
         this.listHoKhauModel = listHoKhauModel;
         SetData();
+        InitListener();
+    }
+
+    void InitListener() {
+        DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
+        model.addTableModelListener(new TableModelListener() {
+            private boolean programmaticChange = false;
+
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                if (!programmaticChange) {
+                    programmaticChange = true;
+                    int rowww = e.getFirstRow();
+                    for (int row = 0; row < tableJpn.getRowCount(); row++) {
+                        if (row != rowww) {
+                            tableJpn.setValueAt(false, row, 0);
+                        }
+                    }
+                    programmaticChange = false;
+                }
+            }
+        });
     }
 
     public void SetData() {
@@ -32,21 +59,20 @@ public final class ChonHoKhauNopTienController {
             model.addRow(new Object[]{false, hoKhauModel.getMaHoKhau(), canCuocChuHo.getHoTen(), hoKhauModel.getDiaChi(), hoKhauModel.getNgayTao().toString()});
         });
     }
-    
-    public HoKhauModel GetPickedHoKhauModel()
-    {
+
+    public HoKhauModel GetPickedHoKhauModel() {
         HoKhauModel hoKhauModel = new HoKhauModel();
         hoKhauModel.setMaHoKhau("Huy");
         DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
-        for (int row = 0; row < model.getRowCount(); row++)
-        {
+        for (int row = 0; row < model.getRowCount(); row++) {
             Object obj = true;
-            if(model.getValueAt(row, 0) == obj)
+            if (model.getValueAt(row, 0) == obj) {
                 hoKhauModel = listHoKhauModel.get(row);
+            }
         }
         return hoKhauModel;
     }
-    
+
     public ChuHoModel GetChuHo(String maHoKhau) {
         ChuHoModel chuHoModel = new ChuHoModel();
         try {
@@ -63,7 +89,7 @@ public final class ChonHoKhauNopTienController {
         }
         return chuHoModel;
     }
-    
+
     public CanCuocModel GetCanCuoc(String soCCCD) {
         CanCuocModel canCuocModel = new CanCuocModel();
         try {

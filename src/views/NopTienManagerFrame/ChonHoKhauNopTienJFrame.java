@@ -85,7 +85,10 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
                 "", "Mã hộ khẩu", "Chủ hộ", "Địa chỉ", "Ngày tạo"
@@ -95,7 +98,7 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, true, false, false, false
+                true, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

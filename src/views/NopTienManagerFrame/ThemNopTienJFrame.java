@@ -196,10 +196,10 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
 
     private void btnChonHoKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonHoKhauActionPerformed
         // TODO add your handling code here:
-        if (this.controller.GetListHoKhau().size() == 0) {
-            JOptionPane.showMessageDialog(null, "Không tồn tại hộ khẩu nào!", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
+//        if (this.controller.GetListHoKhau().size() == 0) {
+//            JOptionPane.showMessageDialog(null, "Không tồn tại hộ khẩu nào!", "Warning", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
         ChonHoKhauNopTienJFrame chonHoKhauNopTienJFrame = new ChonHoKhauNopTienJFrame(this.parentFrame, this.controller, this.hoKhauModel);
         chonHoKhauNopTienJFrame.setLocationRelativeTo(null);
         chonHoKhauNopTienJFrame.setResizable(false);
