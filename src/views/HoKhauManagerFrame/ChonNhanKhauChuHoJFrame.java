@@ -1,11 +1,11 @@
 package views.HoKhauManagerFrame;
 
 import component.ScrollBar;
-import controllers.HoKhauManagerController.ChonNhanKhauController;
+import controllers.HoKhauManagerController.ChonNhanKhauChuHoController;
+import controllers.HoKhauManagerController.ThemHoKhauController;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -13,18 +13,20 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import models.NhanKhauModel;
 
-public class ChonNhanKhauJFrame extends javax.swing.JFrame {
+public class ChonNhanKhauChuHoJFrame extends javax.swing.JFrame {
 
     private JFrame parentJframe;
-    private ChonNhanKhauController controller;
-    private List <NhanKhauModel> list;
+    private ChonNhanKhauChuHoController controller;
+    private ThemHoKhauController parentController;
+    private NhanKhauModel chuHo;
     
-    public ChonNhanKhauJFrame(JFrame parentJframe, List <NhanKhauModel> list) {
+    public ChonNhanKhauChuHoJFrame(JFrame parentJframe, NhanKhauModel chuHo, ThemHoKhauController parentController) {
         initComponents();
         this.parentJframe = parentJframe;
         this.parentJframe.setEnabled(false);
-        this.list = list;
-        this.controller = new ChonNhanKhauController(list,jTable3);
+        this.chuHo = chuHo;
+        this.parentController = parentController;
+        this.controller = new ChonNhanKhauChuHoController(jTable3, parentController.GetListNhanKhauNoHome());
         InitAction();
         setTitle("Chọn nhân khẩu");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -38,21 +40,21 @@ public class ChonNhanKhauJFrame extends javax.swing.JFrame {
         jScrollPane4.setBorder(BorderFactory.createEmptyBorder());
     }
     
-    void InitAction() {
+    public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
 
         });
     }
 
     void close() {
-        if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
-            this.parentJframe.setEnabled(true);
-            dispose();
-        }
+        this.parentJframe.setEnabled(true);
+        dispose();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -200,6 +202,16 @@ public class ChonNhanKhauJFrame extends javax.swing.JFrame {
 
     private void btnTiepTucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiepTucActionPerformed
         // TODO add your handling code here:
+        NhanKhauModel _nhanKhauModel = controller.GetPickedNhanKhauModel();
+        this.chuHo.setBiDanh(_nhanKhauModel.getBiDanh());
+        this.chuHo.setCccdNhanKhau(_nhanKhauModel.getCccdNhanKhau());
+        this.chuHo.setDanToc(_nhanKhauModel.getDanToc());
+        this.chuHo.setNgayChuyenDen(_nhanKhauModel.getNgayChuyenDen());
+        this.chuHo.setNgheNghiep(_nhanKhauModel.getNgheNghiep());
+        this.chuHo.setNoiLamViec(_nhanKhauModel.getNoiLamViec());
+        this.chuHo.setTonGiao(_nhanKhauModel.getTonGiao());
+        this.parentController.SetData();
+        close();
 
     }//GEN-LAST:event_btnTiepTucActionPerformed
 

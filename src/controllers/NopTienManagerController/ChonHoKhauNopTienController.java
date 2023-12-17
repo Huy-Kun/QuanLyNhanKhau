@@ -1,18 +1,13 @@
 package controllers.NopTienManagerController;
 
-import controllers.HoKhauManagerController.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Date;
 import java.util.List;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
 import models.CanCuocModel;
 import models.ChuHoModel;
 import models.HoKhauModel;
@@ -62,7 +57,6 @@ public final class ChonHoKhauNopTienController {
 
     public HoKhauModel GetPickedHoKhauModel() {
         HoKhauModel hoKhauModel = new HoKhauModel();
-        hoKhauModel.setMaHoKhau("Huy");
         DefaultTableModel model = (DefaultTableModel) tableJpn.getModel();
         for (int row = 0; row < model.getRowCount(); row++) {
             Object obj = true;
@@ -77,7 +71,7 @@ public final class ChonHoKhauNopTienController {
         ChuHoModel chuHoModel = new ChuHoModel();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT soCCCD FROM chu_ho WHERE chu_ho.maHoKhau = '" + maHoKhau + "'";
+            String query = "SELECT * FROM chu_ho WHERE chu_ho.maHoKhau = '" + maHoKhau + "'";
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

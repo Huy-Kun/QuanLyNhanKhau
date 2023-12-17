@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import models.CanCuocModel;
+import models.ChuHoModel;
 import models.HoKhauModel;
 import services.MysqlConnection;
 
@@ -20,10 +22,12 @@ public class ThemNopTienController {
     private JComboBox ccbTenKhoanThu;
     private HoKhauModel hoKhauModel;
     private JTextField txtTenChuHo;
+    private JTextField txtMaHoKhau;
 
-    public ThemNopTienController(JComboBox ccbTenKhoanThu, HoKhauModel hoKhauModel, JTextField txtTenChuHo) {
+    public ThemNopTienController(JComboBox ccbTenKhoanThu, HoKhauModel hoKhauModel, JTextField txtMaHoKhau, JTextField txtTenChuHo) {
         this.ccbTenKhoanThu = ccbTenKhoanThu;
         this.hoKhauModel = hoKhauModel;
+        this.txtMaHoKhau = txtMaHoKhau;
         this.txtTenChuHo = txtTenChuHo;
         SetData();
     }
@@ -37,7 +41,8 @@ public class ThemNopTienController {
             });
         }
         if (hoKhauModel.getMaHoKhau() != null) {
-            this.txtTenChuHo.setText(hoKhauModel.getMaHoKhau());
+            this.txtMaHoKhau.setText(this.hoKhauModel.getMaHoKhau());
+            this.txtTenChuHo.setText(GetCanCuoc(GetChuHo(this.hoKhauModel.getMaHoKhau()).getSoCCCD()).getHoTen());
         }
     }
     
@@ -110,4 +115,46 @@ public class ThemNopTienController {
         }
         return true;
     }
+    
+    public CanCuocModel GetCanCuoc(String soCCCD) {
+        CanCuocModel canCuocModel = new CanCuocModel();
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM can_cuoc WHERE can_cuoc.soCCCD = '" + soCCCD + "'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                canCuocModel.setSoCCCD(rs.getString("soCCCD"));
+                canCuocModel.setHoTen(rs.getString("hoTen"));
+                canCuocModel.setNgaySinh(rs.getDate("ngaySinh"));
+                canCuocModel.setGioiTinh(rs.getString("gioiTinh"));
+                canCuocModel.setQuocTich(rs.getString("quocTich"));
+                canCuocModel.setQueQuan(rs.getString("queQuan"));
+                canCuocModel.setNoiThuongTru(rs.getString("noiThuongTru"));
+                canCuocModel.setNgayCapCCCD(rs.getDate("ngayCapCCCD"));
+                canCuocModel.setNoiCapCCCD(rs.getString("noiCapCCCD"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return canCuocModel;
+    }
+    
+    public ChuHoModel GetChuHo(String maHoKhau) {
+        ChuHoModel chuHoModel = new ChuHoModel();
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM chu_ho WHERE chu_ho.maHoKhau = '" + maHoKhau + "'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                chuHoModel.setSoCCCD(rs.getString("soCCCD"));
+                chuHoModel.setMaHoKhau(rs.getString("maHoKhau"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return chuHoModel;
+    }
+
 }

@@ -27,7 +27,7 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
         this.parentFrame.setEnabled(false);
         this.parentController = parentController;
         this.hoKhauModel = new HoKhauModel();
-        this.controller = new ThemNopTienController(this.ccbTenKhoanThu, this.hoKhauModel, this.txtTenChuHo);
+        this.controller = new ThemNopTienController(this.ccbTenKhoanThu, this.hoKhauModel, this.txtMaHoKhau, this.txtTenChuHo);
         InitAction();
         setTitle("Thêm nộp tiền");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

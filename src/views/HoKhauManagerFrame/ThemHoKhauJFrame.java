@@ -8,28 +8,33 @@ import java.awt.HeadlessException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import models.NhanKhauModel;
 
 public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentFrame;
     private HoKhauManagerPanelController parentController;
     private ThemHoKhauController controller;
-
-    public ThemHoKhauJFrame() {
-    }
+    private NhanKhauModel chuHo;
+    private List <NhanKhauModel> listThanhVien;
 
     public ThemHoKhauJFrame(JFrame parentFrame, HoKhauManagerPanelController parentController) {
         initComponents();
         this.parentFrame = parentFrame;
         this.parentController = parentController;
         this.parentFrame.setEnabled(false);
-        this.controller = new ThemHoKhauController(jTable1, btnChonChuHo, btnThemThanhVien, txtChuHo);
+        this.chuHo = new NhanKhauModel();
+        this.listThanhVien = new ArrayList<>();
+        this.controller = new ThemHoKhauController(this.jTable1, this.btnThemThanhVien, this.txtChuHo,
+                this.chuHo, this.listThanhVien);
         InitAction();
         setTitle("Thêm hộ khẩu");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -44,21 +49,21 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         btnThemThanhVien.setEnabled(false);
     }
 
-    void InitAction() {
+    public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
 
         });
     }
 
     void close() {
-        if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
-            this.parentFrame.setEnabled(true);
-            dispose();
-        }
+        this.parentFrame.setEnabled(true);
+        dispose();
     }
 
     @SuppressWarnings("unchecked")
@@ -260,18 +265,18 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonChuHoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonChuHoActionPerformed
         // TODO add your handling code here:
-//        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
-//        chonNhanKhauJFrame.setLocationRelativeTo(null);
-//        chonNhanKhauJFrame.setResizable(false);
-//        chonNhanKhauJFrame.setVisible(true);
+        ChonNhanKhauChuHoJFrame chonNhanKhauChuHoJFrame = new ChonNhanKhauChuHoJFrame(this,this.chuHo,this.controller);
+        chonNhanKhauChuHoJFrame.setLocationRelativeTo(null);
+        chonNhanKhauChuHoJFrame.setResizable(false);
+        chonNhanKhauChuHoJFrame.setVisible(true);
     }//GEN-LAST:event_btnChonChuHoActionPerformed
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed
         // TODO add your handling code here:
-//        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
-//        chonNhanKhauJFrame.setLocationRelativeTo(null);
-//        chonNhanKhauJFrame.setResizable(false);
-//        chonNhanKhauJFrame.setVisible(true);
+        ChonThanhVienHoKhauJFrame chonThanhVienHoKhauJFrame = new ChonThanhVienHoKhauJFrame(this,this.listThanhVien,this.controller);
+        chonThanhVienHoKhauJFrame.setLocationRelativeTo(null);
+        chonThanhVienHoKhauJFrame.setResizable(false);
+        chonThanhVienHoKhauJFrame.setVisible(true);
     }//GEN-LAST:event_btnThemThanhVienActionPerformed
 
     private void btnThemNgayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemNgayActionPerformed
@@ -281,7 +286,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateValue(this, txtMaHoKhau.getText())) return;
         try {
             if (!this.controller.CheckMaHoKhau(txtMaHoKhau.getText())) {
-                JOptionPane.showConfirmDialog(null, "Mã hộ khẩu đã tổn tại!", "Confirm", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(rootPane, "Mã hộ khẩu đã tồn tại!", "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
         } catch (Exception e) {
@@ -290,7 +295,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         }
         try {
             this.controller.ThemMoiHoKhau(txtMaHoKhau.getText(), txtDiaChi.getText(), new Date(System.currentTimeMillis()));
-            this.controller.ThemMoiChuHo(controller.GetSoCCCDChuHo(), txtMaHoKhau.getText());
+            this.controller.ThemMoiChuHo(chuHo.getCccdNhanKhau(), txtMaHoKhau.getText());
             for (int i = 0; i < jTable1.getRowCount(); i++) {
                    this.controller.ThemMoiThanhVien(jTable1.getValueAt(i, 0).toString(),
                            txtMaHoKhau.getText(),

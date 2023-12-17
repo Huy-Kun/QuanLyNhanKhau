@@ -35,7 +35,7 @@ public class HoKhauService {
         ChuHoModel chuHoModel = new ChuHoModel();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT soCCCD FROM chu_ho WHERE chu_ho.maHoKhau = " + maHoKhau;
+            String query = "SELECT * FROM chu_ho WHERE chu_ho.maHoKhau = '" + maHoKhau + "'";
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -52,7 +52,7 @@ public class HoKhauService {
         CanCuocModel canCuocModel = new CanCuocModel();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT * FROM can_cuoc WHERE can_cuoc.soCCCD = " + soCCCD;
+            String query = "SELECT * FROM can_cuoc WHERE can_cuoc.soCCCD = '" + soCCCD + "'";
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

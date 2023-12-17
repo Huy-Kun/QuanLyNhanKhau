@@ -1,8 +1,8 @@
-package views.NopTienManagerFrame;
+package views.HoKhauManagerFrame;
 
 import component.ScrollBar;
-import controllers.NopTienManagerController.ThemNopTienController;
-import controllers.NopTienManagerController.ChonHoKhauNopTienController;
+import controllers.HoKhauManagerController.ChonThanhVienHoKhauController;
+import controllers.HoKhauManagerController.ThemHoKhauController;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -12,25 +12,24 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import models.HoKhauModel;
+import models.NhanKhauModel;
 
-public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
+public class ChonThanhVienHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentJframe;
-    private ThemNopTienController parentController;
-    private ChonHoKhauNopTienController controller;
-    private List<HoKhauModel> list;
-    private HoKhauModel hoKhauModel;
-
-    public ChonHoKhauNopTienJFrame(JFrame parentJframe, ThemNopTienController parentController, HoKhauModel hoKhauModel) {
+    private ChonThanhVienHoKhauController controller;
+    private ThemHoKhauController parentController;
+    private List <NhanKhauModel> listThanhVien;
+    
+    public ChonThanhVienHoKhauJFrame(JFrame parentJframe, List <NhanKhauModel> listThanhVien, ThemHoKhauController parentController) {
         initComponents();
         this.parentJframe = parentJframe;
         this.parentJframe.setEnabled(false);
+        this.listThanhVien = listThanhVien;
         this.parentController = parentController;
-        this.hoKhauModel = hoKhauModel;
-        this.controller = new ChonHoKhauNopTienController(jTable3, parentController.GetListHoKhau());
+        this.controller = new ChonThanhVienHoKhauController(jTable3, parentController.GetListNhanKhauByChuHo());
         InitAction();
-        setTitle("Chọn hộ khẩu");
+        setTitle("Chọn nhân khẩu");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         jScrollPane4.setVerticalScrollBar(new ScrollBar());
         jScrollPane4.getVerticalScrollBar().setBackground(Color.WHITE);
@@ -41,7 +40,7 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
         jScrollPane4.setViewportBorder(null);
         jScrollPane4.setBorder(BorderFactory.createEmptyBorder());
     }
-
+    
     public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -58,7 +57,6 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
         this.parentJframe.setEnabled(true);
         dispose();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -88,14 +86,14 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "", "Mã hộ khẩu", "Chủ hộ", "Địa chỉ", "Ngày tạo"
+                "", "Số CCCD", "Họ tên", "Ngày sinh", "Giới tính", "Địa chỉ", "Ngày chuyển đến"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false
+                true, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -108,7 +106,7 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable3);
         if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setPreferredWidth(1);
+            jTable3.getColumnModel().getColumn(0).setPreferredWidth(5);
         }
 
         javax.swing.GroupLayout panelBorder4Layout = new javax.swing.GroupLayout(panelBorder4);
@@ -127,7 +125,7 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Danh sách hộ khẩu");
+        jLabel1.setText("Danh sách nhân khẩu");
 
         textFieldAnimation1.setBackground(new java.awt.Color(255, 255, 255));
         textFieldAnimation1.setAnimationColor(new java.awt.Color(178, 178, 178));
@@ -205,12 +203,12 @@ public class ChonHoKhauNopTienJFrame extends javax.swing.JFrame {
 
     private void btnTiepTucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiepTucActionPerformed
         // TODO add your handling code here:
-        HoKhauModel _hoKhauModel = controller.GetPickedHoKhauModel();
-        this.hoKhauModel.setMaHoKhau(_hoKhauModel.getMaHoKhau());
-        this.hoKhauModel.setDiaChi(_hoKhauModel.getDiaChi());
-        this.hoKhauModel.setNgayTao(_hoKhauModel.getNgayTao());
+        this.controller.GetPickedListNhanKhauModel().forEach(nhanKhauModel -> {
+            this.listThanhVien.add(nhanKhauModel);
+        });
         this.parentController.SetData();
         close();
+
     }//GEN-LAST:event_btnTiepTucActionPerformed
 
 
