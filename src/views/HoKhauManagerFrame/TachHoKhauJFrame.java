@@ -5,16 +5,23 @@ import controllers.HoKhauManagerController.TachHoKhauController;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import models.HoKhauModel;
+import models.NhanKhauModel;
 
 public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentJframe;
     private TachHoKhauController controller;
+    private HoKhauModel hoKhau;
+    private NhanKhauModel chuHoMoi;
+    private List<NhanKhauModel> listThanhVien;
 
     public TachHoKhauJFrame() {
     }
@@ -23,8 +30,11 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
         initComponents();
         this.parentJframe = parentJframe;
         this.parentJframe.setEnabled(false);
-        this.controller = new TachHoKhauController( parentJframe,  jTable1,  txtChuHoMoi,  txtMaHoKhauCanTach,
-              btnChonChuHoMoi,  btnChonHoKhauCanTach,  btnThemThanhVien);
+        this.hoKhau = new HoKhauModel();
+        this.chuHoMoi = new NhanKhauModel();
+        this.listThanhVien = new ArrayList<>();
+        this.controller = new TachHoKhauController(parentJframe, jTable1, txtChuHoMoi, txtMaHoKhauCanTach,
+                btnChonChuHoMoi, btnThemThanhVien, hoKhau, chuHoMoi, listThanhVien);
         InitAction();
         setTitle("Tách hộ khẩu");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -36,24 +46,24 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
         jScrollPane2.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         jScrollPane2.setViewportBorder(null);
         jScrollPane2.setBorder(BorderFactory.createEmptyBorder());
-        
+
     }
 
-    void InitAction() {
+    public void InitAction() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                Close();
+                if (JOptionPane.showConfirmDialog(null, "Are you sure to close??", "Warning!!", JOptionPane.YES_NO_OPTION) == 0) {
+                    close();
+                }
             }
 
         });
     }
 
-    void Close() {
-        if (JOptionPane.OK_OPTION == JOptionPane.showConfirmDialog(null, "Are you sure to close?", "Warning!!", JOptionPane.YES_NO_OPTION)) {
-            this.parentJframe.setEnabled(true);
-            dispose();
-        }
+    void close() {
+        this.parentJframe.setEnabled(true);
+        dispose();
     }
 
     @SuppressWarnings("unchecked")
@@ -282,31 +292,31 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnChonChuHoMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonChuHoMoiActionPerformed
         // TODO add your handling code here:
-//        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
-//        chonNhanKhauJFrame.setLocationRelativeTo(null);
-//        chonNhanKhauJFrame.setResizable(false);
-//        chonNhanKhauJFrame.setVisible(true);
+        ChonNhanKhauChuHoMoiJFrame chonNhanKhauChuHoMoiJFrame = new ChonNhanKhauChuHoMoiJFrame(this, this.controller, this.chuHoMoi);
+        chonNhanKhauChuHoMoiJFrame.setLocationRelativeTo(null);
+        chonNhanKhauChuHoMoiJFrame.setResizable(false);
+        chonNhanKhauChuHoMoiJFrame.setVisible(true);
     }//GEN-LAST:event_btnChonChuHoMoiActionPerformed
 
     private void btnThemThanhVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThanhVienActionPerformed
         // TODO add your handling code here:
-//        ChonNhanKhauJFrame chonNhanKhauJFrame = new ChonNhanKhauJFrame();
-//        chonNhanKhauJFrame.setLocationRelativeTo(null);
-//        chonNhanKhauJFrame.setResizable(false);
-//        chonNhanKhauJFrame.setVisible(true);
+        ChonThanhVienHoKhauMoiJFrame chonThanhVienHoKhauMoiJFrame = new ChonThanhVienHoKhauMoiJFrame(this, this.controller, this.listThanhVien);
+        chonThanhVienHoKhauMoiJFrame.setLocationRelativeTo(null);
+        chonThanhVienHoKhauMoiJFrame.setResizable(false);
+        chonThanhVienHoKhauMoiJFrame.setVisible(true);
     }//GEN-LAST:event_btnThemThanhVienActionPerformed
 
     private void btnChonHoKhauCanTachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonHoKhauCanTachActionPerformed
         // TODO add your handling code here:
-        ChonHoKhauJFrame chonHoKhauJFrame = new ChonHoKhauJFrame(this, this.controller);
-        chonHoKhauJFrame.setLocationRelativeTo(null);
-        chonHoKhauJFrame.setResizable(false);
-        chonHoKhauJFrame.setVisible(true);
+        ChonHoKhauTachJFrame chonHoKhauTachJFrame = new ChonHoKhauTachJFrame(this, this.controller, this.hoKhau);
+        chonHoKhauTachJFrame.setLocationRelativeTo(null);
+        chonHoKhauTachJFrame.setResizable(false);
+        chonHoKhauTachJFrame.setVisible(true);
     }//GEN-LAST:event_btnChonHoKhauCanTachActionPerformed
 
     private void btnTachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTachActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnTachActionPerformed
 
 

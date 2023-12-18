@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/TachHoKhauController.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/ThemHoKhauJFrame.java</file>
-            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/HoKhauManagerFrame/TachHoKhauJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NopTienManagerFrame/ThemNopTienJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NopTienManagerController/ThemNopTienController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/views/NopTienManagerFrame/ChonHoKhauNopTienJFrame.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/NopTienManagerController/ChonHoKhauNopTienController.java</file>
             <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerController/ThemHoKhauController.java</file>
+            <file>file:/C:/Users/Admin/OneDrive/Desktop/QuanLyNhanKhau/QuanLyNhanKhau/src/controllers/HoKhauManagerPanelController.java</file>
         </group>
     </open-files>
 </project-private>
