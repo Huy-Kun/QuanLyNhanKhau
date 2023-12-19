@@ -187,7 +187,7 @@ public class HoKhauPanel extends javax.swing.JPanel {
 
     private void myButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton3ActionPerformed
         // TODO add your handling code here:
-        TachHoKhauJFrame tachHoKhauJFrame = new TachHoKhauJFrame(this.parentFrame);
+        TachHoKhauJFrame tachHoKhauJFrame = new TachHoKhauJFrame(this.parentFrame, this.controller);
         tachHoKhauJFrame.setLocationRelativeTo(null);
         tachHoKhauJFrame.setResizable(false);
         tachHoKhauJFrame.setVisible(true);

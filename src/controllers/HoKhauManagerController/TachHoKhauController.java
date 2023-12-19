@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import models.CanCuocModel;
 import models.HoKhauModel;
 import models.NhanKhauModel;
 import models.ThanhVienCuaHoModel;
@@ -48,15 +50,35 @@ public class TachHoKhauController {
     
     public void SetData()
     {
-        if(this.hoKhau != null)
+        if(this.hoKhau.getMaHoKhau() != null)
         {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             if(!this.hoKhau.getMaHoKhau().equalsIgnoreCase(this.txtMaHoKhauCanTach.getText()))
             {
-                this.txtMaHoKhauCanTach.setText("");
-                model.setRowCount(0);
+                this.txtMaHoKhauCanTach.setText(this.hoKhau.getMaHoKhau());
+                this.chuHoMoi.setCccdNhanKhau(null);
+                this.listThanhVien.clear();
+                this.btnChonChuHoMoi.setEnabled(true);
+                this.btnThemThanhVien.setEnabled(false);
             }
         }
+        
+        if(this.chuHoMoi.getCccdNhanKhau() != null)
+        {
+            String hoTenChuHoMoi = GetCanCuoc(this.chuHoMoi.getCccdNhanKhau()).getHoTen();
+            if(!hoTenChuHoMoi.equalsIgnoreCase(this.txtChuHoMoi.getText()))
+            {
+                this.txtChuHoMoi.setText(hoTenChuHoMoi);
+                this.listThanhVien.clear();
+                this.btnThemThanhVien.setEnabled(true);
+            }
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
+        model.setRowCount(0);
+        this.listThanhVien.forEach(nhanKhauModel -> {
+            String hoTenThanhVien = GetCanCuoc(nhanKhauModel.getCccdNhanKhau()).getHoTen();
+            model.addRow(new Object[]{nhanKhauModel.getCccdNhanKhau(), hoTenThanhVien, ""});
+        });
     }
 
     public void ThemMoiHoKhau(String maHoKhau, String diaChi, Date ngayTao)
@@ -81,6 +103,20 @@ public class TachHoKhauController {
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, soCCCD);
         preparedStatement.setString(2, maHoKhau);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
+    }
+    
+    public void ThemMoiThanhVien(String soCCCD, String maHoKhau, String quanHeVoiChuHo)
+            throws SQLException, ClassNotFoundException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "INSERT INTO thanh_vien_cua_ho(soCCCD, maHoKhau, quanHeVoiChuHo)"
+                + " value (?, ?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, soCCCD);
+        preparedStatement.setString(2, maHoKhau);
+        preparedStatement.setString(3, quanHeVoiChuHo);
         preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();
@@ -147,6 +183,7 @@ public class TachHoKhauController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        
         return list;
     }
     
@@ -169,7 +206,40 @@ public class TachHoKhauController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        this.listThanhVien.forEach(thanhVien -> {
+            Iterator<ThanhVienCuaHoModel> iterator = list.iterator();
+            while (iterator.hasNext()) {
+                ThanhVienCuaHoModel thanhVienCuaHoModel = iterator.next();
+                if (thanhVienCuaHoModel.getSoCCCD().equalsIgnoreCase(thanhVien.getCccdNhanKhau())) {
+                    iterator.remove();
+                }
+            }
+        });
         return list;
+    }
+    
+    public CanCuocModel GetCanCuoc(String soCCCD) {
+        CanCuocModel canCuocModel = new CanCuocModel();
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM can_cuoc WHERE can_cuoc.soCCCD = '" + soCCCD + "'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                canCuocModel.setSoCCCD(rs.getString("soCCCD"));
+                canCuocModel.setHoTen(rs.getString("hoTen"));
+                canCuocModel.setNgaySinh(rs.getDate("ngaySinh"));
+                canCuocModel.setGioiTinh(rs.getString("gioiTinh"));
+                canCuocModel.setQuocTich(rs.getString("quocTich"));
+                canCuocModel.setQueQuan(rs.getString("queQuan"));
+                canCuocModel.setNoiThuongTru(rs.getString("noiThuongTru"));
+                canCuocModel.setNgayCapCCCD(rs.getDate("ngayCapCCCD"));
+                canCuocModel.setNoiCapCCCD(rs.getString("noiCapCCCD"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return canCuocModel;
     }
     
 }

@@ -169,7 +169,6 @@ public class ThemHoKhauController {
                 NhanKhauModel nhanKhauModel = iterator.next();
                 if (nhanKhauModel.getCccdNhanKhau().equalsIgnoreCase(thanhVien.getCccdNhanKhau())) {
                     iterator.remove();
-                    System.out.println("floag");
                 }
             }
         });

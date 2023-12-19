@@ -2,10 +2,14 @@ package views.HoKhauManagerFrame;
 
 import component.ScrollBar;
 import controllers.HoKhauManagerController.TachHoKhauController;
+import controllers.HoKhauManagerPanelController;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -18,6 +22,7 @@ import models.NhanKhauModel;
 public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private JFrame parentJframe;
+    private HoKhauManagerPanelController parentController;
     private TachHoKhauController controller;
     private HoKhauModel hoKhau;
     private NhanKhauModel chuHoMoi;
@@ -26,10 +31,11 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
     public TachHoKhauJFrame() {
     }
 
-    public TachHoKhauJFrame(JFrame parentJframe) {
+    public TachHoKhauJFrame(JFrame parentJframe, HoKhauManagerPanelController parentController) {
         initComponents();
         this.parentJframe = parentJframe;
         this.parentJframe.setEnabled(false);
+        this.parentController = parentController;
         this.hoKhau = new HoKhauModel();
         this.chuHoMoi = new NhanKhauModel();
         this.listThanhVien = new ArrayList<>();
@@ -110,10 +116,7 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Số CCCD", "Họ tên", "Quan hệ với chủ hộ mới"
@@ -316,6 +319,33 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
 
     private void btnTachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTachActionPerformed
         // TODO add your handling code here:
+        if(!this.controller.ValidateValue(this, txtChuHoMoi.getText())) return;
+        if(!this.controller.ValidateValue(this, txtDiaChiMoi.getText())) return;
+        if(!this.controller.ValidateValue(this, txtMaHoKhauMoi.getText())) return;
+        try {
+            if (!this.controller.CheckMaHoKhau(txtMaHoKhauMoi.getText())) {
+                JOptionPane.showMessageDialog(rootPane, "Mã hộ khẩu đã tồn tại!", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        try {
+            this.controller.ThemMoiHoKhau(txtMaHoKhauMoi.getText(), txtDiaChiMoi.getText(), new Date(System.currentTimeMillis()));
+            this.controller.ThemMoiChuHo(this.chuHoMoi.getCccdNhanKhau(), txtMaHoKhauMoi.getText());
+            for (int i = 0; i < jTable1.getRowCount(); i++) {
+                   this.controller.ThemMoiThanhVien(jTable1.getValueAt(i, 0).toString(),
+                           txtMaHoKhauMoi.getText(),
+                           jTable1.getValueAt(i, 2).toString());
+            }
+            JOptionPane.showMessageDialog(null, "Thêm thành công!!");
+            close();
+            parentController.Refresh();
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnTachActionPerformed
 
