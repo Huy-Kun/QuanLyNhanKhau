@@ -7,7 +7,7 @@ public class TrangChuPanel extends javax.swing.JPanel {
     private TrangChuManagerPanelController cotroller;
     public TrangChuPanel() {
         initComponents();
-        this.cotroller = new TrangChuManagerPanelController(nhanKhau, hoKhau, tamTru, tamVang, chart1, chartPie1);
+        this.cotroller = new TrangChuManagerPanelController(nhanKhau, hoKhau, tamTru, tamVang, chart1, chartPie1, chartLine1);
     }
 
     /**
@@ -31,7 +31,7 @@ public class TrangChuPanel extends javax.swing.JPanel {
         panelBorder4 = new com.raven.swing.PanelBorder();
         chartPie1 = new component.ChartPie();
         panelBorder6 = new com.raven.swing.PanelBorder();
-        chartLine1 = new com.raven.chart.ChartLine();
+        chartLine1 = new component.ChartLine();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(850, 610));
@@ -130,7 +130,7 @@ public class TrangChuPanel extends javax.swing.JPanel {
         );
         panelBorder6Layout.setVerticalGroup(
             panelBorder6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder6Layout.createSequentialGroup()
+            .addGroup(panelBorder6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(chartLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
@@ -174,7 +174,7 @@ public class TrangChuPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private component.Chart chart1;
-    private com.raven.chart.ChartLine chartLine1;
+    private component.ChartLine chartLine1;
     private component.ChartPie chartPie1;
     private component.Card hoKhau;
     private javax.swing.JLabel jLabel2;

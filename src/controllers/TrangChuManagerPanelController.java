@@ -5,8 +5,10 @@ import component.Model_Card;
 import javax.swing.ImageIcon;
 import services.TrangChuService;
 import component.Chart;
+import component.ChartLine;
 import component.ModelChart;
 import component.ChartPie;
+import component.ModelChartLine;
 import component.ModelChartPie;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -20,14 +22,16 @@ public class TrangChuManagerPanelController {
     private Card tamTru;
     private Chart chart;
     private ChartPie chartPie;
+    private ChartLine chartLine;
     
-    public TrangChuManagerPanelController(Card nhanKhau, Card hoKhau, Card tamTru, Card tamVang, Chart chart, ChartPie chartPie) {
+    public TrangChuManagerPanelController(Card nhanKhau, Card hoKhau, Card tamTru, Card tamVang, Chart chart, ChartPie chartPie, ChartLine chartLine) {
         this.nhanKhau = nhanKhau;
         this.hoKhau = hoKhau;
         this.tamTru = tamTru;
         this.tamVang = tamVang;
         this.chart = chart;
         this.chartPie = chartPie;
+        this.chartLine = chartLine;
         this.trangChuService = new TrangChuService();
         setData();
     }
@@ -73,17 +77,20 @@ public class TrangChuManagerPanelController {
     void SetChartPie()
     {
         List<ModelChartPie> list = new ArrayList<>();
-        list.add(new ModelChartPie("Mẫu giáo", 150, new Color(215, 39, 250)));
-        list.add(new ModelChartPie("Cấp 1", 80, new Color(44, 88, 236)));
-        list.add(new ModelChartPie("Cấp 2", 100, new Color(21, 202, 87)));
-        list.add(new ModelChartPie("Cấp 3", 125, new Color(127, 63, 255)));
-        list.add(new ModelChartPie("Lao động", 80, new Color(238, 167, 35)));
-        list.add(new ModelChartPie("Nghỉ hưu", 200, new Color(245, 79, 99)));
+        list.add(new ModelChartPie("Nam", 150, new Color(0, 0, 255)));
+        list.add(new ModelChartPie("Nữ", 80, new Color(255, 0, 255)));
         chartPie.setModel(list);
     }
     
     void SetChartLine()
     {
-        
+        List<ModelChartLine> list = new ArrayList<>();
+        list.add(new ModelChartLine("Mẫu giáo", 150));
+        list.add(new ModelChartLine("Cấp 1", 80));
+        list.add(new ModelChartLine("Cấp 2", 100));
+        list.add(new ModelChartLine("Cấp 3", 125));
+        list.add(new ModelChartLine("Lao động", 80));
+        list.add(new ModelChartLine("Nghỉ hưu", 200));
+        chartLine.setModel(list);
     }
 }
