@@ -122,10 +122,10 @@
             <Component class="component.Card" name="nhanKhau">
               <Properties>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="19" green="19" red="e3" type="rgb"/>
+                  <Color blue="50" green="7f" red="ff" type="rgb"/>
                 </Property>
                 <Property name="color2" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="5d" green="5d" red="b1" type="rgb"/>
+                  <Color blue="50" green="71" red="e7" type="rgb"/>
                 </Property>
               </Properties>
             </Component>
@@ -142,20 +142,20 @@
             <Component class="component.Card" name="tamTru">
               <Properties>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="50" green="7f" red="ff" type="rgb"/>
+                  <Color blue="16" green="eb" red="16" type="rgb"/>
                 </Property>
                 <Property name="color2" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="50" green="71" red="e7" type="rgb"/>
+                  <Color blue="74" green="e2" red="61" type="rgb"/>
                 </Property>
               </Properties>
             </Component>
             <Component class="component.Card" name="tamVang">
               <Properties>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="16" green="eb" red="16" type="rgb"/>
+                  <Color blue="19" green="19" red="e3" type="rgb"/>
                 </Property>
                 <Property name="color2" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="74" green="e2" red="61" type="rgb"/>
+                  <Color blue="5d" green="5d" red="b1" type="rgb"/>
                 </Property>
               </Properties>
             </Component>

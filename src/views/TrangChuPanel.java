@@ -46,20 +46,20 @@ public class TrangChuPanel extends javax.swing.JPanel {
         panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
         panelBorder1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
-        nhanKhau.setColor1(new java.awt.Color(227, 25, 25));
-        nhanKhau.setColor2(new java.awt.Color(177, 93, 93));
+        nhanKhau.setColor1(new java.awt.Color(255, 127, 80));
+        nhanKhau.setColor2(new java.awt.Color(231, 113, 80));
         panelBorder1.add(nhanKhau);
 
         hoKhau.setColor1(new java.awt.Color(59, 42, 240));
         hoKhau.setColor2(new java.awt.Color(111, 99, 237));
         panelBorder1.add(hoKhau);
 
-        tamTru.setColor1(new java.awt.Color(255, 127, 80));
-        tamTru.setColor2(new java.awt.Color(231, 113, 80));
+        tamTru.setColor1(new java.awt.Color(22, 235, 22));
+        tamTru.setColor2(new java.awt.Color(97, 226, 116));
         panelBorder1.add(tamTru);
 
-        tamVang.setColor1(new java.awt.Color(22, 235, 22));
-        tamVang.setColor2(new java.awt.Color(97, 226, 116));
+        tamVang.setColor1(new java.awt.Color(227, 25, 25));
+        tamVang.setColor2(new java.awt.Color(177, 93, 93));
         panelBorder1.add(tamVang);
 
         javax.swing.GroupLayout panelBorder3Layout = new javax.swing.GroupLayout(panelBorder3);

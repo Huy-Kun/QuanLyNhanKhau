@@ -2,14 +2,11 @@ package views.NopTienManagerFrame;
 
 import controllers.NopTienManagerController.ThemNopTienController;
 import controllers.NopTienManagerPanelController;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import views.NopTienManagerFrame.ChonHoKhauNopTienJFrame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static java.lang.Integer.parseInt;
 import java.util.Date;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.HoKhauModel;

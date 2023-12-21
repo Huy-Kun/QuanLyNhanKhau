@@ -65,8 +65,8 @@ public class TrangChuManagerPanelController {
     
     void SetChart()
     {
-        chart.addLegend("Tạm trú", new Color(255, 127, 80));
-        chart.addLegend("Tạm vắng", new Color(22, 235, 22));
+        chart.addLegend("Tạm trú", new Color(22, 235, 22));
+        chart.addLegend("Tạm vắng", new Color(227, 25, 25));
         chart.addData(new ModelChart("Aug", new double[]{trangChuService.TongTamTru() + 25, trangChuService.TongTamVang() + 5 +6}));
         chart.addData(new ModelChart("Sep", new double[]{trangChuService.TongTamTru() + 5 + 10, trangChuService.TongTamVang() + 5 + 7}));
         chart.addData(new ModelChart("Oct", new double[]{trangChuService.TongTamTru() + 5 +5, trangChuService.TongTamVang() + 5 + 9}));
