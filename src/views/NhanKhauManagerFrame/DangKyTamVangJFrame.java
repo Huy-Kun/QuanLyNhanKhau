@@ -183,7 +183,7 @@ public class DangKyTamVangJFrame extends javax.swing.JFrame {
         }
         try {
             if (!this.controller.CheckCCCD(txtSoCCCD.getText())) {
-                JOptionPane.showConfirmDialog(null, "Không tìm thấy người có số CCCD: " + txtSoCCCD.getText() + ". Thêm mới?", "Confirm", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(rootPane, "Không tìm thấy người có số CCCD: " + txtSoCCCD.getText(), "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
         } catch (Exception e) {

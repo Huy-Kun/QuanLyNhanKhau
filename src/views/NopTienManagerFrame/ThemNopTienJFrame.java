@@ -2,11 +2,14 @@ package views.NopTienManagerFrame;
 
 import controllers.NopTienManagerController.ThemNopTienController;
 import controllers.NopTienManagerPanelController;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import views.NopTienManagerFrame.ChonHoKhauNopTienJFrame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static java.lang.Integer.parseInt;
 import java.util.Date;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.HoKhauModel;
@@ -27,7 +30,8 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
         this.parentFrame.setEnabled(false);
         this.parentController = parentController;
         this.hoKhauModel = new HoKhauModel();
-        this.controller = new ThemNopTienController(this.ccbTenKhoanThu, this.hoKhauModel, this.txtMaHoKhau, this.txtTenChuHo);
+        this.controller = new ThemNopTienController(this.ccbTenKhoanThu, this.hoKhauModel,
+                this.txtMaHoKhau, this.txtTenChuHo, this.txtSoTienNop);
         InitAction();
         setTitle("Thêm nộp tiền");
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -43,6 +47,7 @@ public class ThemNopTienJFrame extends javax.swing.JFrame {
             }
 
         });
+        
     }
 
     void close() {

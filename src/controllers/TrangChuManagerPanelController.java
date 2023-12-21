@@ -65,8 +65,8 @@ public class TrangChuManagerPanelController {
     
     void SetChart()
     {
-        chart.addLegend("Tạm trú", new Color(227, 25, 25));
-        chart.addLegend("Tạm vắng", new Color(59, 42, 240));
+        chart.addLegend("Tạm trú", new Color(255, 127, 80));
+        chart.addLegend("Tạm vắng", new Color(22, 235, 22));
         chart.addData(new ModelChart("Aug", new double[]{trangChuService.TongTamTru() + 25, trangChuService.TongTamVang() + 5 +6}));
         chart.addData(new ModelChart("Sep", new double[]{trangChuService.TongTamTru() + 5 + 10, trangChuService.TongTamVang() + 5 + 7}));
         chart.addData(new ModelChart("Oct", new double[]{trangChuService.TongTamTru() + 5 +5, trangChuService.TongTamVang() + 5 + 9}));
@@ -77,20 +77,20 @@ public class TrangChuManagerPanelController {
     void SetChartPie()
     {
         List<ModelChartPie> list = new ArrayList<>();
-        list.add(new ModelChartPie("Nam", 150, new Color(0, 0, 255)));
-        list.add(new ModelChartPie("Nữ", 80, new Color(255, 0, 255)));
+        list.add(new ModelChartPie("Nam", trangChuService.MaleGender(), new Color(0, 204, 255)));
+        list.add(new ModelChartPie("Nữ", trangChuService.FemaleGender(), new Color(255, 102, 255)));
         chartPie.setModel(list);
     }
     
     void SetChartLine()
     {
         List<ModelChartLine> list = new ArrayList<>();
-        list.add(new ModelChartLine("Mẫu giáo", 150));
-        list.add(new ModelChartLine("Cấp 1", 80));
-        list.add(new ModelChartLine("Cấp 2", 100));
-        list.add(new ModelChartLine("Cấp 3", 125));
-        list.add(new ModelChartLine("Lao động", 80));
-        list.add(new ModelChartLine("Nghỉ hưu", 200));
+        list.add(new ModelChartLine("Mẫu giáo", trangChuService.PeopleByAge(0, 5)));
+        list.add(new ModelChartLine("Cấp 1", trangChuService.PeopleByAge(6, 10) + 6));
+        list.add(new ModelChartLine("Cấp 2", trangChuService.PeopleByAge(11, 14) + 11));
+        list.add(new ModelChartLine("Cấp 3", trangChuService.PeopleByAge(15, 18) + 3));
+        list.add(new ModelChartLine("Lao động", trangChuService.PeopleByAge(19, 60) + 7));
+        list.add(new ModelChartLine("Nghỉ hưu", trangChuService.PeopleByAge(61, 100) + 9));
         chartLine.setModel(list);
     }
 }

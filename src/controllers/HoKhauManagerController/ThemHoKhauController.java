@@ -101,6 +101,17 @@ public class ThemHoKhauController {
         return true;
     }
 
+    public boolean ValidateTableValue(JFrame root) {
+        for (int i = 0; i < tableJpn.getRowCount(); i++) {
+                    System.out.println(tableJpn.getValueAt(i, 2).toString() + "flag");
+            if (tableJpn.getValueAt(i, 2).toString().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(root, "Nhập đủ quan hệ chủ hộ!", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            return false;
+        }
+        return true;
+    }
+
     public CanCuocModel GetCanCuoc(String soCCCD) {
         CanCuocModel canCuocModel = new CanCuocModel();
         try {

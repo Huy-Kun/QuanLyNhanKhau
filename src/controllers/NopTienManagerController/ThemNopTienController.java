@@ -1,5 +1,7 @@
 package controllers.NopTienManagerController;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -23,18 +25,40 @@ public class ThemNopTienController {
     private HoKhauModel hoKhauModel;
     private JTextField txtTenChuHo;
     private JTextField txtMaHoKhau;
+    private JTextField txtSoTienNop;
 
-    public ThemNopTienController(JComboBox ccbTenKhoanThu, HoKhauModel hoKhauModel, JTextField txtMaHoKhau, JTextField txtTenChuHo) {
+    public ThemNopTienController(JComboBox ccbTenKhoanThu, HoKhauModel hoKhauModel, JTextField txtMaHoKhau,
+            JTextField txtTenChuHo, JTextField txtSoTienNop) {
         this.ccbTenKhoanThu = ccbTenKhoanThu;
         this.hoKhauModel = hoKhauModel;
         this.txtMaHoKhau = txtMaHoKhau;
         this.txtTenChuHo = txtTenChuHo;
+        this.txtSoTienNop = txtSoTienNop;
+        this.ccbTenKhoanThu.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    JComboBox<String> source = (JComboBox<String>) e.getSource();
+                    String selectedItem = (String) source.getSelectedItem();
+                    if (GetMoneyOfKhoanThu(selectedItem) != 0 ) {
+                        txtSoTienNop.setEnabled(false);
+                        int soTienNop = GetMoneyOfKhoanThu(selectedItem)
+                                * (GetSoThanhVienCuaHo(txtMaHoKhau.getText()) + 1);
+                        txtSoTienNop.setText(String.valueOf(soTienNop));
+                    } else {
+                        txtSoTienNop.setText("");
+                        txtSoTienNop.setEnabled(true);
+                    }
+                }
+            }
+        });
         SetData();
     }
 
     public void SetData() {
         if (this.ccbTenKhoanThu != null) {
             List<String> list = getListTenKhoanThu();
+            this.ccbTenKhoanThu.removeAllItems();
             this.ccbTenKhoanThu.addItem("");
             list.forEach(tenKhoanThu -> {
                 this.ccbTenKhoanThu.addItem(tenKhoanThu);
@@ -45,7 +69,7 @@ public class ThemNopTienController {
             this.txtTenChuHo.setText(GetCanCuoc(GetChuHo(this.hoKhauModel.getMaHoKhau()).getSoCCCD()).getHoTen());
         }
     }
-    
+
     public List<String> getListTenKhoanThu() {
         List<String> list = new ArrayList<>();
         try {
@@ -61,6 +85,39 @@ public class ThemNopTienController {
             System.out.println(e.getMessage());
         }
         return list;
+    }
+
+    public int GetMoneyOfKhoanThu(String tenKhoanThu) {
+        int money = 0;
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM khoan_thu WHERE tenKhoanThu = '" + tenKhoanThu + "'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                money = rs.getInt("soTien");
+            }
+            preparedStatement.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return money;
+    }
+
+    public int GetSoThanhVienCuaHo(String maHoKhau) {
+        int count = 0;
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM thanh_vien_cua_ho WHERE maHoKhau = '" + maHoKhau + "'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return count;
     }
 
     public List<HoKhauModel> GetListHoKhau() {
@@ -115,7 +172,7 @@ public class ThemNopTienController {
         }
         return true;
     }
-    
+
     public CanCuocModel GetCanCuoc(String soCCCD) {
         CanCuocModel canCuocModel = new CanCuocModel();
         try {
@@ -139,7 +196,7 @@ public class ThemNopTienController {
         }
         return canCuocModel;
     }
-    
+
     public ChuHoModel GetChuHo(String maHoKhau) {
         ChuHoModel chuHoModel = new ChuHoModel();
         try {

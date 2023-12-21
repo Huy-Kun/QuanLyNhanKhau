@@ -92,42 +92,53 @@ public class TrangChuService {
         return list;
     }
 
-    public ArrayList<String> PeopleByAge() {
+    public int PeopleByAge(int from, int to) {
         ArrayList<String> list = new ArrayList<>();
-        int[] age = {0, 5, 10, 14, 17, 60, 100};
         try {
             try (Connection connection = MysqlConnection.getMysqlConnection()) {
-                for (int i = 1; i < 7; i++) {
-                    String query = "SELECT SELECT count(*) FROM nhan_khau nk WHERE (YEAR(NOW()) - YEAR(nk.namSinh)) BETWEEN " + age[i] + " AND " + (age[i-1] + 1);
-                    PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
-                    ResultSet rs = preparedStatement.executeQuery();
-                    while (rs.next()) {
-                        list.add(rs.getString("count"));
-                    }
-                    preparedStatement.close();
+                String query = "SELECT count(*) as sum FROM can_cuoc WHERE (YEAR(NOW()) - YEAR(ngaySinh)) BETWEEN " 
+                        + String.valueOf(from) + " AND " + String.valueOf(to);
+                PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+                ResultSet rs = preparedStatement.executeQuery();
+                while (rs.next()) {
+                    return rs.getInt("sum");
                 }
+                preparedStatement.close();
             }
         } catch (Exception e) {
         }
-        return list;
+        return 0;
     }
-    
-    public ArrayList<String> Gender()
-    {
-        ArrayList<String> list = new ArrayList<>();
+
+    public int MaleGender() {
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
-            String query = "SELECT nk.gioiTinh, Count(*) as sum FROM nhan_khau nk GROUP BY nk.gioiTinh";
+            String query = "SELECT Count(*) as sum FROM can_cuoc WHERE gioiTinh = 'Nam'";
             PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                list.add(rs.getString("sum"));
+                return rs.getInt("sum");
             }
             preparedStatement.close();
             connection.close();
         } catch (Exception e) {
         }
-        return list;
-        
+        return 0;
+    }
+
+    public int FemaleGender() {
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT Count(*) as sum FROM can_cuoc WHERE gioiTinh = 'Nữ'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("sum");
+            }
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
+        }
+        return 0;
     }
 }

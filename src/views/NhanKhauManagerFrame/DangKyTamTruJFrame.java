@@ -178,12 +178,13 @@ public class DangKyTamTruJFrame extends javax.swing.JFrame {
         }
         try {
             if (!this.controller.CheckCCCD(txtSoCCCD.getText())) {
-                JOptionPane.showConfirmDialog(null, "Không tìm thấy người có số CCCD: " + txtSoCCCD.getText() + ". Thêm mới?", "Confirm", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(rootPane, "Không tìm thấy người có số CCCD: " + txtSoCCCD.getText(), "Warning", JOptionPane.WARNING_MESSAGE);
                 return;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(rootPane, "Có lỗi xảy ra. Vui long kiểm tra lại!!", "Warning", JOptionPane.WARNING_MESSAGE);
+
         }
         try {
             this.controller.DangKi(txtSoCCCD.getText(), txtDiaChi.getText(),

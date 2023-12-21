@@ -54,8 +54,8 @@ public class TrangChuPanel extends javax.swing.JPanel {
         hoKhau.setColor2(new java.awt.Color(111, 99, 237));
         panelBorder1.add(hoKhau);
 
-        tamTru.setColor1(new java.awt.Color(242, 30, 242));
-        tamTru.setColor2(new java.awt.Color(231, 113, 231));
+        tamTru.setColor1(new java.awt.Color(255, 127, 80));
+        tamTru.setColor2(new java.awt.Color(231, 113, 80));
         panelBorder1.add(tamTru);
 
         tamVang.setColor1(new java.awt.Color(22, 235, 22));

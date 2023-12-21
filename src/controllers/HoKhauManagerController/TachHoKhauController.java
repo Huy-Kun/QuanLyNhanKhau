@@ -30,10 +30,10 @@ public class TachHoKhauController {
     private JButton btnThemThanhVien;
     private HoKhauModel hoKhau;
     private NhanKhauModel chuHoMoi;
-    private List <NhanKhauModel> listThanhVien;
+    private List<NhanKhauModel> listThanhVien;
 
     public TachHoKhauController(JFrame parentJframe, JTable jTable1, JTextField txtChuHoMoi, JTextField txtMaHoKhauCanTach,
-            JButton btnChonChuHoMoi, JButton btnThemThanhVien, HoKhauModel hoKhau, NhanKhauModel chuHoMoi, List <NhanKhauModel> listThanhVien) {
+            JButton btnChonChuHoMoi, JButton btnThemThanhVien, HoKhauModel hoKhau, NhanKhauModel chuHoMoi, List<NhanKhauModel> listThanhVien) {
         this.parentJframe = parentJframe;
         this.jTable1 = jTable1;
         this.txtChuHoMoi = txtChuHoMoi;
@@ -47,13 +47,10 @@ public class TachHoKhauController {
         this.btnThemThanhVien.setEnabled(false);
         SetData();
     }
-    
-    public void SetData()
-    {
-        if(this.hoKhau.getMaHoKhau() != null)
-        {
-            if(!this.hoKhau.getMaHoKhau().equalsIgnoreCase(this.txtMaHoKhauCanTach.getText()))
-            {
+
+    public void SetData() {
+        if (this.hoKhau.getMaHoKhau() != null) {
+            if (!this.hoKhau.getMaHoKhau().equalsIgnoreCase(this.txtMaHoKhauCanTach.getText())) {
                 this.txtMaHoKhauCanTach.setText(this.hoKhau.getMaHoKhau());
                 this.chuHoMoi.setCccdNhanKhau(null);
                 this.listThanhVien.clear();
@@ -61,18 +58,16 @@ public class TachHoKhauController {
                 this.btnThemThanhVien.setEnabled(false);
             }
         }
-        
-        if(this.chuHoMoi.getCccdNhanKhau() != null)
-        {
+
+        if (this.chuHoMoi.getCccdNhanKhau() != null) {
             String hoTenChuHoMoi = GetCanCuoc(this.chuHoMoi.getCccdNhanKhau()).getHoTen();
-            if(!hoTenChuHoMoi.equalsIgnoreCase(this.txtChuHoMoi.getText()))
-            {
+            if (!hoTenChuHoMoi.equalsIgnoreCase(this.txtChuHoMoi.getText())) {
                 this.txtChuHoMoi.setText(hoTenChuHoMoi);
                 this.listThanhVien.clear();
                 this.btnThemThanhVien.setEnabled(true);
             }
         }
-        
+
         DefaultTableModel model = (DefaultTableModel) this.jTable1.getModel();
         model.setRowCount(0);
         this.listThanhVien.forEach(nhanKhauModel -> {
@@ -107,7 +102,7 @@ public class TachHoKhauController {
         preparedStatement.close();
         connection.close();
     }
-    
+
     public void ThemMoiThanhVien(String soCCCD, String maHoKhau, String quanHeVoiChuHo)
             throws SQLException, ClassNotFoundException {
         Connection connection = MysqlConnection.getMysqlConnection();
@@ -125,6 +120,16 @@ public class TachHoKhauController {
     public boolean ValidateValue(JFrame root, String temp) {
         if (temp.isEmpty()) {
             JOptionPane.showMessageDialog(root, "Vui lòng nhập hết các trường bắt buộc", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    public boolean ValidateTableValue(JFrame root) {
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            if (jTable1.getValueAt(0, 2).toString().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(root, "Nhập đủ quan hệ chủ hộ!", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
             return false;
         }
         return true;
@@ -164,9 +169,8 @@ public class TachHoKhauController {
         }
         return list;
     }
-    
-    public List<ThanhVienCuaHoModel> GetListThanhVienCuaHo()
-    {
+
+    public List<ThanhVienCuaHoModel> GetListThanhVienCuaHo() {
         List<ThanhVienCuaHoModel> list = new ArrayList<>();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
@@ -183,12 +187,11 @@ public class TachHoKhauController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+
         return list;
     }
-    
-    public List<ThanhVienCuaHoModel> GetListThanhVienTach()
-    {
+
+    public List<ThanhVienCuaHoModel> GetListThanhVienTach() {
         List<ThanhVienCuaHoModel> list = new ArrayList<>();
         try {
             Connection connection = MysqlConnection.getMysqlConnection();
@@ -217,7 +220,7 @@ public class TachHoKhauController {
         });
         return list;
     }
-    
+
     public CanCuocModel GetCanCuoc(String soCCCD) {
         CanCuocModel canCuocModel = new CanCuocModel();
         try {
@@ -241,5 +244,5 @@ public class TachHoKhauController {
         }
         return canCuocModel;
     }
-    
+
 }

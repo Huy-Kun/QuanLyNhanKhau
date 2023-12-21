@@ -322,6 +322,7 @@ public class TachHoKhauJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateValue(this, txtChuHoMoi.getText())) return;
         if(!this.controller.ValidateValue(this, txtDiaChiMoi.getText())) return;
         if(!this.controller.ValidateValue(this, txtMaHoKhauMoi.getText())) return;
+        if(!this.controller.ValidateTableValue(this)) return;
         try {
             if (!this.controller.CheckMaHoKhau(txtMaHoKhauMoi.getText())) {
                 JOptionPane.showMessageDialog(rootPane, "Mã hộ khẩu đã tồn tại!", "Warning", JOptionPane.WARNING_MESSAGE);

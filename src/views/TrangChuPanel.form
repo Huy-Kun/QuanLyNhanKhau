@@ -142,10 +142,10 @@
             <Component class="component.Card" name="tamTru">
               <Properties>
                 <Property name="color1" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f2" green="1e" red="f2" type="rgb"/>
+                  <Color blue="50" green="7f" red="ff" type="rgb"/>
                 </Property>
                 <Property name="color2" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e7" green="71" red="e7" type="rgb"/>
+                  <Color blue="50" green="71" red="e7" type="rgb"/>
                 </Property>
               </Properties>
             </Component>

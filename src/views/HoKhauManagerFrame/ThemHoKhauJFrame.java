@@ -284,6 +284,7 @@ public class ThemHoKhauJFrame extends javax.swing.JFrame {
         if(!this.controller.ValidateValue(this, txtChuHo.getText())) return;
         if(!this.controller.ValidateValue(this, txtDiaChi.getText())) return;
         if(!this.controller.ValidateValue(this, txtMaHoKhau.getText())) return;
+        if(!this.controller.ValidateTableValue(this)) return;
         try {
             if (!this.controller.CheckMaHoKhau(txtMaHoKhau.getText())) {
                 JOptionPane.showMessageDialog(rootPane, "Mã hộ khẩu đã tồn tại!", "Warning", JOptionPane.WARNING_MESSAGE);
