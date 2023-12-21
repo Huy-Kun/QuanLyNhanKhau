@@ -30,6 +30,25 @@ public class HoKhauService {
         }
         return list;
     }
+    public List<HoKhauModel> GetListHoKhauByKey(String key) {
+        List<HoKhauModel> list = new ArrayList<>();
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM ho_khau WHERE maHoKhau LIKE '%" + key + "%'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                HoKhauModel hoKhauModel = new HoKhauModel();
+                hoKhauModel.setMaHoKhau(rs.getString("maHoKhau"));
+                hoKhauModel.setDiaChi(rs.getString("diaChi"));
+                hoKhauModel.setNgayTao(rs.getDate("ngayTao"));
+                list.add(hoKhauModel);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
 
     public ChuHoModel GetChuHo(String maHoKhau) {
         ChuHoModel chuHoModel = new ChuHoModel();

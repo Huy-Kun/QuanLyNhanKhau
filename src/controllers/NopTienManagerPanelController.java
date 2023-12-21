@@ -1,5 +1,8 @@
 package controllers;
 
+import component.EventCallBack;
+import component.EventTextField;
+import component.TextFieldAnimation;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -10,6 +13,7 @@ import services.NopTienService;
 public class NopTienManagerPanelController {
     private JTable tableJpn;
     private JFrame parentJFrame;
+    private TextFieldAnimation textFieldAnimation1;
     private NopTienService nopTienService;
     private List<NopTienModel> listThuTienModel;
     
@@ -18,11 +22,31 @@ public class NopTienManagerPanelController {
         
     }
     
-    public NopTienManagerPanelController(JFrame parentJFrame,JTable tableJpn)
+    public NopTienManagerPanelController(JFrame parentJFrame, JTable tableJpn, TextFieldAnimation textFieldAnimation1)
     {
         this.tableJpn = tableJpn;
         this.parentJFrame = parentJFrame;
+        this.textFieldAnimation1 = textFieldAnimation1;
         this.nopTienService = new NopTienService();
+        this.textFieldAnimation1.addEvent(new EventTextField() {
+            @Override
+            public void onPressed(EventCallBack call) {
+                try{
+                    Thread.sleep(500);
+                    listThuTienModel = nopTienService.getListNopTienByKey(textFieldAnimation1.getText());
+                    SetData();
+                    call.done();
+                }catch (Exception e)
+                {
+                    System.err.println(e);
+                }
+            }
+
+            @Override
+            public void onCancel() {
+            }
+            
+        });
         Refresh();
     }
     

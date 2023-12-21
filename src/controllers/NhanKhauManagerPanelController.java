@@ -1,5 +1,8 @@
 package controllers;
 
+import component.EventCallBack;
+import component.EventTextField;
+import component.TextFieldAnimation;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -12,13 +15,34 @@ public class NhanKhauManagerPanelController {
     
     private JFrame parentJFrame;
     private JTable tableJpn;
+    private TextFieldAnimation textFieldAnimation1;
     private NhanKhauService nhanKhauService;
     private List<NhanKhauModel> listNhanKhau;
 
-    public NhanKhauManagerPanelController(JFrame parentJFrame, JTable tableJpn) {
+    public NhanKhauManagerPanelController(JFrame parentJFrame, JTable tableJpn, TextFieldAnimation textFieldAnimation1) {
         this.tableJpn = tableJpn;
         this.parentJFrame = parentJFrame;
+        this.textFieldAnimation1 = textFieldAnimation1;
         this.nhanKhauService = new NhanKhauService();
+        this.textFieldAnimation1.addEvent(new EventTextField() {
+            @Override
+            public void onPressed(EventCallBack call) {
+                try{
+                    Thread.sleep(500);
+                    listNhanKhau = nhanKhauService.GetListNhanKhauByKey(textFieldAnimation1.getText());
+                    SetData();
+                    call.done();
+                }catch (Exception e)
+                {
+                    System.err.println(e);
+                }
+            }
+
+            @Override
+            public void onCancel() {
+            }
+            
+        });
         Refresh();
     }
     

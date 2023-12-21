@@ -20,7 +20,7 @@ public class NopTienPanel extends javax.swing.JPanel {
     public NopTienPanel(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
-        this.controller = new NopTienManagerPanelController(parentFrame, jTable1);
+        this.controller = new NopTienManagerPanelController(parentFrame, jTable1, textFieldAnimation1);
         jScrollPane2.setVerticalScrollBar(new ScrollBar());
         jScrollPane2.getVerticalScrollBar().setBackground(Color.WHITE);
         jScrollPane2.getViewport().setBackground(Color.WHITE);

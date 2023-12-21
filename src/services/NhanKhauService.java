@@ -33,6 +33,30 @@ public class NhanKhauService {
         }
         return list;
     }
+    
+    public List<NhanKhauModel> GetListNhanKhauByKey(String key) {
+        List<NhanKhauModel> list = new ArrayList<>();
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM nhan_khau WHERE cccdNhanKhau LIKE '%" + key +"%'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                NhanKhauModel nhanKhauModel = new NhanKhauModel();
+                nhanKhauModel.setCccdNhanKhau(rs.getString("cccdNhanKhau"));
+                nhanKhauModel.setBiDanh(rs.getString("biDanh"));
+                nhanKhauModel.setDanToc(rs.getString("danToc"));
+                nhanKhauModel.setTonGiao(rs.getString("tonGiao"));
+                nhanKhauModel.setNgheNghiep(rs.getString("ngheNghiep"));
+                nhanKhauModel.setNoiLamViec(rs.getString("noiLamViec"));
+                nhanKhauModel.setNgayChuyenDen(rs.getDate("ngayChuyenDen"));
+                list.add(nhanKhauModel);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
 
     public CanCuocModel GetCanCuoc(String soCCCD) {
         CanCuocModel canCuocModel = new CanCuocModel();

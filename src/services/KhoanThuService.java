@@ -31,6 +31,27 @@ public class KhoanThuService {
         return list;
     }
     
+    public List<KhoanThuModel> GetListKhoanThuByKey(String key) {
+        List<KhoanThuModel> list = new ArrayList<>();
+        try {
+            Connection connection = MysqlConnection.getMysqlConnection();
+            String query = "SELECT * FROM khoan_thu WHERE maKhoanThu LIKE '%" + key + "%'";
+            PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                KhoanThuModel khoanThuModel = new KhoanThuModel();
+                khoanThuModel.setMaKhoanThu(rs.getString("maKhoanThu"));
+                khoanThuModel.setTenKhoanThu(rs.getString("tenKhoanThu"));
+                khoanThuModel.setLoaiKhoanThu(rs.getString("loaiKhoanThu"));
+                khoanThuModel.setSoTien(rs.getInt("soTien"));
+                list.add(khoanThuModel);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return list;
+    }
+    
     public int GetTongNopTien(KhoanThuModel khoanThuModel)
     {
         int count = 0;
